@@ -1,0 +1,144 @@
+"use client";
+
+import { type ReactNode } from "react";
+import Image from "next/image";
+import { ArrowRight, Syringe, Sparkles, Radio, Zap, FlaskConical, Gem } from "lucide-react";
+import { ScrollReveal } from "./MotionWrapper";
+import { StaggerContainer, StaggerItem } from "./StaggerContainer";
+
+const services: {
+  id: number;
+  title: string;
+  titleTh: string;
+  description: string;
+  icon: ReactNode;
+  href: string;
+  image: string;
+}[] = [
+  {
+    id: 1,
+    title: "FILLER",
+    titleTh: "ฟิลเลอร์",
+    description: "เติมเต็มใต้ตา ขมับตอบ แก้มตอบ ร่องแก้ม คาง ริมฝีปาก และปรับรูปหน้า",
+    icon: <Syringe size={20} />,
+    href: "/filler",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+  },
+  {
+    id: 2,
+    title: "BOTOX",
+    titleTh: "ลดริ้วรอย",
+    description: "ลดริ้วรอยหน้าผาก ระหว่างคิ้ว หางตา ลดกรามปรับรูปหน้าเรียว ยกกระชับหน้า",
+    icon: <Sparkles size={20} />,
+    href: "/botox",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80",
+  },
+  {
+    id: 3,
+    title: "ULTHERA",
+    titleTh: "ยกกระชับหน้า",
+    description: "ยกกระชับหน้าโดยไม่ต้องผ่าตัด ด้วยเทคโนโลยีคลื่นเสียงความถี่สูง",
+    icon: <Radio size={20} />,
+    href: "/ulthera",
+    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+  },
+  {
+    id: 4,
+    title: "LASER",
+    titleTh: "ทำ Laser หน้าใส",
+    description: "Q-Switch ND YAG ฝ้า กระ · Fraxel รอยแผลเป็น · Hair Removal กำจัดขน",
+    icon: <Zap size={20} />,
+    href: "/laser",
+    image: "https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=600&q=80",
+  },
+  {
+    id: 5,
+    title: "MESOTHERAPY",
+    titleTh: "เมโสเธอราพี",
+    description: "หน้าใส ลดเลือนจุดด่างดำ สลายไขมัน ลดเหนียง",
+    icon: <FlaskConical size={20} />,
+    href: "/mesotherapy",
+    image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80",
+  },
+  {
+    id: 6,
+    title: "FACIAL TREATMENT",
+    titleTh: "ทรีตเมนต์ผิวหน้า",
+    description: "ผลัดเซลล์ผิวเก่า ฟื้นฟูเซลล์ผิวใหม่ คืนความอ่อนเยาว์ให้กับผิว",
+    icon: <Gem size={20} />,
+    href: "/facial-treatments",
+    image: "https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&q=80",
+  },
+];
+
+export default function Services() {
+  return (
+    <section id="services" className="py-28 px-6" style={{ backgroundColor: "#fff" }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <p className="section-label mb-4">Our Services</p>
+            <h2 className="section-heading mb-5">บริการของเรา</h2>
+            <div className="divider-rose mb-6" />
+            <p className="max-w-lg mx-auto text-[15px] leading-relaxed font-light text-[#8b7f7c]">
+              บริการครบครัน ดูแลโดยแพทย์ผู้เชี่ยวชาญ
+              ให้คำปรึกษาและวางแผนการรักษาเฉพาะบุคคล
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Services Grid */}
+        <StaggerContainer
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e7e5]"
+          staggerDelay={0.1}
+        >
+          {services.map((service) => (
+            <StaggerItem key={service.id}>
+              <a
+                href={service.href}
+                className="group relative flex flex-col bg-white overflow-hidden cursor-pointer h-full"
+              >
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.titleTh}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e2b]/60 via-transparent to-transparent" />
+                  {/* Icon overlay */}
+                  <div className="absolute top-5 left-5 w-10 h-10 bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#c38789]">
+                    {service.icon}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col gap-3 p-7 flex-1">
+                  <div>
+                    <p className="text-[10px] tracking-[0.25em] uppercase font-medium text-[#c38789] mb-1">
+                      {service.title}
+                    </p>
+                    <h3 className="text-xl font-light text-[#69554a]">
+                      {service.titleTh}
+                    </h3>
+                  </div>
+                  <p className="text-[14px] leading-relaxed font-light text-[#8b7f7c] flex-1">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-[12px] tracking-wider uppercase font-medium text-[#c38789] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                    ดูเพิ่มเติม <ArrowRight size={13} />
+                  </div>
+                </div>
+
+                {/* Bottom accent */}
+                <div className="h-[2px] bg-gradient-to-r from-[#c38789] to-[#69554a] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </a>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}

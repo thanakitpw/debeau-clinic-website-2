@@ -12,7 +12,7 @@ const promos = [
     subtitle: "เติมเต็ม ลดรอยหมองคล้ำ",
     desc: "ฟิลเลอร์คุณภาพสูง นำเข้าจากต่างประเทศ ดูแลโดยหมอโบโดยตรง",
     tag: "ฟิลเลอร์",
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+    image: "/images/promo-filler.png",
   },
   {
     badge: "POPULAR",
@@ -20,7 +20,7 @@ const promos = [
     subtitle: "ยกหน้า กระชับ ไม่ต้องผ่าตัด",
     desc: "เทคโนโลยี HIFU ระดับพรีเมียม ผลลัพธ์ชัดเจน ยาวนาน",
     tag: "Ulthera",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    image: "/images/promo-botox.png",
   },
   {
     badge: "NEW",
@@ -28,7 +28,7 @@ const promos = [
     subtitle: "วิตามินบำรุงผิวเข้มข้น",
     desc: "สูตรพิเศษเฉพาะ De Beau Clinic ผิวใส ชุ่มชื้น ลดจุดด่างดำ",
     tag: "Mesotherapy",
-    image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80",
+    image: "/images/promo-laser.png",
   },
 ];
 

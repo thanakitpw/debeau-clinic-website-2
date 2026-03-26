@@ -39,7 +39,7 @@ export default function Contact() {
         {/* Left - Image with overlay */}
         <ScrollReveal direction="left" className="relative h-[350px] lg:h-auto overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1000&q=80"
+            src="/images/clinic-photo-1.jpg"
             alt="De Beau Clinic"
             fill
             className="object-cover img-zoom"

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Star, Quote, ArrowRight, Play, ImageIcon } from "lucide-react";
+import Image from "next/image";
+import { Star, Quote, ArrowRight, Play } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
@@ -10,18 +11,19 @@ import FloatingLine from "@/components/FloatingLine";
 const categories = ["ทั้งหมด", "ฟิลเลอร์ใต้ตา", "ฟิลเลอร์ปาก", "Botox", "Ulthera", "Laser"];
 
 const reviews = [
-  { name: "คุณเอมี่", age: 36, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "มีปัญหาเบ้าตาลึก ทำให้ใบหน้าดูโทรม หลังทำฟิลเลอร์ใต้ตากับหมอโบ ผลลัพธ์ดีมากค่ะ ใบหน้าดูสดใสขึ้นเยอะเลย บอกต่อทุกคนเลยค่ะ", tag: "ฟิลเลอร์ใต้ตา" },
-  { name: "คุณนุช", age: 29, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หมอโบใจดีมาก อธิบายทุกขั้นตอนก่อนทำ ผลลัพธ์เป็นธรรมชาติ ไม่โอเวอร์ ประทับใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา" },
-  { name: "คุณซีอิ๊ว", age: 32, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำมาหลายที่แล้วค่ะ แต่ที่นี่ดีที่สุด หมอดูแลละเอียดมาก ฟิลเลอร์แท้ แกะกล่องหน้าเราเลย มั่นใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา" },
-  { name: "คุณยู", age: 27, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ตาหวานขึ้นเยอะเลยค่ะ ผลลัพธ์เกินคาด บอกต่อเพื่อนไปหลายคนแล้ว ทุกคนพอใจหมด", tag: "ฟิลเลอร์ใต้ตา" },
+  { name: "คุณเอมี่", age: 36, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "มีปัญหาเบ้าตาลึก ทำให้ใบหน้าดูโทรม หลังทำฟิลเลอร์ใต้ตากับหมอโบ ผลลัพธ์ดีมากค่ะ ใบหน้าดูสดใสขึ้นเยอะเลย บอกต่อทุกคนเลยค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-amy.jpg" },
+  { name: "คุณนุช", age: 29, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หมอโบใจดีมาก อธิบายทุกขั้นตอนก่อนทำ ผลลัพธ์เป็นธรรมชาติ ไม่โอเวอร์ ประทับใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-nuch.jpg" },
+  { name: "คุณซีอิ๊ว", age: 32, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำมาหลายที่แล้วค่ะ แต่ที่นี่ดีที่สุด หมอดูแลละเอียดมาก ฟิลเลอร์แท้ แกะกล่องหน้าเราเลย มั่นใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-siew.jpg" },
+  { name: "คุณยู", age: 27, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ตาหวานขึ้นเยอะเลยค่ะ ผลลัพธ์เกินคาด บอกต่อเพื่อนไปหลายคนแล้ว ทุกคนพอใจหมด", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-yu.jpg" },
+  { name: "คุณลิเบีย", age: 25, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ผิวใต้ตาดีขึ้นมากเลยค่ะ ไม่มีรอยช้ำ ไม่บวม หมอดูแลดีมาก บรรยากาศคลินิกน่ารัก อบอุ่น", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-libia.jpg" },
+  { name: "คุณเจน", age: 30, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำซ้ำมาแล้ว 3 ครั้งค่ะ ไว้ใจหมอโบมากที่สุด ดูแลดีทุกครั้ง ผลลัพธ์คงที่และสวยมาก", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-jane.jpg" },
+  { name: "คุณน้ำหอม", age: 26, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หน้าดูสดชื่นขึ้นมากค่ะ เพื่อนถามตลอดว่านอนหลับพอขึ้นหรือเปล่า 555 ผลลัพธ์เป็นธรรมชาติมากๆ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-namhom.jpg" },
+  { name: "คุณวรรณ", age: 43, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "มีปัญหาใต้ตาคล้ำมานาน หมอโบวิเคราะห์ปัญหาให้ละเอียดมาก ผลลัพธ์ออกมาดีมากค่ะ ใต้ตาสว่างขึ้นชัดเจน", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-wan.jpg" },
+  { name: "คุณปอ", age: 28, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ฟิลเลอร์ใต้ตาครั้งแรกค่ะ หมอโบอธิบายทุกอย่างชัดเจน ไม่ต้องกังวลเลย ผลลัพธ์เป็นธรรมชาติมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-por.jpg" },
   { name: "คุณจ๊ะจ๋า", age: 34, service: "ฟิลเลอร์ปาก", rating: 5, text: "ทำฟิลเลอร์ปากมาหลายที่ แต่ที่นี่ดีที่สุดเลยค่ะ ปากดูอิ่มขึ้นแต่เป็นธรรมชาติมากๆ ไม่แข็ง ไม่บวม", tag: "ฟิลเลอร์ปาก" },
-  { name: "คุณกิ๊ฟ", age: 31, service: "ฟิลเลอร์ปาก", rating: 5, text: "G20 แนะนำที่นี่มาค่ะ ไม่ผิดหวังเลย หมอโบมือเบามาก แทบไม่รู้สึกเจ็บ ผลสวยมาก", tag: "ฟิลเลอร์ปาก" },
   { name: "คุณแนนนี่", age: 28, service: "Ulthera", rating: 5, text: "Girly Berry — ทำ Ulthera ยกกระชับหน้า หน้าตึงขึ้นชัดเจนหลังทำ หมอโบเป็นกันเองมากค่ะ คุยง่าย ราคาก็ยุติธรรม", tag: "Ulthera" },
   { name: "คุณอั๋น ชยพล", age: 38, service: "Botox ลดริ้วรอย", rating: 5, text: "มาฉีดโบท็อกซ์ลดริ้วรอย หมอโบเชี่ยวชาญมากครับ ผลลัพธ์เป็นธรรมชาติ หน้าดูอ่อนเยาว์ขึ้นเยอะ มาซ้ำทุก 4 เดือนเลยครับ", tag: "Botox" },
   { name: "คุณแน๊ตตี้ นาตาชา", age: 33, service: "Laser รักษาฝ้า", rating: 5, text: "ทำ Laser รักษาฝ้า กระ ผิวหน้าใสขึ้นมากค่ะ หมอวางแผนการรักษาให้เฉพาะตัว ผิวดีขึ้นตั้งแต่ครั้งแรก", tag: "Laser" },
-  { name: "คุณลิเบีย", age: 25, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ผิวใต้ตาดีขึ้นมากเลยค่ะ ไม่มีรอยช้ำ ไม่บวม หมอดูแลดีมาก บรรยากาศคลินิกน่ารัก อบอุ่น", tag: "ฟิลเลอร์ใต้ตา" },
-  { name: "คุณเจน", age: 30, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำซ้ำมาแล้ว 3 ครั้งค่ะ ไว้ใจหมอโบมากที่สุด ดูแลดีทุกครั้ง ผลลัพธ์คงที่และสวยมาก", tag: "ฟิลเลอร์ใต้ตา" },
-  { name: "คุณน้ำหอม", age: 26, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หน้าดูสดชื่นขึ้นมากค่ะ เพื่อนถามตลอดว่านอนหลับพอขึ้นหรือเปล่า 555 ผลลัพธ์เป็นธรรมชาติมากๆ", tag: "ฟิลเลอร์ใต้ตา" },
 ];
 
 export default function CustomerReviewsPage() {
@@ -108,45 +110,56 @@ export default function CustomerReviewsPage() {
             ))}
           </div>
 
-          {/* Before/After image placeholders */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-            {["Before / After ฟิลเลอร์", "Before / After Botox", "Before / After Laser", "Before / After Ulthera"].map((label, i) => (
-              <div key={i}
-                className="flex flex-col items-center justify-center gap-2 border-2 border-dashed p-4"
-                style={{ minHeight: "140px", borderColor: "#e0ddd9", backgroundColor: "#f9f8f7" }}
-              >
-                <ImageIcon size={24} style={{ color: "#c7bfb5" }} />
-                <p className="text-xs text-center font-light" style={{ color: "#c7bfb5" }}>{label}</p>
-              </div>
-            ))}
-          </div>
-
           {/* Reviews grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((review, i) => (
-              <div key={i} className="flex flex-col gap-4 p-7"
+              <div key={i} className="flex flex-col gap-0 overflow-hidden"
                 style={{ backgroundColor: "#e8e7e5", border: "1px solid #e0ddd9" }}>
-                <Quote size={18} style={{ color: "#c38789" }} />
-                <div className="flex gap-0.5">
-                  {[...Array(review.rating)].map((_, j) => (
-                    <Star key={j} size={13} fill="#c38789" color="#c38789" />
-                  ))}
-                </div>
-                <p className="text-sm leading-relaxed font-light flex-1" style={{ color: "#69554a" }}>
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <span className="self-start text-xs px-3 py-1 rounded-full"
-                  style={{ backgroundColor: "rgba(195,135,137,0.1)", color: "#c38789" }}>
-                  {review.service}
-                </span>
-                <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: "#e0ddd9" }}>
-                  <div className="w-9 h-9 flex items-center justify-center text-sm font-medium shrink-0"
-                    style={{ backgroundColor: "#c7bfb5", color: "#69554a" }}>
-                    {review.name.charAt(2) || review.name.charAt(0)}
+                {/* รูป Before/After */}
+                {review.image && (
+                  <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
+                    <Image
+                      src={review.image}
+                      alt={`Review ${review.service} ${review.name}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute top-3 left-3 px-2 py-1 text-[10px] tracking-wider uppercase font-medium"
+                      style={{ backgroundColor: "#c38789", color: "#fff" }}>
+                      DE BEAU
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium" style={{ color: "#69554a" }}>{review.name}</p>
-                    <p className="text-xs" style={{ color: "#8b7f7c" }}>อายุ {review.age} ปี</p>
+                )}
+                {/* Content */}
+                <div className="flex flex-col gap-4 p-7">
+                  <div className="flex items-center justify-between">
+                    <Quote size={18} style={{ color: "#c38789" }} />
+                    <div className="flex gap-0.5">
+                      {[...Array(review.rating)].map((_, j) => (
+                        <Star key={j} size={13} fill="#c38789" color="#c38789" />
+                      ))}
+                    </div>
+                  </div>
+                  <h3 className="text-sm font-medium" style={{ color: "#69554a" }}>
+                    Review {review.service} {review.name} BY DE BEAU CLINIC
+                  </h3>
+                  <p className="text-sm leading-relaxed font-light flex-1" style={{ color: "#8b7f7c" }}>
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <span className="self-start text-xs px-3 py-1"
+                    style={{ backgroundColor: "rgba(195,135,137,0.1)", color: "#c38789" }}>
+                    {review.service}
+                  </span>
+                  <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: "#e0ddd9" }}>
+                    <div className="w-9 h-9 flex items-center justify-center text-sm font-medium shrink-0"
+                      style={{ backgroundColor: "#c7bfb5", color: "#69554a" }}>
+                      {review.name.charAt(2) || review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium" style={{ color: "#69554a" }}>{review.name}</p>
+                      <p className="text-xs" style={{ color: "#8b7f7c" }}>อายุ {review.age} ปี</p>
+                    </div>
                   </div>
                 </div>
               </div>

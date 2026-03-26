@@ -21,7 +21,7 @@ export default function About() {
         {/* Left - Image */}
         <ScrollReveal direction="left" className="relative h-[400px] lg:h-auto overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=1000&q=80"
+            src="/images/doctor-portrait.jpg"
             alt="De Beau Clinic บรรยากาศคลินิก"
             fill
             className="object-cover img-zoom"

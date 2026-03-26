@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { ArrowRight, CheckCircle, ChevronRight, UserRound } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
 
 export interface ServiceSection {
   title: string;
@@ -32,6 +32,7 @@ export interface ServicePageProps {
   ctaText?: string;
   relatedServices?: { label: string; href: string }[];
   accentColor?: string;
+  parentBreadcrumb?: { label: string; href: string };
 }
 
 const LINE_URL = "https://line.me/R/ti/p/@debeauclinic";
@@ -49,6 +50,7 @@ export default function ServicePageLayout({
   ctaText = "ปรึกษาหมอโบฟรี",
   relatedServices,
   accentColor = "#c38789",
+  parentBreadcrumb,
 }: ServicePageProps) {
   return (
     <div style={{ backgroundColor: "#e8e7e5" }}>
@@ -91,7 +93,20 @@ export default function ServicePageLayout({
               หน้าแรก
             </Link>
             <ChevronRight size={12} />
-            <span style={{ color: "#c38789" }}>{title}</span>
+            {parentBreadcrumb ? (
+              <>
+                <Link
+                  href={parentBreadcrumb.href}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  {parentBreadcrumb.label}
+                </Link>
+                <ChevronRight size={12} />
+                <span style={{ color: "#c38789" }}>{title}</span>
+              </>
+            ) : (
+              <span style={{ color: "#c38789" }}>{title}</span>
+            )}
           </nav>
 
           {/* Badge pill (keeps rounded-full) */}
@@ -220,7 +235,7 @@ export default function ServicePageLayout({
             style={{ minHeight: "320px", position: "relative" }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1200&q=80"
+              src="/images/treatment-room.png"
               alt="De Beau Clinic treatment"
               fill
               className="object-cover img-zoom"
@@ -405,13 +420,18 @@ export default function ServicePageLayout({
             style={{ backgroundColor: "rgba(255,255,255,0.07)" }}
           >
             <div
-              className="w-20 h-20 flex items-center justify-center border-2"
+              className="w-24 h-24 relative overflow-hidden border-2"
               style={{
                 borderColor: "rgba(195,135,137,0.4)",
-                backgroundColor: "rgba(195,135,137,0.1)",
               }}
             >
-              <UserRound size={36} style={{ color: "#c38789" }} />
+              <Image
+                src="/images/doctor-working-1.jpg"
+                alt="หมอโบ พญ.ปาริฉัตร ตัณชวนิชย์"
+                fill
+                className="object-cover"
+                sizes="96px"
+              />
             </div>
             <div>
               <p

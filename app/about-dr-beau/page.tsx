@@ -95,7 +95,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-4">
             <div className="relative w-full overflow-hidden" style={{ minHeight: "320px" }}>
               <Image
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+                src="/images/doctor-portrait.jpg"
                 alt="หมอโบ พญ.ปาริฉัตร ตัณชวนิชย์"
                 fill
                 className="object-cover"
@@ -226,7 +226,7 @@ export default function AboutPage() {
       {/* Clinic Image Banner */}
       <section className="relative" style={{ height: "320px" }}>
         <Image
-          src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80"
+          src="/images/clinic-photo-4.jpg"
           alt="DE BEAU CLINIC Interior"
           fill
           className="object-cover"

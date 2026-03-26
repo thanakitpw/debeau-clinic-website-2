@@ -9,8 +9,8 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 const services = [
   { label: "ฟิลเลอร์", href: "/filler" },
   { label: "ลดริ้วรอย (Botox)", href: "/botox" },
-  { label: "ยกกระชับ (Ulthera)", href: "/ulthera" },
-  { label: "Laser หน้าใส", href: "/laser" },
+  { label: "เลเซอร์หน้าใส ฝ้ากระ", href: "/laser/skin-brightening" },
+  { label: "เลเซอร์ยกกระชับหน้า", href: "/laser/skin-tightening" },
   { label: "Mesotherapy", href: "/mesotherapy" },
   { label: "Facial Treatments", href: "/facial-treatments" },
 ];
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between h-20">
-        <Link href="/" className="flex items-center cursor-pointer">
+        <Link href="/" className="flex items-center cursor-pointer lg:hidden">
           <Image
             src="/logo.png"
             alt="DE BEAU CLINIC"

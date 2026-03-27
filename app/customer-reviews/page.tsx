@@ -82,57 +82,17 @@ export default function CustomerReviewsPage() {
     <>
       <Navbar />
 
-      {/* Hero Banner — 2 ส่วน */}
-      <section className="relative pt-28 lg:pt-32 overflow-hidden" style={{ backgroundColor: "#f5f2ef" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* ซ้าย — ข้อความ + Google reviews preview */}
-            <div className="py-12 lg:py-20">
-              <h1 className="text-3xl lg:text-5xl font-light leading-tight mb-4" style={{ color: "#3a2e2b" }}>
-                ความประทับใจลูกค้า
-                <br />
-                <span style={{ color: "#c38789" }}>คือความภูมิใจของเรา</span>
-              </h1>
-              <p className="text-sm lg:text-base font-light mb-8 max-w-md" style={{ color: "#8b7f7c" }}>
-                ขอบคุณทุกความไว้วางใจจากลูกค้ากว่า 5,000+ เคส
-                ที่เลือกให้ De Beau Clinic ดูแลความงาม
-              </p>
-              {/* Stats */}
-              <div className="flex gap-8 mb-8">
-                {[
-                  { value: "5.0", label: "Google Rating" },
-                  { value: "5,000+", label: "เคสที่ดูแล" },
-                  { value: "98%", label: "พึงพอใจ" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <div className="text-2xl lg:text-3xl font-light" style={{ color: "#c38789" }}>{s.value}</div>
-                    <div className="text-[10px] lg:text-xs tracking-wider uppercase mt-1" style={{ color: "#8b7f7c" }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a href="https://line.me/R/ti/p/@debeauclinic" target="_blank" rel="noopener noreferrer"
-                  className="btn-primary cursor-pointer">
-                  นัดปรึกษาฟรี <ArrowRight size={16} />
-                </a>
-                <Link href="/filler" className="btn-outline cursor-pointer">ดูบริการทั้งหมด</Link>
-              </div>
-            </div>
-
-            {/* ขวา — Hero image + tagline */}
-            <div className="relative">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                <Image
-                  src="/images/reviews/cover.jpg"
-                  alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"
-                  fill
-                  priority
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
+      {/* Hero Banner — full-width image */}
+      <section className="pt-20 lg:pt-24" style={{ backgroundColor: "#f5f2ef" }}>
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
+          <Image
+            src="/images/reviews/cover.jpg"
+            alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
         </div>
       </section>
 

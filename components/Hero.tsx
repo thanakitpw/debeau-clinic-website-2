@@ -80,7 +80,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-[15px] lg:text-[17px] font-light text-white/60 mb-8 lg:mb-12 leading-relaxed max-w-lg"
+            className="text-[17px] lg:text-[20px] font-light text-white/70 mb-8 lg:mb-12 leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: luxuryEase, type: "tween" }}

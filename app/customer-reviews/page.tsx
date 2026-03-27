@@ -1,165 +1,271 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, Quote, ArrowRight, Play } from "lucide-react";
+import { Star, ArrowRight, Play, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
 
-const categories = ["ทั้งหมด", "ฟิลเลอร์ใต้ตา", "ฟิลเลอร์ปาก", "Botox", "Ulthera", "Laser"];
+const highlightCases = [
+  {
+    before: "/images/reviews/case-1-before.jpg",
+    after: "/images/reviews/case-1-after.jpg",
+    name: "คุณมุก",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+  {
+    before: "/images/reviews/case-2-before.jpg",
+    after: "/images/reviews/case-2-after.jpg",
+    name: "คุณแอน",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+  {
+    before: "/images/reviews/case-3-before.jpg",
+    after: "/images/reviews/case-3-after.jpg",
+    name: "คุณนุช",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+  {
+    before: "/images/reviews/case-4-before.jpg",
+    after: "/images/reviews/case-4-after.jpg",
+    name: "คุณซีอิ๊ว",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+  {
+    before: "/images/reviews/case-5-before.jpg",
+    after: "/images/reviews/case-5-after.jpg",
+    name: "คุณยู",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+  {
+    before: "/images/reviews/case-6-before.jpg",
+    after: "/images/reviews/case-6-after.jpg",
+    name: "คุณลิเบีย",
+    service: "ฟิลเลอร์ใต้ตา",
+  },
+];
 
-const reviews = [
-  { name: "คุณเอมี่", age: 36, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "มีปัญหาเบ้าตาลึก ทำให้ใบหน้าดูโทรม หลังทำฟิลเลอร์ใต้ตากับหมอโบ ผลลัพธ์ดีมากค่ะ ใบหน้าดูสดใสขึ้นเยอะเลย บอกต่อทุกคนเลยค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-amy.jpg" },
-  { name: "คุณนุช", age: 29, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หมอโบใจดีมาก อธิบายทุกขั้นตอนก่อนทำ ผลลัพธ์เป็นธรรมชาติ ไม่โอเวอร์ ประทับใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-nuch.jpg" },
-  { name: "คุณซีอิ๊ว", age: 32, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำมาหลายที่แล้วค่ะ แต่ที่นี่ดีที่สุด หมอดูแลละเอียดมาก ฟิลเลอร์แท้ แกะกล่องหน้าเราเลย มั่นใจมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-siew.jpg" },
-  { name: "คุณยู", age: 27, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ตาหวานขึ้นเยอะเลยค่ะ ผลลัพธ์เกินคาด บอกต่อเพื่อนไปหลายคนแล้ว ทุกคนพอใจหมด", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-yu.jpg" },
-  { name: "คุณลิเบีย", age: 25, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ผิวใต้ตาดีขึ้นมากเลยค่ะ ไม่มีรอยช้ำ ไม่บวม หมอดูแลดีมาก บรรยากาศคลินิกน่ารัก อบอุ่น", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-libia.jpg" },
-  { name: "คุณเจน", age: 30, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ทำซ้ำมาแล้ว 3 ครั้งค่ะ ไว้ใจหมอโบมากที่สุด ดูแลดีทุกครั้ง ผลลัพธ์คงที่และสวยมาก", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-jane.jpg" },
-  { name: "คุณน้ำหอม", age: 26, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "หน้าดูสดชื่นขึ้นมากค่ะ เพื่อนถามตลอดว่านอนหลับพอขึ้นหรือเปล่า 555 ผลลัพธ์เป็นธรรมชาติมากๆ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-namhom.jpg" },
-  { name: "คุณวรรณ", age: 43, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "มีปัญหาใต้ตาคล้ำมานาน หมอโบวิเคราะห์ปัญหาให้ละเอียดมาก ผลลัพธ์ออกมาดีมากค่ะ ใต้ตาสว่างขึ้นชัดเจน", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-wan.jpg" },
-  { name: "คุณปอ", age: 28, service: "ฟิลเลอร์ใต้ตา", rating: 5, text: "ฟิลเลอร์ใต้ตาครั้งแรกค่ะ หมอโบอธิบายทุกอย่างชัดเจน ไม่ต้องกังวลเลย ผลลัพธ์เป็นธรรมชาติมากค่ะ", tag: "ฟิลเลอร์ใต้ตา", image: "/images/reviews/review-por.jpg" },
-  { name: "คุณจ๊ะจ๋า", age: 34, service: "ฟิลเลอร์ปาก", rating: 5, text: "ทำฟิลเลอร์ปากมาหลายที่ แต่ที่นี่ดีที่สุดเลยค่ะ ปากดูอิ่มขึ้นแต่เป็นธรรมชาติมากๆ ไม่แข็ง ไม่บวม", tag: "ฟิลเลอร์ปาก" },
-  { name: "คุณแนนนี่", age: 28, service: "Ulthera", rating: 5, text: "Girly Berry — ทำ Ulthera ยกกระชับหน้า หน้าตึงขึ้นชัดเจนหลังทำ หมอโบเป็นกันเองมากค่ะ คุยง่าย ราคาก็ยุติธรรม", tag: "Ulthera" },
-  { name: "คุณอั๋น ชยพล", age: 38, service: "Botox ลดริ้วรอย", rating: 5, text: "มาฉีดโบท็อกซ์ลดริ้วรอย หมอโบเชี่ยวชาญมากครับ ผลลัพธ์เป็นธรรมชาติ หน้าดูอ่อนเยาว์ขึ้นเยอะ มาซ้ำทุก 4 เดือนเลยครับ", tag: "Botox" },
-  { name: "คุณแน๊ตตี้ นาตาชา", age: 33, service: "Laser รักษาฝ้า", rating: 5, text: "ทำ Laser รักษาฝ้า กระ ผิวหน้าใสขึ้นมากค่ะ หมอวางแผนการรักษาให้เฉพาะตัว ผิวดีขึ้นตั้งแต่ครั้งแรก", tag: "Laser" },
+const googleReviews = [
+  {
+    name: "Suparat Padsanada",
+    rating: 5,
+    time: "3 เดือนที่แล้ว",
+    text: "หมอโบ แนะนำดีค่ะ ใส่ใจคนไข้มากเลย ผลลัพธ์สวยค่ะ ชอบมาก แนะนำเลยค่ะ",
+    avatar: "S",
+  },
+  {
+    name: "Kae Kaei",
+    rating: 5,
+    time: "64 รีวิว",
+    text: "หมอทำงานดี พูดจาละเอียดอ่อน คนไข้ทุกคนได้รับการดูแลเป็นอย่างดี ชื่นชมค่ะ",
+    avatar: "K",
+  },
+  {
+    name: "Pacharaporn Tuayanonda",
+    rating: 5,
+    time: "6 เดือนที่แล้ว",
+    text: "พอใจมากค่ะ ฟิลเลอร์ใต้ตาสวยมาก ไม่ปวด ไม่บวม แนะนำค่ะ หมอโบเก่งมาก",
+    avatar: "P",
+  },
+  {
+    name: "Laddasawan",
+    rating: 5,
+    time: "4 เดือนที่แล้ว",
+    text: "มาทำฟิลเลอร์ใต้ตาครั้งแรก ผลลัพธ์ดีมากค่ะ เป็นธรรมชาติ ไม่โอเวอร์",
+    avatar: "L",
+  },
 ];
 
 export default function CustomerReviewsPage() {
-  const [activeCategory, setActiveCategory] = useState("ทั้งหมด");
-
-  const filtered = activeCategory === "ทั้งหมด"
-    ? reviews
-    : reviews.filter(r => r.tag === activeCategory);
-
   return (
     <>
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-36 pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#69554a" }}>
-        <div className="absolute inset-0 opacity-10"
-          style={{ background: "radial-gradient(ellipse at top right, #c38789 0%, transparent 60%)" }} />
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <span className="inline-block text-xs tracking-[0.3em] uppercase font-medium px-4 py-1.5 rounded-full mb-6"
-            style={{ backgroundColor: "rgba(195,135,137,0.2)", color: "#c38789" }}>
-            Customer Reviews
-          </span>
-          <h1 className="text-4xl lg:text-5xl font-light mb-4" style={{ color: "#fff" }}>
-            รีวิวจากลูกค้าจริง
-          </h1>
-          <p className="text-base font-light max-w-xl mx-auto mb-10" style={{ color: "rgba(255,255,255,0.7)" }}>
-            เสียงจากผู้ใช้จริง ความพึงพอใจที่บอกต่อ ดูแลกว่า 5,000+ เคส
-          </p>
-          {/* Summary stats */}
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              { value: "5.0", label: "คะแนนเฉลี่ย", stars: true },
-              { value: "5,000+", label: "เคสที่ดูแล", stars: false },
-              { value: "98%", label: "ลูกค้าพึงพอใจ", stars: false },
-              { value: "90%+", label: "แนะนำต่อ", stars: false },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl font-sans font-light mb-1" style={{ color: "#c38789" }}>{s.value}</div>
-                {s.stars && (
-                  <div className="flex gap-0.5 justify-center mb-1">
-                    {[...Array(5)].map((_, j) => <Star key={j} size={12} fill="#c38789" color="#c38789" />)}
+      {/* Hero Banner — 2 ส่วน */}
+      <section className="relative pt-28 lg:pt-32 overflow-hidden" style={{ backgroundColor: "#f5f2ef" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* ซ้าย — ข้อความ + Google reviews preview */}
+            <div className="py-12 lg:py-20">
+              <h1 className="text-3xl lg:text-5xl font-light leading-tight mb-4" style={{ color: "#3a2e2b" }}>
+                ความประทับใจลูกค้า
+                <br />
+                <span style={{ color: "#c38789" }}>คือความภูมิใจของเรา</span>
+              </h1>
+              <p className="text-sm lg:text-base font-light mb-8 max-w-md" style={{ color: "#8b7f7c" }}>
+                ขอบคุณทุกความไว้วางใจจากลูกค้ากว่า 5,000+ เคส
+                ที่เลือกให้ De Beau Clinic ดูแลความงาม
+              </p>
+              {/* Stats */}
+              <div className="flex gap-8 mb-8">
+                {[
+                  { value: "5.0", label: "Google Rating" },
+                  { value: "5,000+", label: "เคสที่ดูแล" },
+                  { value: "98%", label: "พึงพอใจ" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div className="text-2xl lg:text-3xl font-light" style={{ color: "#c38789" }}>{s.value}</div>
+                    <div className="text-[10px] lg:text-xs tracking-wider uppercase mt-1" style={{ color: "#8b7f7c" }}>{s.label}</div>
                   </div>
-                )}
-                <div className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>{s.label}</div>
+                ))}
               </div>
-            ))}
+              <div className="flex flex-wrap gap-3">
+                <a href="https://line.me/R/ti/p/@debeauclinic" target="_blank" rel="noopener noreferrer"
+                  className="btn-primary cursor-pointer">
+                  นัดปรึกษาฟรี <ArrowRight size={16} />
+                </a>
+                <Link href="/filler" className="btn-outline cursor-pointer">ดูบริการทั้งหมด</Link>
+              </div>
+            </div>
+
+            {/* ขวา — Hero image + tagline */}
+            <div className="relative">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                <Image
+                  src="/images/reviews/cover.jpg"
+                  alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"
+                  fill
+                  priority
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* YouTube CTA */}
-      <section className="py-12 px-6" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 p-8"
-          style={{ backgroundColor: "#e8e7e5" }}>
-          <div>
-            <p className="text-sm font-medium" style={{ color: "#69554a" }}>ดูรีวิววิดีโอจากลูกค้าจริง</p>
-            <p className="text-xs font-light mt-1" style={{ color: "#8b7f7c" }}>
-              คุณจ๊ะจ๋า · คุณกิ๊ฟ · คุณแนนนี่ · คุณอั๋น ชยพล · คุณแน๊ตตี้ นาตาชา และอีกมากมาย
+      {/* Promo Images — โปรแกรมฟิลเลอร์ */}
+      <section className="py-12 lg:py-16 px-6" style={{ backgroundColor: "#fff" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="relative overflow-hidden col-span-2 lg:col-span-1" style={{ aspectRatio: "3/4" }}>
+              <Image
+                src="/images/reviews/promo-1.jpg"
+                alt="โปรแกรม Under Eye Filler"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              <Image
+                src="/images/reviews/promo-2.jpg"
+                alt="โปรแกรมฟิลเลอร์ปรับใต้ตา"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              <Image
+                src="/images/reviews/doctor-treatment.jpg"
+                alt="หมอโบกำลังทำหัตถการ"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlight Review — Before & After Grid */}
+      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#f5f2ef" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-xs tracking-[0.3em] uppercase font-medium mb-4 block" style={{ color: "#c38789" }}>
+              Highlight Review
+            </span>
+            <h2 className="text-2xl lg:text-4xl font-light mb-4" style={{ color: "#3a2e2b" }}>
+              ผลลัพธ์จริงจากลูกค้าจริง
+            </h2>
+            <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#8b7f7c" }}>
+              ก่อนและหลังทำฟิลเลอร์ใต้ตากับหมอโบ ผลลัพธ์เป็นธรรมชาติ
+              ไม่บวม ไม่ช้ำ กลับไปใช้ชีวิตได้ทันที
             </p>
           </div>
-          <a href="https://www.youtube.com/channel/UCf7ypqqydxl4-ycyPLKmjVw"
-            target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 text-sm font-medium shrink-0 transition-all duration-200 hover:opacity-90 cursor-pointer"
-            style={{ backgroundColor: "#FF0000", color: "#fff" }}>
-            <Play size={16} fill="white" /> ดูบน YouTube
-          </a>
-        </div>
-      </section>
 
-      {/* Filter + Reviews Grid */}
-      <section className="py-16 px-6" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-5xl mx-auto">
-          {/* Category filter */}
-          <div className="flex flex-wrap gap-2 mb-10 justify-center">
-            {categories.map(cat => (
-              <button key={cat} onClick={() => setActiveCategory(cat)}
-                className="px-5 py-2 text-sm font-medium transition-all duration-200 cursor-pointer"
-                style={{
-                  backgroundColor: activeCategory === cat ? "#c38789" : "#e8e7e5",
-                  color: activeCategory === cat ? "#fff" : "#69554a",
-                }}>
-                {cat}
-              </button>
-            ))}
+          {/* Featured case — ใหญ่ */}
+          <div className="mb-8">
+            <div className="grid lg:grid-cols-2 gap-0 overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
+              <div className="relative" style={{ aspectRatio: "1/1" }}>
+                <Image
+                  src="/images/reviews/case-1-before.jpg"
+                  alt="Before — คุณมุก"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-3 left-3 px-3 py-1 text-xs font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>
+                  BEFORE
+                </div>
+              </div>
+              <div className="relative" style={{ aspectRatio: "1/1" }}>
+                <Image
+                  src="/images/reviews/case-1-after.jpg"
+                  alt="After — คุณมุก"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-3 left-3 px-3 py-1 text-xs font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>
+                  AFTER
+                </div>
+              </div>
+            </div>
+            <div className="p-5 text-center" style={{ backgroundColor: "#fff", border: "1px solid #e0ddd9", borderTop: "none" }}>
+              <h3 className="text-base font-medium mb-1" style={{ color: "#69554a" }}>
+                Review ฟิลเลอร์ใต้ตา คุณมุก
+              </h3>
+              <p className="text-xs" style={{ color: "#8b7f7c" }}>ฟิลเลอร์ใต้ตา · DE BEAU CLINIC</p>
+            </div>
           </div>
 
-          {/* Reviews grid */}
+          {/* Grid — 3 คอลัมน์ */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map((review, i) => (
-              <div key={i} className="flex flex-col gap-0 overflow-hidden"
-                style={{ backgroundColor: "#e8e7e5", border: "1px solid #e0ddd9" }}>
-                {/* รูป Before/After */}
-                {review.image && (
-                  <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
+            {highlightCases.slice(1).map((c, i) => (
+              <div key={i} className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
+                {/* Before/After แบบ side-by-side */}
+                <div className="grid grid-cols-2 gap-0">
+                  <div className="relative" style={{ aspectRatio: "1/1" }}>
                     <Image
-                      src={review.image}
-                      alt={`Review ${review.service} ${review.name}`}
+                      src={c.before}
+                      alt={`Before — ${c.name}`}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
                     />
-                    <div className="absolute top-3 left-3 px-2 py-1 text-[10px] tracking-wider uppercase font-medium"
-                      style={{ backgroundColor: "#c38789", color: "#fff" }}>
-                      DE BEAU
+                    <div className="absolute bottom-1.5 left-1.5 px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>
+                      BEFORE
                     </div>
                   </div>
-                )}
-                {/* Content */}
-                <div className="flex flex-col gap-4 p-7">
-                  <div className="flex items-center justify-between">
-                    <Quote size={18} style={{ color: "#c38789" }} />
+                  <div className="relative" style={{ aspectRatio: "1/1" }}>
+                    <Image
+                      src={c.after}
+                      alt={`After — ${c.name}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
+                    />
+                    <div className="absolute bottom-1.5 left-1.5 px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>
+                      AFTER
+                    </div>
+                  </div>
+                </div>
+                {/* Info */}
+                <div className="p-4" style={{ backgroundColor: "#fff" }}>
+                  <h3 className="text-sm font-medium mb-1" style={{ color: "#69554a" }}>
+                    Review {c.service} {c.name}
+                  </h3>
+                  <div className="flex items-center gap-2">
                     <div className="flex gap-0.5">
-                      {[...Array(review.rating)].map((_, j) => (
-                        <Star key={j} size={13} fill="#c38789" color="#c38789" />
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} size={10} fill="#c38789" color="#c38789" />
                       ))}
                     </div>
-                  </div>
-                  <h3 className="text-sm font-medium" style={{ color: "#69554a" }}>
-                    Review {review.service} {review.name} BY DE BEAU CLINIC
-                  </h3>
-                  <p className="text-sm leading-relaxed font-light flex-1" style={{ color: "#8b7f7c" }}>
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <span className="self-start text-xs px-3 py-1"
-                    style={{ backgroundColor: "rgba(195,135,137,0.1)", color: "#c38789" }}>
-                    {review.service}
-                  </span>
-                  <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: "#e0ddd9" }}>
-                    <div className="w-9 h-9 flex items-center justify-center text-sm font-medium shrink-0"
-                      style={{ backgroundColor: "#c7bfb5", color: "#69554a" }}>
-                      {review.name.charAt(2) || review.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium" style={{ color: "#69554a" }}>{review.name}</p>
-                      <p className="text-xs" style={{ color: "#8b7f7c" }}>อายุ {review.age} ปี</p>
-                    </div>
+                    <span className="text-[10px]" style={{ color: "#8b7f7c" }}>DE BEAU CLINIC</span>
                   </div>
                 </div>
               </div>
@@ -168,14 +274,153 @@ export default function CustomerReviewsPage() {
         </div>
       </section>
 
+      {/* ประสบการณ์จริง — Before & After ใหญ่ */}
+      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#fff" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl lg:text-3xl font-light mb-3" style={{ color: "#3a2e2b" }}>
+              ประสบการณ์จริงจากผู้ใช้บริการ
+            </h2>
+            <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#8b7f7c" }}>
+              ภาพ Before & After จริง ไม่ตกแต่ง ไม่ใช้ฟิลเตอร์
+              เพื่อให้คุณเห็นผลลัพธ์ที่แท้จริงก่อนตัดสินใจ
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            {/* Case ใหญ่ — คู่ 2 */}
+            <div className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
+              <div className="grid grid-cols-2 gap-0">
+                <div className="relative" style={{ aspectRatio: "3/4" }}>
+                  <Image src="/images/reviews/case-3-before.jpg" alt="Before" fill className="object-cover" sizes="25vw" />
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>BEFORE</div>
+                </div>
+                <div className="relative" style={{ aspectRatio: "3/4" }}>
+                  <Image src="/images/reviews/case-3-after.jpg" alt="After" fill className="object-cover" sizes="25vw" />
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>AFTER</div>
+                </div>
+              </div>
+              <div className="p-4 text-center" style={{ backgroundColor: "#faf9f8" }}>
+                <p className="text-sm font-medium" style={{ color: "#69554a" }}>Review ฟิลเลอร์ใต้ตา คุณนุช</p>
+              </div>
+            </div>
+
+            <div className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
+              <div className="grid grid-cols-2 gap-0">
+                <div className="relative" style={{ aspectRatio: "3/4" }}>
+                  <Image src="/images/reviews/case-5-before.jpg" alt="Before" fill className="object-cover" sizes="25vw" />
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>BEFORE</div>
+                </div>
+                <div className="relative" style={{ aspectRatio: "3/4" }}>
+                  <Image src="/images/reviews/case-5-after.jpg" alt="After" fill className="object-cover" sizes="25vw" />
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>AFTER</div>
+                </div>
+              </div>
+              <div className="p-4 text-center" style={{ backgroundColor: "#faf9f8" }}>
+                <p className="text-sm font-medium" style={{ color: "#69554a" }}>Review ฟิลเลอร์ใต้ตา คุณยู</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section — เจาะลึกความรู้สึกหลังทำ */}
+      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#69554a" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="text-xs tracking-[0.3em] uppercase font-medium mb-4 block" style={{ color: "#c38789" }}>
+                Video Reviews
+              </span>
+              <h2 className="text-2xl lg:text-3xl font-light mb-4" style={{ color: "#fff" }}>
+                เจาะลึกความรู้สึกหลังทำ
+                <br />
+                <span style={{ color: "#c38789" }}>ผ่านคำยืนยันจากลูกค้าจริง</span>
+              </h2>
+              <p className="text-sm font-light mb-8" style={{ color: "rgba(255,255,255,0.6)" }}>
+                ที่ De Beau Clinic เราให้ความสำคัญกับทุกเสียงจากลูกค้า
+                เพื่อให้คุณมั่นใจก่อนตัดสินใจดูแลตัวเอง
+              </p>
+              <a href="https://www.youtube.com/channel/UCf7ypqqydxl4-ycyPLKmjVw"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-200 hover:opacity-90 cursor-pointer"
+                style={{ backgroundColor: "#c38789", color: "#fff" }}>
+                <Play size={16} fill="white" /> ดูรีวิววิดีโอทั้งหมด
+              </a>
+            </div>
+            {/* Video thumbnail */}
+            <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src="/images/reviews/doctor-treatment.jpg"
+                alt="วิดีโอรีวิวจากลูกค้าจริง"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <a href="https://www.youtube.com/channel/UCf7ypqqydxl4-ycyPLKmjVw"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
+                  style={{ backgroundColor: "rgba(195,135,137,0.9)" }}>
+                  <Play size={28} fill="white" color="white" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Reviews */}
+      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#fff" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl lg:text-3xl font-light mb-3" style={{ color: "#3a2e2b" }}>
+              การันตีความเชื่อมั่นด้วยคะแนนรีวิวจาก Google
+            </h2>
+            <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#8b7f7c" }}>
+              ขอบคุณทุกรีวิวจากลูกค้าจริงบน Google ที่ไว้วางใจให้ De Beau Clinic ดูแลความงาม
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {googleReviews.map((review, i) => (
+              <div key={i} className="p-5 flex flex-col gap-3" style={{ backgroundColor: "#f5f2ef", border: "1px solid #e0ddd9" }}>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium shrink-0"
+                    style={{ backgroundColor: "#c38789", color: "#fff" }}>
+                    {review.avatar}
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium" style={{ color: "#3a2e2b" }}>{review.name}</p>
+                    <p className="text-[10px]" style={{ color: "#8b7f7c" }}>{review.time}</p>
+                  </div>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(review.rating)].map((_, j) => (
+                    <Star key={j} size={12} fill="#FBBC04" color="#FBBC04" />
+                  ))}
+                </div>
+                <p className="text-xs font-light leading-relaxed flex-1" style={{ color: "#69554a" }}>
+                  &ldquo;{review.text}&rdquo;
+                </p>
+                <div className="flex items-center gap-1 mt-auto">
+                  <MapPin size={10} style={{ color: "#8b7f7c" }} />
+                  <span className="text-[10px]" style={{ color: "#8b7f7c" }}>Google Review</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Bottom CTA */}
-      <section className="py-20 px-6 text-center" style={{ backgroundColor: "#e8e7e5" }}>
+      <section className="py-20 px-6 text-center" style={{ backgroundColor: "#f5f2ef" }}>
         <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl font-light mb-4" style={{ color: "#69554a" }}>
-            อยากเป็นส่วนหนึ่งของครอบครัว De Beau?
+          <h2 className="text-xl lg:text-2xl font-light mb-3" style={{ color: "#3a2e2b" }}>
+            อยากมีผลลัพธ์ที่น่าประทับใจแบบนี้บ้างไหม?
           </h2>
           <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
-            ปรึกษาหมอโบฟรี เพื่อวางแผนการรักษาที่เหมาะกับคุณ
+            ให้เราช่วยดูแลคุณนะคะ
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://line.me/R/ti/p/@debeauclinic" target="_blank" rel="noopener noreferrer"

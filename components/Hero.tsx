@@ -34,12 +34,12 @@ export default function Hero() {
             }}
           />
         </div>
-        {/* Mobile: gradient โทนอ่อน */}
+        {/* Mobile: gradient โทนอ่อนสว่าง */}
         <div
           className="lg:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(160deg, #69554a 0%, #8b7f7c 40%, #c7bfb5 100%)",
+              "linear-gradient(160deg, #8b7f7c 0%, #c7bfb5 50%, #e8e7e5 100%)",
           }}
         />
       </div>
@@ -66,7 +66,7 @@ export default function Hero() {
 
           {/* Heading */}
           <motion.h1
-            className="font-sans text-[2.5rem] lg:text-7xl font-light text-white leading-[1.1] lg:leading-[1.05] mb-5 lg:mb-8 tracking-wide"
+            className="font-sans text-[2.5rem] lg:text-7xl font-light text-[#3a2e2b] lg:text-white leading-[1.1] lg:leading-[1.05] mb-5 lg:mb-8 tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: luxuryEase, type: "tween" }}
@@ -80,7 +80,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-[17px] lg:text-[20px] font-light text-white/70 mb-8 lg:mb-12 leading-relaxed max-w-lg"
+            className="text-[17px] lg:text-[20px] font-light text-[#69554a] lg:text-white/70 mb-8 lg:mb-12 leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: luxuryEase, type: "tween" }}
@@ -108,8 +108,7 @@ export default function Hero() {
             </a>
             <a
               href="#services"
-              className="btn-outline text-center justify-center"
-              style={{ borderColor: "rgba(255,255,255,0.25)", color: "#fff" }}
+              className="btn-outline text-center justify-center border-[#69554a]/30 text-[#3a2e2b] lg:border-white/25 lg:text-white"
             >
               ดูบริการทั้งหมด
             </a>
@@ -122,22 +121,22 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8, ease: luxuryEase, type: "tween" }}
           >
-            <div className="flex items-center gap-3 px-4 lg:px-5 py-2.5 lg:py-3 bg-white/5 backdrop-blur-sm border border-white/10">
+            <div className="flex items-center gap-3 px-4 lg:px-5 py-2.5 lg:py-3 bg-[#69554a]/10 lg:bg-white/5 backdrop-blur-sm border border-[#69554a]/15 lg:border-white/10">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={11} fill="#c38789" color="#c38789" />
                 ))}
               </div>
-              <span className="text-[12px] lg:text-[13px] tracking-wide text-white/70">
+              <span className="text-[12px] lg:text-[13px] tracking-wide text-[#69554a] lg:text-white/70">
                 5,000+ เคสที่ไว้วางใจ
               </span>
             </div>
             <div className="flex items-center gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-white/50">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c] lg:text-white/50">
                 <Check size={14} className="text-[#c38789]" />
                 แพทย์ดูแลทุกเคส
               </div>
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-white/50">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c] lg:text-white/50">
                 <Check size={14} className="text-[#c38789]" />
                 ประสบการณ์ 16+ ปี
               </div>

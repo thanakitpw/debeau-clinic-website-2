@@ -34,12 +34,12 @@ export default function Hero() {
             }}
           />
         </div>
-        {/* Mobile: gradient สีแบรนด์ */}
+        {/* Mobile: gradient โทนอ่อน */}
         <div
           className="lg:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(160deg, #3a2e2b 0%, #69554a 40%, #8b7f7c 100%)",
+              "linear-gradient(160deg, #69554a 0%, #8b7f7c 40%, #c7bfb5 100%)",
           }}
         />
       </div>

@@ -83,17 +83,54 @@ export default function CustomerReviewsPage() {
     <>
       <Navbar />
 
-      {/* Hero Banner — full-width image */}
-      <section className="pt-20 lg:pt-24" style={{ backgroundColor: "#f5f2ef" }}>
-        <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
-          <Image
-            src="/images/reviews/cover.jpg"
-            alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
+      {/* Hero Banner */}
+      <section className="relative pt-32 lg:pt-36 pb-16 lg:pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#69554a" }}>
+        <div className="absolute inset-0 opacity-10"
+          style={{ background: "radial-gradient(ellipse at top right, #c38789 0%, transparent 60%)" }} />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* ซ้าย — ข้อความ */}
+            <div>
+              <span className="inline-block text-xs tracking-[0.3em] uppercase font-medium px-4 py-1.5 rounded-full mb-6"
+                style={{ backgroundColor: "rgba(195,135,137,0.2)", color: "#c38789" }}>
+                Customer Reviews
+              </span>
+              <h1 className="text-3xl lg:text-5xl font-light leading-tight mb-4" style={{ color: "#fff" }}>
+                ความประทับใจลูกค้า
+                <br />
+                <span style={{ color: "#c38789" }}>คือความภูมิใจของเรา</span>
+              </h1>
+              <p className="text-sm lg:text-base font-light mb-8 max-w-md" style={{ color: "rgba(255,255,255,0.7)" }}>
+                ขอบคุณทุกความไว้วางใจจากลูกค้ากว่า 5,000+ เคส
+                ที่เลือกให้ De Beau Clinic ดูแลความงาม
+              </p>
+              {/* Stats */}
+              <div className="flex gap-8">
+                {[
+                  { value: "5.0", label: "Google Rating" },
+                  { value: "5,000+", label: "เคสที่ดูแล" },
+                  { value: "98%", label: "พึงพอใจ" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div className="text-2xl lg:text-3xl font-light" style={{ color: "#c38789" }}>{s.value}</div>
+                    <div className="text-[10px] lg:text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ขวา — รูป Cover */}
+            <div className="relative overflow-hidden hidden lg:block" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="/images/reviews/cover.jpg"
+                alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"
+                fill
+                priority
+                className="object-cover object-right"
+                sizes="50vw"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

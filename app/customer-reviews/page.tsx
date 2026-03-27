@@ -6,6 +6,7 @@ import { Star, ArrowRight, Play, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 const highlightCases = [
   {
@@ -131,7 +132,7 @@ export default function CustomerReviewsPage() {
         </div>
       </section>
 
-      {/* Highlight Review — Before & After Grid */}
+      {/* Highlight Review — Before & After Slider */}
       <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#f5f2ef" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -142,144 +143,58 @@ export default function CustomerReviewsPage() {
               ผลลัพธ์จริงจากลูกค้าจริง
             </h2>
             <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#8b7f7c" }}>
-              ก่อนและหลังทำฟิลเลอร์ใต้ตากับหมอโบ ผลลัพธ์เป็นธรรมชาติ
-              ไม่บวม ไม่ช้ำ กลับไปใช้ชีวิตได้ทันที
+              ก่อนและหลังทำฟิลเลอร์ใต้ตากับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
             </p>
           </div>
 
-          {/* Featured case — ใหญ่ */}
-          <div className="mb-8">
-            <div className="grid lg:grid-cols-2 gap-0 overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
-              <div className="relative" style={{ aspectRatio: "1/1" }}>
-                <Image
-                  src="/images/reviews/case-1-before.jpg"
-                  alt="Before — คุณมุก"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+          {/* Slider Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {highlightCases.map((c, i) => (
+              <div key={i}>
+                <BeforeAfterSlider
+                  before={c.before}
+                  after={c.after}
+                  altBefore={`Before — ${c.name}`}
+                  altAfter={`After — ${c.name}`}
+                  label={`โปรแกรม${c.service}`}
                 />
-                <div className="absolute bottom-3 left-3 px-3 py-1 text-xs font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>
-                  BEFORE
-                </div>
-              </div>
-              <div className="relative" style={{ aspectRatio: "1/1" }}>
-                <Image
-                  src="/images/reviews/case-1-after.jpg"
-                  alt="After — คุณมุก"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute bottom-3 left-3 px-3 py-1 text-xs font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>
-                  AFTER
-                </div>
-              </div>
-            </div>
-            <div className="p-5 text-center" style={{ backgroundColor: "#fff", border: "1px solid #e0ddd9", borderTop: "none" }}>
-              <h3 className="text-base font-medium mb-1" style={{ color: "#69554a" }}>
-                Review ฟิลเลอร์ใต้ตา คุณมุก
-              </h3>
-              <p className="text-xs" style={{ color: "#8b7f7c" }}>ฟิลเลอร์ใต้ตา · DE BEAU CLINIC</p>
-            </div>
-          </div>
-
-          {/* Grid — 3 คอลัมน์ */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {highlightCases.slice(1).map((c, i) => (
-              <div key={i} className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
-                {/* Before/After แบบ side-by-side */}
-                <div className="grid grid-cols-2 gap-0">
-                  <div className="relative" style={{ aspectRatio: "1/1" }}>
-                    <Image
-                      src={c.before}
-                      alt={`Before — ${c.name}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
-                    />
-                    <div className="absolute bottom-1.5 left-1.5 px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>
-                      BEFORE
-                    </div>
-                  </div>
-                  <div className="relative" style={{ aspectRatio: "1/1" }}>
-                    <Image
-                      src={c.after}
-                      alt={`After — ${c.name}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
-                    />
-                    <div className="absolute bottom-1.5 left-1.5 px-2 py-0.5 text-[9px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>
-                      AFTER
-                    </div>
-                  </div>
-                </div>
-                {/* Info */}
-                <div className="p-4" style={{ backgroundColor: "#fff" }}>
-                  <h3 className="text-sm font-medium mb-1" style={{ color: "#69554a" }}>
-                    Review {c.service} {c.name}
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={10} fill="#c38789" color="#c38789" />
-                      ))}
-                    </div>
-                    <span className="text-[10px]" style={{ color: "#8b7f7c" }}>DE BEAU CLINIC</span>
-                  </div>
-                </div>
+                <p className="text-sm font-medium text-center mt-2" style={{ color: "#69554a" }}>
+                  Review {c.service} {c.name}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ประสบการณ์จริง — Before & After ใหญ่ */}
+      {/* ประสบการณ์จริง — Slider ขนาดใหญ่ */}
       <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl lg:text-3xl font-light mb-3" style={{ color: "#3a2e2b" }}>
               ประสบการณ์จริงจากผู้ใช้บริการ
             </h2>
             <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#8b7f7c" }}>
               ภาพ Before & After จริง ไม่ตกแต่ง ไม่ใช้ฟิลเตอร์
-              เพื่อให้คุณเห็นผลลัพธ์ที่แท้จริงก่อนตัดสินใจ
+              ลากเพื่อเปรียบเทียบผลลัพธ์
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Case ใหญ่ — คู่ 2 */}
-            <div className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
-              <div className="grid grid-cols-2 gap-0">
-                <div className="relative" style={{ aspectRatio: "3/4" }}>
-                  <Image src="/images/reviews/case-3-before.jpg" alt="Before" fill className="object-cover" sizes="25vw" />
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>BEFORE</div>
-                </div>
-                <div className="relative" style={{ aspectRatio: "3/4" }}>
-                  <Image src="/images/reviews/case-3-after.jpg" alt="After" fill className="object-cover" sizes="25vw" />
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>AFTER</div>
-                </div>
-              </div>
-              <div className="p-4 text-center" style={{ backgroundColor: "#faf9f8" }}>
-                <p className="text-sm font-medium" style={{ color: "#69554a" }}>Review ฟิลเลอร์ใต้ตา คุณนุช</p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden" style={{ border: "1px solid #e0ddd9" }}>
-              <div className="grid grid-cols-2 gap-0">
-                <div className="relative" style={{ aspectRatio: "3/4" }}>
-                  <Image src="/images/reviews/case-5-before.jpg" alt="Before" fill className="object-cover" sizes="25vw" />
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#69554a", color: "#fff" }}>BEFORE</div>
-                </div>
-                <div className="relative" style={{ aspectRatio: "3/4" }}>
-                  <Image src="/images/reviews/case-5-after.jpg" alt="After" fill className="object-cover" sizes="25vw" />
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 text-[10px] font-medium" style={{ backgroundColor: "#c38789", color: "#fff" }}>AFTER</div>
-                </div>
-              </div>
-              <div className="p-4 text-center" style={{ backgroundColor: "#faf9f8" }}>
-                <p className="text-sm font-medium" style={{ color: "#69554a" }}>Review ฟิลเลอร์ใต้ตา คุณยู</p>
-              </div>
-            </div>
+          <div className="grid sm:grid-cols-2 gap-8">
+            <BeforeAfterSlider
+              before="/images/reviews/case-3-before.jpg"
+              after="/images/reviews/case-3-after.jpg"
+              altBefore="Before — คุณนุช"
+              altAfter="After — คุณนุช"
+              label="โปรแกรมฟิลเลอร์"
+            />
+            <BeforeAfterSlider
+              before="/images/reviews/case-5-before.jpg"
+              after="/images/reviews/case-5-after.jpg"
+              altBefore="Before — คุณยู"
+              altAfter="After — คุณยู"
+              label="โปรแกรมฟิลเลอร์"
+            />
           </div>
         </div>
       </section>

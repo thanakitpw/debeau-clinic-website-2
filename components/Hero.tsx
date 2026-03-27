@@ -9,34 +9,37 @@ const luxuryEase = [0.25, 0.1, 0.25, 1] as const;
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background — Mobile: สีพื้น gradient / Desktop: รูปภาพ */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/hero-cover.jpg"
-          alt="Luxury beauty clinic interior"
-          fill
-          priority
-          className="object-cover"
-        />
-        {/* Overlay เข้มขึ้นบน mobile เพื่ออ่านง่าย */}
+        {/* รูป hero เฉพาะ desktop */}
+        <div className="hidden lg:block absolute inset-0">
+          <Image
+            src="/images/hero-cover.jpg"
+            alt="Luxury beauty clinic interior"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(58,46,43,0.7) 0%, rgba(58,46,43,0.45) 40%, rgba(58,46,43,0.15) 70%, transparent 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to top, rgba(58,46,43,0.3) 0%, transparent 30%)",
+            }}
+          />
+        </div>
+        {/* Mobile: gradient สีแบรนด์ */}
         <div
-          className="absolute inset-0 hidden lg:block"
+          className="lg:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(58,46,43,0.7) 0%, rgba(58,46,43,0.45) 40%, rgba(58,46,43,0.15) 70%, transparent 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 lg:hidden"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(58,46,43,0.65) 0%, rgba(58,46,43,0.4) 50%, rgba(58,46,43,0.55) 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(58,46,43,0.3) 0%, transparent 30%)",
+              "linear-gradient(160deg, #3a2e2b 0%, #69554a 40%, #8b7f7c 100%)",
           }}
         />
       </div>

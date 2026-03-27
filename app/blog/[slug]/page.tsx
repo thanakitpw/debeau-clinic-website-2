@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Clock, Tag, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, Tag, CheckCircle, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";

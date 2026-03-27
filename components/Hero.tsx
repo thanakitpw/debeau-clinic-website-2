@@ -71,11 +71,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: luxuryEase, type: "tween" }}
           >
-            ศิลปะแห่ง
+            ดูแลผิวพรรณและ
             <br />
-            <span className="text-[#c38789] italic">ความงาม</span>
+            <span className="text-[#c38789] italic">ออกแบบความงาม</span>
             <br />
-            เฉพาะคุณ
+            เฉพาะบุคคล
           </motion.h1>
 
           {/* Description */}

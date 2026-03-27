@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Clock, Tag, BookOpen, CheckCircle } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, Clock, Tag, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
@@ -82,24 +83,19 @@ export default async function BlogPostPage({
               {post.excerpt}
             </p>
 
-            {/* Cover image placeholder */}
-            <div
-              className="w-full flex flex-col items-center justify-center gap-4 overflow-hidden"
-              style={{
-                minHeight: "300px",
-                backgroundColor: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.15)",
-                borderBottom: "none",
-              }}
-            >
-              <BookOpen size={52} style={{ color: "rgba(255,255,255,0.4)" }} />
-              <p className="text-sm font-light" style={{ color: "rgba(255,255,255,0.35)" }}>
-                ใส่รูปภาพประกอบบทความ
-              </p>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-                Cover Image · {post.titleEn}
-              </p>
-            </div>
+            {/* Cover image */}
+            {post.image && (
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </section>
 
@@ -121,14 +117,27 @@ export default async function BlogPostPage({
             <div className="flex flex-col gap-12">
               {post.content.sections.map((section, i) => (
                 <div key={i} className="flex flex-col gap-4">
-                  {/* In-article image placeholder */}
-                  {i === 1 && (
-                    <div
-                      className="w-full flex flex-col items-center justify-center gap-2 border-2 border-dashed mb-2"
-                      style={{ minHeight: "200px", borderColor: "#e0ddd9", backgroundColor: "#f9f8f7" }}
-                    >
-                      <BookOpen size={28} style={{ color: "#c7bfb5" }} />
-                      <p className="text-xs" style={{ color: "#c7bfb5" }}>ใส่รูปภาพประกอบ</p>
+                  {/* In-article image */}
+                  {i === 1 && post.articleImages?.[0] && (
+                    <div className="relative w-full overflow-hidden mb-2" style={{ aspectRatio: "16/9" }}>
+                      <Image
+                        src={post.articleImages[0].src}
+                        alt={post.articleImages[0].alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
+                    </div>
+                  )}
+                  {i === 3 && post.articleImages?.[1] && (
+                    <div className="relative w-full overflow-hidden mb-2" style={{ aspectRatio: "16/9" }}>
+                      <Image
+                        src={post.articleImages[1].src}
+                        alt={post.articleImages[1].alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
                     </div>
                   )}
 

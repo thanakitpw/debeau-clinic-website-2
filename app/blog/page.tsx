@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { ArrowRight, Clock, Tag, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -97,20 +98,26 @@ export default function BlogPage() {
                     style={{ border: "1px solid #e0ddd9" }}
                   >
                     {/* Image */}
-                    <div
-                      className="relative h-72 lg:h-auto min-h-[280px] flex items-center justify-center"
-                      style={{
-                        background: `linear-gradient(135deg, ${featured.gradientFrom}, ${featured.gradientTo})`,
-                      }}
-                    >
-                      {/* Decorative circles */}
-                      <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full opacity-20" style={{ backgroundColor: "#fff" }} />
-                        <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#fff" }} />
-                      </div>
-                      <div className="relative z-10 text-center px-8">
-                        <BookOpen size={48} style={{ color: "rgba(255,255,255,0.9)" }} className="mx-auto mb-4" />
-                        <p className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    <div className="relative h-72 lg:h-auto min-h-[280px] overflow-hidden">
+                      {featured.image ? (
+                        <Image
+                          src={featured.image}
+                          alt={featured.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0 flex items-center justify-center"
+                          style={{ background: `linear-gradient(135deg, ${featured.gradientFrom}, ${featured.gradientTo})` }}
+                        >
+                          <BookOpen size={48} style={{ color: "rgba(255,255,255,0.9)" }} />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <div className="absolute bottom-4 left-4 z-10 text-left">
+                        <p className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: "rgba(255,255,255,0.9)" }}>
                           {featured.titleEn}
                         </p>
                       </div>

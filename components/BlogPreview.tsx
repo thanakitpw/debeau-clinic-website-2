@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock, Sparkles } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 import { ScrollReveal } from "./MotionWrapper";
@@ -37,46 +38,27 @@ export default function BlogPreview() {
                 href={`/blog/${post.slug}`}
                 className="group flex flex-col bg-[#f5f2ef] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-pointer h-full"
               >
-                {/* Gradient Cover Image */}
-                <div
-                  className="relative h-56 overflow-hidden flex items-center justify-center"
-                  style={{
-                    background: `linear-gradient(135deg, ${post.gradientFrom}, ${post.gradientTo})`,
-                  }}
-                >
-                  {/* Decorative elements */}
-                  <div className="absolute inset-0 overflow-hidden">
+                {/* Cover Image */}
+                <div className="relative h-56 overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  ) : (
                     <div
-                      className="absolute -top-10 -right-10 w-44 h-44 rounded-full opacity-15"
-                      style={{ backgroundColor: "#fff" }}
-                    />
-                    <div
-                      className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full opacity-10"
-                      style={{ backgroundColor: "#fff" }}
-                    />
-                    <div
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full opacity-[0.05]"
-                      style={{ backgroundColor: "#fff" }}
-                    />
-                  </div>
-
-                  {/* Center icon and text */}
-                  <div className="relative z-10 text-center px-6">
-                    <Sparkles
-                      size={36}
-                      className="mx-auto mb-3 transition-transform duration-500 group-hover:scale-110"
-                      style={{ color: "rgba(255,255,255,0.9)" }}
-                    />
-                    <p
-                      className="text-[11px] tracking-[0.25em] uppercase font-medium"
-                      style={{ color: "rgba(255,255,255,0.75)" }}
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{ background: `linear-gradient(135deg, ${post.gradientFrom}, ${post.gradientTo})` }}
                     >
-                      {post.titleEn}
-                    </p>
-                  </div>
-
+                      <Sparkles size={36} style={{ color: "rgba(255,255,255,0.9)" }} />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e2b]/40 via-transparent to-transparent" />
                   {/* Category badge */}
-                  <span className="absolute top-4 left-4 text-[10px] tracking-[0.2em] uppercase font-medium px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#69554a] rounded-full">
+                  <span className="absolute top-4 left-4 text-[10px] tracking-[0.2em] uppercase font-medium px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#69554a]">
                     {post.category}
                   </span>
                 </div>

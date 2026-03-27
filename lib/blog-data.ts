@@ -9,6 +9,8 @@ export interface BlogPost {
   gradientFrom: string;
   gradientTo: string;
   accentColor: string;
+  image?: string;
+  articleImages?: { src: string; alt: string }[];
   content: {
     intro: string;
     sections: { heading: string; body: string }[];
@@ -29,6 +31,11 @@ export const blogPosts: BlogPost[] = [
     gradientFrom: "#c38789",
     gradientTo: "#8b7f7c",
     accentColor: "#c38789",
+    image: "/images/blog/cover-filler-under-eye.png",
+    articleImages: [
+      { src: "/images/blog/article-filler-process.png", alt: "ขั้นตอนการฉีดฟิลเลอร์ใต้ตา" },
+      { src: "/images/blog/article-filler-result.png", alt: "ผลลัพธ์ฟิลเลอร์ใต้ตา" },
+    ],
     content: {
       intro:
         "ฟิลเลอร์ใต้ตา (Tear Trough Filler) คือการฉีดสาร Hyaluronic Acid (HA) บริเวณร่องใต้ตาหรือ Tear Trough เพื่อเติมเต็มความลึก ลดรอยเงาคล้ำ และทำให้ผิวบริเวณนั้นดูกระจ่างใสขึ้น ถือเป็นหัตถการที่ต้องอาศัยความชำนาญสูงของแพทย์ผู้เชี่ยวชาญ",
@@ -66,6 +73,11 @@ export const blogPosts: BlogPost[] = [
     gradientFrom: "#69554a",
     gradientTo: "#c7bfb5",
     accentColor: "#69554a",
+    image: "/images/blog/cover-botox-wrinkles.png",
+    articleImages: [
+      { src: "/images/blog/article-botox-areas.png", alt: "บริเวณที่ฉีด Botox ได้" },
+      { src: "/images/blog/article-botox-result.png", alt: "ผลลัพธ์การฉีด Botox" },
+    ],
     content: {
       intro:
         "Botox (Botulinum Toxin Type A) เป็นโปรตีนบริสุทธิ์ที่ใช้ในเวชศาสตร์ความงามมานานกว่า 20 ปี โดยออกฤทธิ์ยับยั้งการส่งสัญญาณประสาทไปยังกล้ามเนื้อชั่วคราว ทำให้กล้ามเนื้อบริเวณที่ฉีดผ่อนคลาย ริ้วรอยที่เกิดจากการเคลื่อนไหวของกล้ามเนื้อจึงลดลงหรือหายไปอย่างเป็นธรรมชาติ ที่ De Beau Clinic หมอโบใช้เทคนิคการฉีดที่ให้ผลลัพธ์ดูเป็นธรรมชาติ ไม่ดูแข็งทื่อ",
@@ -103,6 +115,11 @@ export const blogPosts: BlogPost[] = [
     gradientFrom: "#8b7f7c",
     gradientTo: "#c38789",
     accentColor: "#8b7f7c",
+    image: "/images/blog/cover-laser-clear-skin.png",
+    articleImages: [
+      { src: "/images/blog/article-laser-types.png", alt: "เครื่องเลเซอร์ที่คลินิก" },
+      { src: "/images/blog/article-laser-result.png", alt: "ผลลัพธ์เลเซอร์หน้าใส" },
+    ],
     content: {
       intro:
         "การทำ Laser หน้าใสคือหนึ่งในหัตถการยอดนิยมสำหรับผู้ที่ต้องการผิวหน้ากระจ่างใส ลดปัญหาฝ้า กระ จุดด่างดำ รอยสิว และรูขุมขนกว้าง เลเซอร์ทำงานโดยส่งพลังงานแสงเข้าสู่ชั้นผิวเพื่อกระตุ้นการสร้างคอลลาเจนและเร่งกระบวนการผลัดเซลล์ผิว ทำให้ผิวใหม่ที่สดใสขึ้นมาแทนที่",

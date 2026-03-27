@@ -12,7 +12,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-banner.png"
+          src="/images/hero-cover.jpg"
           alt="Luxury beauty clinic interior"
           fill
           priority
@@ -23,20 +23,20 @@ export default function Hero() {
           className="absolute inset-0 hidden lg:block"
           style={{
             background:
-              "linear-gradient(to right, rgba(58,46,43,0.92) 0%, rgba(58,46,43,0.75) 40%, rgba(58,46,43,0.4) 70%, rgba(58,46,43,0.2) 100%)",
+              "linear-gradient(to right, rgba(58,46,43,0.7) 0%, rgba(58,46,43,0.45) 40%, rgba(58,46,43,0.15) 70%, transparent 100%)",
           }}
         />
         <div
           className="absolute inset-0 lg:hidden"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(58,46,43,0.85) 0%, rgba(58,46,43,0.6) 50%, rgba(58,46,43,0.75) 100%)",
+              "linear-gradient(to bottom, rgba(58,46,43,0.65) 0%, rgba(58,46,43,0.4) 50%, rgba(58,46,43,0.55) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, rgba(58,46,43,0.5) 0%, transparent 40%)",
+            background: "linear-gradient(to top, rgba(58,46,43,0.3) 0%, transparent 30%)",
           }}
         />
       </div>
@@ -59,23 +59,6 @@ export default function Hero() {
             <span className="font-sans text-[11px] lg:text-[14px] tracking-[0.2em] lg:tracking-[0.3em] uppercase text-[#c38789]">
               Aesthetic & Wellness Center
             </span>
-          </motion.div>
-
-          {/* Logo — ซ่อนบน mobile เพราะซ้ำกับ navbar */}
-          <motion.div
-            className="mb-8 hidden lg:block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: luxuryEase, type: "tween" }}
-          >
-            <Image
-              src="/logo.png"
-              alt="DE BEAU CLINIC"
-              width={500}
-              height={100}
-              className="h-24 w-auto brightness-0 invert"
-              style={{ display: "block" }}
-            />
           </motion.div>
 
           {/* Heading */}

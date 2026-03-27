@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between h-20">
-        <Link href="/" className="flex items-center cursor-pointer lg:hidden">
+        <Link href="/" className="flex items-center cursor-pointer">
           <Image
             src="/logo.png"
             alt="DE BEAU CLINIC"

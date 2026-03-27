@@ -223,18 +223,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Clinic Image Banner */}
-      <section className="relative" style={{ height: "320px" }}>
-        <Image
-          src="/images/clinic-photo-4.jpg"
-          alt="DE BEAU CLINIC Interior"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(105,85,74,0.4)" }} />
-      </section>
-
       {/* CTA */}
       <section className="py-20 px-6 text-center" style={{ backgroundColor: "#e8e7e5" }}>
         <div className="max-w-xl mx-auto">

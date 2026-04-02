@@ -120,7 +120,7 @@ export default function CustomerReviewsPage() {
             </div>
 
             {/* ขวา — รูป Cover */}
-            <div className="relative overflow-hidden hidden lg:block" style={{ aspectRatio: "4/3" }}>
+            <div className="relative overflow-hidden hidden lg:block" style={{ aspectRatio: "1/1" }}>
               <Image
                 src="/images/reviews/cover.jpg"
                 alt="ขอบคุณทุกความประทับใจจากคนไข้จริง"

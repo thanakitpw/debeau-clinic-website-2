@@ -452,7 +452,7 @@ export default function ServicePageLayout({
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium cursor-pointer"
-              style={{ backgroundColor: "#06C755", color: "#fff" }}
+              style={{ backgroundColor: "#c38789", color: "#fff" }}
             >
               ปรึกษาหมอโบฟรี ผ่าน LINE
             </a>

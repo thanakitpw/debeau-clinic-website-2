@@ -32,7 +32,7 @@ export default function FloatingLine() {
         aria-label="ปรึกษาฟรีผ่าน LINE"
         className="group flex items-center gap-0 overflow-hidden shadow-2xl transition-all duration-300 hover:gap-2 hover:pr-5 hover:shadow-[0_8px_30px_rgba(6,199,85,0.3)] cursor-pointer"
         style={{
-          backgroundColor: "#06C755",
+          backgroundColor: "#c38789",
           color: "#fff",
           paddingLeft: "16px",
           paddingRight: "16px",

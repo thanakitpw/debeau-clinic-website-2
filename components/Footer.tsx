@@ -58,7 +58,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 w-fit px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase font-medium transition-opacity hover:opacity-80 cursor-pointer"
-            style={{ backgroundColor: "#06C755", color: "#fff" }}
+            style={{ backgroundColor: "#c38789", color: "#fff" }}
           >
             LINE @debeauclinic
           </a>

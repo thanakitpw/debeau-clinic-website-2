@@ -49,42 +49,9 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         solidBg
           ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(195,135,137,0.12)]"
-          : "bg-transparent"
+          : ""
       }`}
     >
-      {/* Top bar */}
-      <div
-        className={`hidden lg:block transition-all duration-500 overflow-hidden ${
-          scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-8 py-2 flex items-center justify-between text-[11px] tracking-wider">
-          <span style={{ color: solidBg ? "#8b7f7c" : "rgba(255,255,255,0.5)" }}>
-            249 อาคาร 24 house ชั้น 1 ซอย โยธินพัฒนา1 · บางกะปิ กรุงเทพฯ
-          </span>
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:097-426-6956"
-              className="flex items-center gap-1.5 cursor-pointer hover:opacity-70"
-              style={{ color: solidBg ? "#8b7f7c" : "rgba(255,255,255,0.5)" }}
-            >
-              <Phone size={11} />
-              097-426-6956
-            </a>
-            <span style={{ color: solidBg ? "#c38789" : "rgba(195,135,137,0.6)" }}>
-              จันทร์–เสาร์ 10:00–19:00 น.
-            </span>
-          </div>
-        </div>
-        <div
-          className="h-px"
-          style={{
-            background: solidBg
-              ? "linear-gradient(to right, transparent, #d9d3cc, transparent)"
-              : "linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent)",
-          }}
-        />
-      </div>
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between h-20">
@@ -94,9 +61,7 @@ export default function Navbar() {
             alt="DE BEAU CLINIC"
             width={260}
             height={52}
-            className={`h-12 w-auto transition-all duration-500 ${
-              !solidBg ? "brightness-0 invert" : ""
-            }`}
+            className="h-12 w-auto transition-all duration-500"
             style={{ display: "block" }}
           />
         </Link>
@@ -115,9 +80,7 @@ export default function Navbar() {
                   style={{
                     color: isServiceActive
                       ? "#c38789"
-                      : solidBg
-                      ? "#69554a"
-                      : "#fff",
+                      : "#69554a",
                   }}
                 >
                   {link.label}
@@ -128,10 +91,17 @@ export default function Navbar() {
                     }`}
                   />
                 </button>
-                {servicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white shadow-2xl overflow-hidden py-2 border border-[#e8e7e5]">
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c38789] to-transparent" />
-                    {services.map((s) => (
+                {/* Dropdown bridge + menu */}
+                <div
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 transition-all duration-300 ${
+                    servicesOpen
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+                >
+                  <div className="bg-white shadow-2xl overflow-hidden py-2 border border-[#e8e7e5]">
+                    <div className="absolute top-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c38789] to-transparent" />
+                    {services.map((s, i) => (
                       <Link
                         key={s.href}
                         href={s.href}
@@ -140,6 +110,7 @@ export default function Navbar() {
                           color: pathname.startsWith(s.href)
                             ? "#c38789"
                             : "#69554a",
+                          transitionDelay: servicesOpen ? `${i * 30}ms` : "0ms",
                         }}
                         onClick={() => setServicesOpen(false)}
                       >
@@ -150,7 +121,7 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
             ) : (
               <Link
@@ -160,9 +131,7 @@ export default function Navbar() {
                 style={{
                   color: isActive(link.href)
                     ? "#c38789"
-                    : solidBg
-                    ? "#69554a"
-                    : "#fff",
+                    : "#69554a",
                 }}
               >
                 {link.label}
@@ -194,7 +163,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden p-2 cursor-pointer"
-          style={{ color: solidBg ? "#69554a" : "#fff" }}
+          style={{ color: "#69554a" }}
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}

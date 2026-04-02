@@ -9,28 +9,23 @@ const luxuryEase = [0.25, 0.1, 0.25, 1] as const;
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background — Mobile: สีพื้น gradient / Desktop: รูปภาพ */}
+      {/* Background */}
       <div className="absolute inset-0">
-        {/* รูป hero เฉพาะ desktop */}
+        {/* Desktop: รูปภาพ + frosted cream overlay */}
         <div className="hidden lg:block absolute inset-0">
           <Image
             src="/images/hero-cover.jpg"
-            alt="Luxury beauty clinic interior"
+            alt="DE BEAU CLINIC"
             fill
             priority
             className="object-cover"
           />
+          {/* Frosted cream overlay ฝั่งซ้าย — ให้อ่านข้อความสีเข้มได้ชัด */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to right, rgba(58,46,43,0.7) 0%, rgba(58,46,43,0.45) 40%, rgba(58,46,43,0.15) 70%, transparent 100%)",
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to top, rgba(58,46,43,0.3) 0%, transparent 30%)",
+                "linear-gradient(to right, rgba(245,242,239,0.85) 0%, rgba(245,242,239,0.6) 35%, rgba(245,242,239,0.15) 55%, transparent 65%)",
             }}
           />
         </div>
@@ -46,7 +41,6 @@ export default function Hero() {
 
       {/* Decorative lines — ซ่อนบน mobile */}
       <div className="absolute top-0 left-[10%] w-px h-full bg-gradient-to-b from-transparent via-[#c38789]/15 to-transparent hidden lg:block" />
-      <div className="absolute top-0 right-[10%] w-px h-full bg-gradient-to-b from-transparent via-[#c38789]/10 to-transparent hidden xl:block" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-28 lg:pt-36 pb-24 lg:pb-28">
@@ -64,9 +58,9 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Heading */}
+          {/* Heading — สีเข้มทั้ง mobile + desktop */}
           <motion.h1
-            className="font-sans text-[2.5rem] lg:text-7xl font-light text-[#3a2e2b] lg:text-white leading-[1.1] lg:leading-[1.05] mb-5 lg:mb-8 tracking-wide"
+            className="font-sans text-[2.5rem] lg:text-7xl font-light text-[#3a2e2b] leading-[1.1] lg:leading-[1.05] mb-5 lg:mb-8 tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: luxuryEase, type: "tween" }}
@@ -80,7 +74,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-[17px] lg:text-[20px] font-light text-[#69554a] lg:text-white/70 mb-8 lg:mb-12 leading-relaxed max-w-lg"
+            className="text-[17px] lg:text-[20px] font-light text-[#69554a] mb-8 lg:mb-12 leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: luxuryEase, type: "tween" }}
@@ -108,7 +102,7 @@ export default function Hero() {
             </a>
             <a
               href="#services"
-              className="btn-outline text-center justify-center border-[#69554a]/30 text-[#3a2e2b] lg:border-white/25 lg:text-white"
+              className="btn-outline text-center justify-center border-[#69554a]/30 text-[#3a2e2b]"
             >
               ดูบริการทั้งหมด
             </a>
@@ -121,22 +115,22 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8, ease: luxuryEase, type: "tween" }}
           >
-            <div className="flex items-center gap-3 px-4 lg:px-5 py-2.5 lg:py-3 bg-[#69554a]/10 lg:bg-white/5 backdrop-blur-sm border border-[#69554a]/15 lg:border-white/10">
+            <div className="flex items-center gap-3 px-4 lg:px-5 py-2.5 lg:py-3 bg-white/60 backdrop-blur-sm border border-[#d9d3cc]/50">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={11} fill="#c38789" color="#c38789" />
                 ))}
               </div>
-              <span className="text-[12px] lg:text-[13px] tracking-wide text-[#69554a] lg:text-white/70">
+              <span className="text-[12px] lg:text-[13px] tracking-wide text-[#69554a]">
                 5,000+ เคสที่ไว้วางใจ
               </span>
             </div>
             <div className="flex items-center gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c] lg:text-white/50">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c]">
                 <Check size={14} className="text-[#c38789]" />
                 แพทย์ดูแลทุกเคส
               </div>
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c] lg:text-white/50">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c]">
                 <Check size={14} className="text-[#c38789]" />
                 ประสบการณ์ 16+ ปี
               </div>

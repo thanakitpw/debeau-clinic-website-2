@@ -115,12 +115,6 @@ export default function BlogPage() {
                           <BookOpen size={48} style={{ color: "rgba(255,255,255,0.9)" }} />
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                      <div className="absolute bottom-4 left-4 z-10 text-left">
-                        <p className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: "rgba(255,255,255,0.9)" }}>
-                          {featured.titleEn}
-                        </p>
-                      </div>
                     </div>
 
                     {/* Content */}
@@ -176,22 +170,23 @@ export default function BlogPage() {
                         style={{ border: "1px solid #e0ddd9", backgroundColor: "#faf9f8" }}
                       >
                         {/* Card Image */}
-                        <div
-                          className="relative h-44 flex items-center justify-center overflow-hidden"
-                          style={{
-                            background: `linear-gradient(135deg, ${post.gradientFrom}, ${post.gradientTo})`,
-                          }}
-                        >
-                          <div className="absolute inset-0 overflow-hidden">
-                            <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full opacity-20" style={{ backgroundColor: "#fff" }} />
-                            <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-10" style={{ backgroundColor: "#fff" }} />
-                          </div>
-                          <div className="relative z-10 text-center px-6">
-                            <BookOpen size={32} style={{ color: "rgba(255,255,255,0.85)" }} className="mx-auto mb-2" />
-                            <p className="text-[10px] tracking-[0.25em] uppercase" style={{ color: "rgba(255,255,255,0.6)" }}>
-                              {post.titleEn}
-                            </p>
-                          </div>
+                        <div className="relative h-44 overflow-hidden">
+                          {post.image ? (
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                          ) : (
+                            <div
+                              className="absolute inset-0 flex items-center justify-center"
+                              style={{ background: `linear-gradient(135deg, ${post.gradientFrom}, ${post.gradientTo})` }}
+                            >
+                              <BookOpen size={32} style={{ color: "rgba(255,255,255,0.85)" }} />
+                            </div>
+                          )}
                         </div>
 
                         {/* Card Content */}

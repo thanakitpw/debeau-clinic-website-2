@@ -169,31 +169,70 @@ export default function Navbar() {
           style={{ color: "#69554a" }}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu size={24} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-[#e8e7e5] px-8 py-8 flex flex-col gap-1">
+      {/* Mobile Menu — full-screen slide from right */}
+      {/* Backdrop */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ backgroundColor: "rgba(58,46,43,0.5)" }}
+        onClick={() => setIsOpen(false)}
+      />
+      {/* Drawer */}
+      <div
+        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-full bg-white flex flex-col transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-8 h-20 border-b border-[#e8e7e5] shrink-0">
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/logo.png"
+              alt="DE BEAU CLINIC"
+              width={200}
+              height={40}
+              className="h-10 w-auto"
+            />
+          </Link>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 cursor-pointer"
+            style={{ color: "#69554a" }}
+            aria-label="ปิดเมนู"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Menu items */}
+        <div className="flex-1 overflow-y-auto px-8 py-6 flex flex-col gap-1">
           {navLinks.map((link) =>
             link.hasDropdown ? (
               <div key="services">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
-                  className="flex items-center justify-between w-full py-3 text-[13px] tracking-[0.12em] cursor-pointer"
+                  className="flex items-center justify-between w-full py-4 text-[13px] tracking-[0.12em] cursor-pointer border-b border-[#e8e7e5]"
                   style={{ color: isServiceActive ? "#c38789" : "#69554a" }}
                 >
                   {link.label}
                   <ChevronDown
                     size={16}
-                    className={`transition-transform ${
+                    className={`transition-transform duration-200 ${
                       servicesOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
-                {servicesOpen && (
-                  <div className="pl-4 flex flex-col gap-1 mb-2 border-l border-[#c38789]/20">
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    servicesOpen ? "max-h-96" : "max-h-0"
+                  }`}
+                >
+                  <div className="pl-4 flex flex-col gap-0 py-2 border-l-2 border-[#c38789]/20 ml-2">
                     {services.map((s) => (
                       <Link
                         key={s.href}
@@ -202,7 +241,7 @@ export default function Navbar() {
                           setIsOpen(false);
                           setServicesOpen(false);
                         }}
-                        className="py-2.5 text-[12px] tracking-[0.1em] cursor-pointer"
+                        className="py-3 text-[12px] tracking-[0.1em] cursor-pointer"
                         style={{
                           color: pathname.startsWith(s.href)
                             ? "#c38789"
@@ -213,31 +252,38 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
             ) : (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="py-3 text-[13px] tracking-[0.12em] cursor-pointer"
+                className="py-4 text-[13px] tracking-[0.12em] cursor-pointer border-b border-[#e8e7e5]"
                 style={{ color: isActive(link.href) ? "#c38789" : "#69554a" }}
               >
                 {link.label}
               </Link>
             )
           )}
+        </div>
+
+        {/* CTA at bottom */}
+        <div className="px-8 pb-8 pt-4 shrink-0">
           <a
             href="https://line.me/R/ti/p/@debeauclinic"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center py-3.5 text-[13px] tracking-[0.15em] uppercase mt-4 cursor-pointer"
+            className="flex items-center justify-center gap-2.5 py-4 text-[13px] tracking-[0.15em] uppercase w-full cursor-pointer"
             style={{ backgroundColor: "#c38789", color: "#fff" }}
           >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+            </svg>
             นัดหมายปรึกษา
           </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }

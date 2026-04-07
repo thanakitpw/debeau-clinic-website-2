@@ -96,7 +96,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className={`${notoSansThai.variable} antialiased`}>
+      <body className={`${notoSansThai.variable} antialiased overflow-x-hidden`}>
         <SchemaOrg />
         {children}
         <CookieConsent />

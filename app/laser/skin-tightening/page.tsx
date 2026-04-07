@@ -5,10 +5,11 @@ import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
+// Metadata ตรงกับเนื้อหาเว็บเดิม
 export const metadata: Metadata = {
-  title: "เลเซอร์ยกกระชับหน้า Ulthera | DE BEAU CLINIC",
+  title: "เลเซอร์ยกกระชับหน้า Ulthera (MFU-V) | DE BEAU CLINIC",
   description:
-    "Ulthera ยกกระชับหน้าด้วย MFU-V เทคโนโลยี ส่งคลื่นเสียงความถี่สูงลงชั้น SMAS ลึก 3-4.5 มม. ไม่ต้องผ่าตัด ไม่ต้องพักฟื้น กระตุ้นคอลลาเจน เห็นผล 2-3 เดือน อยู่นานถึง 1 ปี ได้รับการรับรอง US FDA โดยหมอโบ เดอโบคลินิก",
+    "Ulthera ยกกระชับหน้าด้วย Micro Focused Ultrasound Visualization (MFU-V) ส่งคลื่นเสียงความถี่สูงลงชั้น SMAS ลึก 3–4.5 มม. ไม่ต้องผ่าตัด ไม่ต้องพักฟื้น กระตุ้นคอลลาเจน เห็นผล 2–3 เดือน อยู่นานถึง 1 ปี ได้รับการรับรอง US FDA โดยหมอโบ เดอโบคลินิก",
 };
 
 export default function SkinTighteningPage() {
@@ -112,6 +113,9 @@ export default function SkinTighteningPage() {
         ]}
         parentBreadcrumb={{ label: "เลเซอร์", href: "/laser" }}
         accentColor="#69554a"
+        areasTitle="บริเวณที่รักษาได้ด้วย Ulthera"
+        heroImage="/images/laser/laser-template-02.jpg"
+        heroImageAlt="เลเซอร์ยกกระชับหน้า Ulthera เดอโบคลินิก — MFU-V Technology"
       />
       <Footer />
       <FloatingLine />

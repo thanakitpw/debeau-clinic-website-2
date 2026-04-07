@@ -5,10 +5,11 @@ import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
+// Metadata ตรงกับเว็บเดิม debeauclinic.com/laser/
 export const metadata: Metadata = {
-  title: "เลเซอร์หน้าใส ฝ้ากระ Picosure & Helios | DE BEAU CLINIC",
+  title: "เลเซอร์หน้าใส ฝ้ากระ Picosure & Helios Q-Switch ND YAG | DE BEAU CLINIC",
   description:
-    "รักษาฝ้า กระ จุดด่างดำ รอยสิว หลุมสิว กำจัดขน ด้วย Picosure, Helios Q-Switch ND YAG, Fraxel และ Lumenis ONE เทคโนโลยีเลเซอร์ระดับสากล ผ่าน US FDA โดยแพทย์เฉพาะทางผิวหนังประสบการณ์กว่า 16 ปี ที่เดอโบคลินิก",
+    "รักษาฝ้า กระ จุดด่างดำ รอยสิว หลุมสิว กำจัดขน ด้วย Fractional Q-Switch ND YAG/Helios, Fraxel และ Lumenis ONE เทคโนโลยีเลเซอร์ระดับสากล ผ่าน US FDA โดยแพทย์เฉพาะทางผิวหนังประสบการณ์กว่า 16 ปี ที่เดอโบคลินิก",
 };
 
 export default function SkinBrighteningPage() {
@@ -122,6 +123,9 @@ export default function SkinBrighteningPage() {
         ]}
         parentBreadcrumb={{ label: "เลเซอร์", href: "/laser" }}
         accentColor="#c38789"
+        areasTitle="โปรแกรมเลเซอร์ที่ให้บริการ"
+        heroImage="/images/laser/laser-template-01.jpg"
+        heroImageAlt="เลเซอร์หน้าใส ฝ้ากระ เดอโบคลินิก — Fractional Q-Switch ND YAG / Helios"
       />
       <Footer />
       <FloatingLine />

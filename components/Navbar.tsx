@@ -8,6 +8,9 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 const services = [
   { label: "ฟิลเลอร์", href: "/filler" },
+  { label: "— ฟิลเลอร์ใต้ตา", href: "/filler/under-eye" },
+  { label: "— ฟิลเลอร์ปาก", href: "/filler/lip" },
+  { label: "— สลายฟิลเลอร์", href: "/filler/dissolving" },
   { label: "ลดริ้วรอย (Botox)", href: "/botox" },
   { label: "เลเซอร์หน้าใส ฝ้ากระ", href: "/laser/skin-brightening" },
   { label: "เลเซอร์ยกกระชับหน้า", href: "/laser/skin-tightening" },

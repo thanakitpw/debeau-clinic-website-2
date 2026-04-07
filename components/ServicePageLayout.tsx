@@ -2,10 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+import SectionImage from "@/components/SectionImage";
 
 export interface ServiceSection {
   title: string;
   content: string;
+  /** รูปภาพประกอบ section (ถ้าไม่ส่งจะแสดงเลข 01/02/...) */
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface ServiceFeature {
@@ -27,12 +31,18 @@ export interface ServicePageProps {
   whatIs: string;
   features: ServiceFeature[];
   areas?: ServiceArea[];
+  /** หัวข้อสำหรับ areas section (ค่าเริ่มต้น: "ฉีดบริเวณไหนได้บ้าง?") */
+  areasTitle?: string;
   suitableFor?: string[];
   sections?: ServiceSection[];
   ctaText?: string;
   relatedServices?: { label: string; href: string }[];
   accentColor?: string;
   parentBreadcrumb?: { label: string; href: string };
+  /** รูปภาพใน Image Section (ถ้าไม่ส่งจะใช้ /images/treatment-room.png เป็นค่าเริ่มต้น) */
+  heroImage?: string;
+  /** alt text สำหรับรูปภาพ Image Section */
+  heroImageAlt?: string;
 }
 
 const LINE_URL = "https://line.me/R/ti/p/@debeauclinic";
@@ -45,12 +55,15 @@ export default function ServicePageLayout({
   whatIs,
   features,
   areas,
+  areasTitle = "ฉีดบริเวณไหนได้บ้าง?",
   suitableFor,
   sections,
   ctaText = "ปรึกษาหมอโบฟรี",
   relatedServices,
   accentColor = "#c38789",
   parentBreadcrumb,
+  heroImage = "/images/treatment-room.png",
+  heroImageAlt = "De Beau Clinic treatment",
 }: ServicePageProps) {
   return (
     <div style={{ backgroundColor: "#e8e7e5" }}>
@@ -228,15 +241,15 @@ export default function ServicePageLayout({
       </section>
 
       {/* ── Image Section ── */}
-      <section className="px-6 pb-0" style={{ backgroundColor: "#fff" }}>
+      <section className="px-6 pb-16" style={{ backgroundColor: "#fff" }}>
         <div className="max-w-5xl mx-auto">
           <div
             className="w-full overflow-hidden"
             style={{ minHeight: "320px", position: "relative" }}
           >
             <Image
-              src="/images/treatment-room.png"
-              alt="De Beau Clinic treatment"
+              src={heroImage}
+              alt={heroImageAlt}
               fill
               className="object-cover img-zoom"
               sizes="(max-width: 768px) 100vw, 1200px"
@@ -257,7 +270,7 @@ export default function ServicePageLayout({
                 <div className="text-center mb-12">
                   <p className="section-label">บริเวณที่รักษาได้</p>
                   <h2 className="section-heading mt-2">
-                    ฉีดบริเวณไหนได้บ้าง?
+                    {areasTitle}
                   </h2>
                   <div className="divider-rose mt-4" />
                 </div>
@@ -339,20 +352,26 @@ export default function ServicePageLayout({
                   i % 2 !== 0 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                {/* Sharp-edged number box */}
-                <div
-                  className="lg:w-1/3 p-6 flex items-center justify-center"
-                  style={{
-                    backgroundColor: "#e8e7e5",
-                    minHeight: "120px",
-                  }}
-                >
-                  <span
-                    className="font-sans text-4xl font-light text-center"
-                    style={{ color: accentColor }}
-                  >
-                    0{i + 1}
-                  </span>
+                {/* รูปภาพ หรือกล่องเลข */}
+                <div className="lg:w-1/3">
+                  {s.image ? (
+                    <SectionImage
+                      src={s.image}
+                      alt={s.imageAlt ?? s.title}
+                    />
+                  ) : (
+                    <div
+                      className="w-full flex items-center justify-center"
+                      style={{ backgroundColor: "#e8e7e5", minHeight: "200px" }}
+                    >
+                      <span
+                        className="font-sans text-4xl font-light"
+                        style={{ color: accentColor }}
+                      >
+                        0{i + 1}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="lg:w-2/3 flex flex-col justify-center gap-3">
                   <h3

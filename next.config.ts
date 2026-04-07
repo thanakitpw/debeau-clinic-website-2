@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        // อนุญาตรูปจากเว็บเดิมของคลินิก
+        protocol: "https",
+        hostname: "debeauclinic.com",
+      },
     ],
   },
   async headers() {

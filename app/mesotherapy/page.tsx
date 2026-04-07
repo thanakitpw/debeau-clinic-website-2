@@ -77,6 +77,11 @@ export default function MesotherapyPage() {
             image: "/images/scraped/mesotherapy/Meso-Template-No.02-1024x427.jpg",
             imageAlt: "ดูแลหลังทำ Mesotherapy เดอโบคลินิก",
           },
+          {
+            title: "ต้องทำบ่อยแค่ไหน?",
+            content:
+              "สำหรับการรักษาฝ้า กระ หน้าใส แนะนำทำทุก 1-2 สัปดาห์ ส่วนสลายไขมันแนะนำทำทุกสัปดาห์ ในช่วงแรกประมาณ 4-6 ครั้งจะเห็นผลที่ชัดเจน จากนั้นปรับเป็นบำรุงรักษาทุก 1 เดือน โดยหมอโบจะวางแผนโปรแกรมให้เหมาะสมกับแต่ละบุคคล",
+          },
         ]}
         relatedServices={[
           { label: "Laser หน้าใส", href: "/laser" },

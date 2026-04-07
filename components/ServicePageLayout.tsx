@@ -348,32 +348,20 @@ export default function ServicePageLayout({
             {sections.map((s, i) => (
               <div
                 key={i}
-                className={`flex flex-col lg:flex-row gap-8 ${
-                  i % 2 !== 0 ? "lg:flex-row-reverse" : ""
+                className={`flex flex-col gap-8 ${
+                  s.image ? `lg:flex-row ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}` : ""
                 }`}
               >
-                {/* รูปภาพ หรือกล่องเลข */}
-                <div className="lg:w-1/3">
-                  {s.image ? (
+                {/* รูปภาพ — แสดงเฉพาะเมื่อมีรูป */}
+                {s.image && (
+                  <div className="lg:w-1/3">
                     <SectionImage
                       src={s.image}
                       alt={s.imageAlt ?? s.title}
                     />
-                  ) : (
-                    <div
-                      className="w-full flex items-center justify-center"
-                      style={{ backgroundColor: "#e8e7e5", minHeight: "200px" }}
-                    >
-                      <span
-                        className="font-sans text-4xl font-light"
-                        style={{ color: accentColor }}
-                      >
-                        0{i + 1}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="lg:w-2/3 flex flex-col justify-center gap-3">
+                  </div>
+                )}
+                <div className={`${s.image ? "lg:w-2/3" : "w-full"} flex flex-col justify-center gap-3`}>
                   <h3
                     className="text-xl font-medium"
                     style={{ color: "#69554a" }}

@@ -1,0 +1,59 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import BeforeAfterSlider from "./BeforeAfterSlider";
+import { ScrollReveal } from "./MotionWrapper";
+import { reviewCases } from "@/lib/review-cases";
+
+const FEATURED_SLUGS = ["nan", "maneewan", "grace"];
+
+export default function ReviewsShowcase() {
+  const featured = FEATURED_SLUGS.map((slug) =>
+    reviewCases.find((c) => c.slug === slug),
+  ).filter((c): c is NonNullable<typeof c> => c !== undefined);
+
+  return (
+    <section className="py-28 px-6" style={{ backgroundColor: "#f5f2ef" }}>
+      <div className="max-w-7xl mx-auto">
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="section-label mb-4">Real Results</p>
+            <h2 className="section-heading mb-5">ผลลัพธ์จริงจากลูกค้าจริง</h2>
+            <div className="divider-rose mb-6" />
+            <p className="max-w-lg mx-auto text-[15px] leading-relaxed font-light text-[#8b7f7c]">
+              ก่อนและหลังจากการดูแลกับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {featured.map((c) => (
+            <div key={c.slug}>
+              <BeforeAfterSlider
+                before={c.before}
+                after={c.after}
+                altBefore={`Before — ${c.name}`}
+                altAfter={`After — ${c.name}`}
+              />
+              <p
+                className="text-sm font-medium text-center mt-3"
+                style={{ color: "#69554a" }}
+              >
+                {c.name}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Link
+            href="/customer-reviews"
+            className="inline-flex items-center gap-2 px-8 py-3.5 text-sm tracking-wider font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg cursor-pointer"
+            style={{ backgroundColor: "#c38789", color: "#fff" }}
+          >
+            ดูรีวิวทั้งหมด <ArrowRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

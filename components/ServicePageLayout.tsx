@@ -43,6 +43,8 @@ export interface ServicePageProps {
   heroImage?: string;
   /** alt text สำหรับรูปภาพ Image Section */
   heroImageAlt?: string;
+  /** รูปแบบการแสดงผลของ Image Section: "banner" (ค่าเริ่มต้น, กว้างเต็ม crop เป็นแบนเนอร์) หรือ "square" (1:1 แสดงเต็มรูป) */
+  heroImageAspect?: "banner" | "square";
 }
 
 const LINE_URL = "https://line.me/R/ti/p/@debeauclinic";
@@ -64,6 +66,7 @@ export default function ServicePageLayout({
   parentBreadcrumb,
   heroImage = "/images/treatment-room.png",
   heroImageAlt = "De Beau Clinic treatment",
+  heroImageAspect = "banner",
 }: ServicePageProps) {
   return (
     <div style={{ backgroundColor: "#e8e7e5" }}>
@@ -180,8 +183,22 @@ export default function ServicePageLayout({
 
       {/* ── What Is ── */}
       <section className="py-20 px-6" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
           <div>
+            {heroImageAspect === "square" && (
+              <div
+                className="relative w-full overflow-hidden mb-8"
+                style={{ aspectRatio: "1 / 1" }}
+              >
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </div>
+            )}
             <p className="section-label" style={{ textAlign: "left" }}>
               เกี่ยวกับการรักษา
             </p>
@@ -240,23 +257,25 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* ── Image Section ── */}
-      <section className="px-6 pb-16" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-5xl mx-auto">
-          <div
-            className="w-full overflow-hidden"
-            style={{ minHeight: "320px", position: "relative" }}
-          >
-            <Image
-              src={heroImage}
-              alt={heroImageAlt}
-              fill
-              className="object-cover img-zoom"
-              sizes="(max-width: 768px) 100vw, 1200px"
-            />
+      {/* ── Image Section (เฉพาะโหมด banner) ── */}
+      {heroImageAspect !== "square" && (
+        <section className="px-6 pb-16" style={{ backgroundColor: "#fff" }}>
+          <div className="max-w-5xl mx-auto">
+            <div
+              className="relative w-full overflow-hidden"
+              style={{ minHeight: "320px" }}
+            >
+              <Image
+                src={heroImage}
+                alt={heroImageAlt}
+                fill
+                className="object-cover img-zoom"
+                sizes="(max-width: 768px) 100vw, 1200px"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Areas / Suitable For ── */}
       {(areas || suitableFor) && (

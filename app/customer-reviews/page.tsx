@@ -1,51 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, ArrowRight, Play, MapPin } from "lucide-react";
+import { Star, ArrowRight, Play, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import { reviewCases } from "@/lib/review-cases";
 
-const highlightCases = [
-  {
-    before: "/images/reviews/case-1-before.jpg",
-    after: "/images/reviews/case-1-after.jpg",
-    name: "คุณมุก",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-  {
-    before: "/images/reviews/case-2-before.jpg",
-    after: "/images/reviews/case-2-after.jpg",
-    name: "คุณแอน",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-  {
-    before: "/images/reviews/case-3-before.jpg",
-    after: "/images/reviews/case-3-after.jpg",
-    name: "คุณนุช",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-  {
-    before: "/images/reviews/case-4-before.jpg",
-    after: "/images/reviews/case-4-after.jpg",
-    name: "คุณซีอิ๊ว",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-  {
-    before: "/images/reviews/case-5-before.jpg",
-    after: "/images/reviews/case-5-after.jpg",
-    name: "คุณยู",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-  {
-    before: "/images/reviews/case-6-before.jpg",
-    after: "/images/reviews/case-6-after.jpg",
-    name: "คุณลิเบีย",
-    service: "ฟิลเลอร์ใต้ตา",
-  },
-];
+const INITIAL_SHOW = 12;
 
 const googleReviews = [
   {
@@ -77,6 +42,67 @@ const googleReviews = [
     avatar: "L",
   },
 ];
+
+function ReviewCasesSection() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleCases = showAll ? reviewCases : reviewCases.slice(0, INITIAL_SHOW);
+  const hasMore = reviewCases.length > INITIAL_SHOW;
+
+  return (
+    <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#f5f2ef" }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-xs tracking-[0.3em] uppercase font-medium mb-4 block" style={{ color: "#c38789" }}>
+            Highlight Review
+          </span>
+          <h2 className="text-2xl lg:text-4xl font-light mb-4" style={{ color: "#3a2e2b" }}>
+            ผลลัพธ์จริงจากลูกค้าจริง
+          </h2>
+          <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#8b7f7c" }}>
+            ก่อนและหลังจากการดูแลกับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visibleCases.map((c) => (
+            <div key={c.slug}>
+              <BeforeAfterSlider
+                before={c.before}
+                after={c.after}
+                altBefore={`Before — ${c.name}`}
+                altAfter={`After — ${c.name}`}
+              />
+              <p className="text-sm font-medium text-center mt-3" style={{ color: "#69554a" }}>
+                {c.name}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {hasMore && (
+          <div className="flex justify-center mt-12">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="inline-flex items-center gap-2 px-8 py-3 text-sm tracking-wider font-medium transition-all duration-300 hover:opacity-90 cursor-pointer"
+              style={{ backgroundColor: "#c38789", color: "#fff" }}
+            >
+              {showAll ? (
+                <>
+                  ดูน้อยลง <ChevronUp size={16} />
+                </>
+              ) : (
+                <>
+                  ดูเพิ่มเติม <ChevronDown size={16} />
+                </>
+              )}
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export default function CustomerReviewsPage() {
   return (
@@ -152,72 +178,9 @@ export default function CustomerReviewsPage() {
         </div>
       </section>
 
-      {/* Highlight Review — Before & After Slider */}
-      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#f5f2ef" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs tracking-[0.3em] uppercase font-medium mb-4 block" style={{ color: "#c38789" }}>
-              Highlight Review
-            </span>
-            <h2 className="text-2xl lg:text-4xl font-light mb-4" style={{ color: "#3a2e2b" }}>
-              ผลลัพธ์จริงจากลูกค้าจริง
-            </h2>
-            <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#8b7f7c" }}>
-              ก่อนและหลังทำฟิลเลอร์ใต้ตากับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
-            </p>
-          </div>
+      <ReviewCasesSection />
 
-          {/* Slider Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {highlightCases.map((c, i) => (
-              <div key={i}>
-                <BeforeAfterSlider
-                  before={c.before}
-                  after={c.after}
-                  altBefore={`Before — ${c.name}`}
-                  altAfter={`After — ${c.name}`}
-                  label={`โปรแกรม${c.service}`}
-                />
-                <p className="text-sm font-medium text-center mt-2" style={{ color: "#69554a" }}>
-                  Review {c.service} {c.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ประสบการณ์จริง — Slider ขนาดใหญ่ */}
-      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-light mb-3" style={{ color: "#3a2e2b" }}>
-              ประสบการณ์จริงจากผู้ใช้บริการ
-            </h2>
-            <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#8b7f7c" }}>
-              ภาพ Before & After จริง ไม่ตกแต่ง ไม่ใช้ฟิลเตอร์
-              ลากเพื่อเปรียบเทียบผลลัพธ์
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-8">
-            <BeforeAfterSlider
-              before="/images/reviews/case-3-before.jpg"
-              after="/images/reviews/case-3-after.jpg"
-              altBefore="Before — คุณนุช"
-              altAfter="After — คุณนุช"
-              label="โปรแกรมฟิลเลอร์"
-            />
-            <BeforeAfterSlider
-              before="/images/reviews/case-5-before.jpg"
-              after="/images/reviews/case-5-after.jpg"
-              altBefore="Before — คุณยู"
-              altAfter="After — คุณยู"
-              label="โปรแกรมฟิลเลอร์"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Video Section — เจาะลึกความรู้สึกหลังทำ */}
 
       {/* Video Section — เจาะลึกความรู้สึกหลังทำ */}
       <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#69554a" }}>

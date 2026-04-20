@@ -24,6 +24,35 @@ export default function FloatingLine() {
         </span>
       </a>
 
+      {/* Messenger button */}
+      <a
+        href="https://m.me/debeauclinic"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="ปรึกษาผ่าน Facebook Messenger"
+        className="group flex items-center gap-0 overflow-hidden shadow-2xl transition-all duration-300 hover:gap-2 hover:pr-5 hover:shadow-[0_8px_30px_rgba(0,132,255,0.3)] cursor-pointer"
+        style={{
+          backgroundColor: "#0084FF",
+          color: "#fff",
+          paddingLeft: "16px",
+          paddingRight: "16px",
+          height: "52px",
+        }}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="shrink-0"
+        >
+          <path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8l3.131 3.26L19.752 8l-6.561 6.963z" />
+        </svg>
+        <span className="text-[12px] tracking-wider font-light whitespace-nowrap max-w-0 overflow-hidden transition-all duration-300 group-hover:max-w-[120px]">
+          Messenger
+        </span>
+      </a>
+
       {/* LINE button */}
       <a
         href="https://line.me/R/ti/p/@debeauclinic"

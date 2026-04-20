@@ -149,9 +149,9 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 lg:py-5 grid grid-cols-4 gap-2 lg:gap-6">
           {[
             { num: "16+", label: "ปีประสบการณ์" },
-            { num: "5,000+", label: "เคสที่ดูแล" },
+            { num: "30,000+", label: "เคสที่ดูแล" },
             { num: "98%", label: "ลูกค้าพึงพอใจ" },
-            { num: "6", label: "บริการครบครัน" },
+            { num: "9", label: "บริการครบครัน" },
           ].map((stat, idx) => (
             <motion.div
               key={stat.label}

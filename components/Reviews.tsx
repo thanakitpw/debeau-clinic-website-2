@@ -106,7 +106,7 @@ export default function Reviews() {
               </div>
               <div className="w-px h-14 bg-white/10" />
               <div className="text-[13px] font-light text-white/60 flex flex-col gap-1">
-                <p>จาก 5,000+ รีวิว</p>
+                <p>จาก 30,000+ รีวิว</p>
                 <p>ลูกค้าพึงพอใจ 98%</p>
                 <p>บอกต่อ 90%+</p>
               </div>

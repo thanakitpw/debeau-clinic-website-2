@@ -21,8 +21,8 @@ const education = [
 const experience = [
   { period: "2549 – ปัจจุบัน", detail: "แพทย์ผู้เชี่ยวชาญประจำศูนย์ผิวพรรณและศัลยกรรมความงาม โรงพยาบาลกรุงเทพพัทยา" },
   { period: "2553 – ปัจจุบัน", detail: "แพทย์ผู้เชี่ยวชาญการฉีดฟิลเลอร์ใต้ตาและปรับรูปหน้า ที่เดอโบคลินิก" },
-  { period: "10+ ปี", detail: "ประสบการณ์ด้านผิวหนังและความงาม ดูแลลูกค้ามากกว่า 5,000 ราย/ปี" },
-  { period: "5,000+/ปี", detail: "ประสบการณ์รักษาปัญหาริ้วรอยด้วย Botox และ Filler มากกว่า 5,000 ราย/ปี" },
+  { period: "10+ ปี", detail: "ประสบการณ์ด้านผิวหนังและความงาม ดูแลลูกค้ามากกว่า 30,000 เคส" },
+  { period: "30,000+", detail: "ประสบการณ์รักษาปัญหาริ้วรอยด้วย Botox และ Filler มากกว่า 30,000 เคส" },
 ];
 
 const certifications = [
@@ -105,8 +105,8 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { value: "15+", label: "ปีประสบการณ์", sub: "ด้านความงาม" },
-                { value: "5,000+", label: "ราย/ปี", sub: "Botox & Filler" },
-                { value: "2,000+", label: "ราย/ปี", sub: "Laser รักษา" },
+                { value: "30,000+", label: "เคส", sub: "Botox & Filler" },
+                { value: "2,000+", label: "เคส", sub: "Laser รักษา" },
                 { value: "Top 5", label: "ของประเทศไทย", sub: "3 ปีซ้อน" },
               ].map((s, i) => (
                 <div key={i} className="p-4 text-center"

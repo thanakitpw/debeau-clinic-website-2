@@ -38,7 +38,7 @@ export default function About() {
 
           {/* Cases badge */}
           <div className="absolute top-8 right-8 bg-[#69554a]/95 backdrop-blur-sm px-7 py-5 shadow-2xl">
-            <div className="font-sans text-4xl font-light text-white">5K+</div>
+            <div className="font-sans text-4xl font-light text-white">30K+</div>
             <div className="text-[11px] tracking-[0.2em] uppercase text-white/60 mt-1">
               เคสที่ดูแล
             </div>

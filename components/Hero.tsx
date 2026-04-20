@@ -122,7 +122,7 @@ export default function Hero() {
                 ))}
               </div>
               <span className="text-[12px] lg:text-[13px] tracking-wide text-[#69554a]">
-                5,000+ เคสที่ไว้วางใจ
+                30,000+ เคสที่ไว้วางใจ
               </span>
             </div>
             <div className="flex items-center gap-4 sm:gap-6">

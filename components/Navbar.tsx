@@ -8,14 +8,14 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 const services = [
   { label: "ฟิลเลอร์", href: "/filler" },
-  { label: "— ฟิลเลอร์ใต้ตา", href: "/filler/under-eye" },
-  { label: "— ฟิลเลอร์ปาก", href: "/filler/lip" },
-  { label: "— สลายฟิลเลอร์", href: "/filler/dissolving" },
-  { label: "ลดริ้วรอย (Botox)", href: "/botox" },
-  { label: "เลเซอร์หน้าใส ฝ้ากระ", href: "/laser/skin-brightening" },
-  { label: "เลเซอร์ยกกระชับหน้า", href: "/laser/skin-tightening" },
-  { label: "Mesotherapy", href: "/mesotherapy" },
-  { label: "Facial Treatments", href: "/facial-treatments" },
+  { label: "โบท็อกซ์", href: "/botox" },
+  { label: "เลเซอร์ พิโคชัวร์", href: "/laser" },
+  { label: "อัลเทอร่า ยกกระชับ", href: "/ulthera" },
+  { label: "กระตุ้นคอลลาเจน", href: "/collagen-biostimulator" },
+  { label: "งานผิว (Skin Booster)", href: "/skin-booster" },
+  { label: "เมโสเธอราพี", href: "/mesotherapy" },
+  { label: "Drip ผิว (IV Drip)", href: "/iv-drip" },
+  { label: "ทรีตเมนต์ผิวหน้า", href: "/facial-treatments" },
 ];
 
 const navLinks = [
@@ -79,7 +79,7 @@ export default function Navbar() {
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <button
-                  className="flex items-center gap-1 text-[12px] tracking-[0.15em] uppercase cursor-pointer transition-colors duration-300"
+                  className="flex items-center gap-1.5 text-[14px] lg:text-[15px] tracking-[0.1em] uppercase font-medium cursor-pointer transition-colors duration-300"
                   style={{
                     color: isServiceActive
                       ? "#c38789"
@@ -88,7 +88,7 @@ export default function Navbar() {
                 >
                   {link.label}
                   <ChevronDown
-                    size={12}
+                    size={14}
                     className={`transition-transform duration-300 ${
                       servicesOpen ? "rotate-180" : ""
                     }`}
@@ -96,7 +96,7 @@ export default function Navbar() {
                 </button>
                 {/* Dropdown bridge + menu */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 transition-all duration-300 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 transition-all duration-300 ${
                     servicesOpen
                       ? "opacity-100 translate-y-0 pointer-events-auto"
                       : "opacity-0 -translate-y-2 pointer-events-none"
@@ -108,7 +108,7 @@ export default function Navbar() {
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="flex items-center px-6 py-3 text-[12px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-8 cursor-pointer"
+                        className="flex items-center px-6 py-3 text-[13px] lg:text-[14px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-8 cursor-pointer"
                         style={{
                           color: pathname.startsWith(s.href)
                             ? "#c38789"
@@ -130,7 +130,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[12px] tracking-[0.15em] uppercase transition-colors duration-300 relative cursor-pointer group"
+                className="text-[14px] lg:text-[15px] tracking-[0.1em] uppercase font-medium transition-colors duration-300 relative cursor-pointer group"
                 style={{
                   color: isActive(link.href)
                     ? "#c38789"
@@ -154,7 +154,7 @@ export default function Navbar() {
           href="https://line.me/R/ti/p/@debeauclinic"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden lg:flex items-center gap-2.5 px-7 py-2.5 text-[11px] tracking-[0.2em] uppercase cursor-pointer transition-all duration-300 hover:shadow-lg"
+          className="hidden lg:flex items-center gap-2.5 px-7 py-2.5 text-[12px] lg:text-[13px] tracking-[0.18em] uppercase font-medium cursor-pointer transition-all duration-300 hover:shadow-lg"
           style={{ backgroundColor: "#c38789", color: "#fff" }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -216,7 +216,7 @@ export default function Navbar() {
               <div key="services">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
-                  className="flex items-center justify-between w-full py-4 text-[13px] tracking-[0.12em] cursor-pointer border-b border-[#e8e7e5]"
+                  className="flex items-center justify-between w-full py-4 text-[15px] tracking-[0.1em] font-medium cursor-pointer border-b border-[#e8e7e5]"
                   style={{ color: isServiceActive ? "#c38789" : "#69554a" }}
                 >
                   {link.label}
@@ -229,7 +229,7 @@ export default function Navbar() {
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    servicesOpen ? "max-h-96" : "max-h-0"
+                    servicesOpen ? "max-h-[600px]" : "max-h-0"
                   }`}
                 >
                   <div className="pl-4 flex flex-col gap-0 py-2 border-l-2 border-[#c38789]/20 ml-2">
@@ -241,7 +241,7 @@ export default function Navbar() {
                           setIsOpen(false);
                           setServicesOpen(false);
                         }}
-                        className="py-3 text-[12px] tracking-[0.1em] cursor-pointer"
+                        className="py-3 text-[14px] tracking-[0.08em] cursor-pointer"
                         style={{
                           color: pathname.startsWith(s.href)
                             ? "#c38789"
@@ -259,7 +259,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="py-4 text-[13px] tracking-[0.12em] cursor-pointer border-b border-[#e8e7e5]"
+                className="py-4 text-[15px] tracking-[0.1em] font-medium cursor-pointer border-b border-[#e8e7e5]"
                 style={{ color: isActive(link.href) ? "#c38789" : "#69554a" }}
               >
                 {link.label}
@@ -274,7 +274,7 @@ export default function Navbar() {
             href="https://line.me/R/ti/p/@debeauclinic"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2.5 py-4 text-[13px] tracking-[0.15em] uppercase w-full cursor-pointer"
+            className="flex items-center justify-center gap-2.5 py-4 text-[14px] tracking-[0.15em] uppercase font-medium w-full cursor-pointer"
             style={{ backgroundColor: "#c38789", color: "#fff" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

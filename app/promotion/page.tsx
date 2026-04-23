@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Check, Crown, Star } from "lucide-react";
+import { Check, Crown, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
@@ -110,64 +110,8 @@ export default function PromotionPage() {
     <>
       <Navbar />
 
-      {/* Hero */}
-      <section
-        className="relative pt-32 lg:pt-40 pb-20 lg:pb-28 px-6 overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, #fdf8f6 0%, #f7ecea 50%, #f4e3e0 100%)",
-        }}
-      >
-        {/* Soft radial accents */}
-        <div
-          aria-hidden
-          className="absolute -top-24 -left-24 w-96 h-96 rounded-full opacity-40 blur-3xl"
-          style={{ background: "radial-gradient(circle, #e6c9cb 0%, transparent 70%)" }}
-        />
-        <div
-          aria-hidden
-          className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #c38789 0%, transparent 70%)" }}
-        />
-        {/* Decorative divider lines */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-24 -translate-x-1/2 w-px h-12 opacity-40"
-          style={{ background: "linear-gradient(to bottom, transparent, #c38789)" }}
-        />
-
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-white/60 backdrop-blur-sm border border-[#c38789]/25">
-            <Sparkles size={14} style={{ color: "#c38789" }} />
-            <span className="text-[11px] tracking-[0.3em] uppercase font-medium" style={{ color: "#69554a" }}>
-              Program Supreme Skin
-            </span>
-          </div>
-          <h1
-            className="text-4xl lg:text-6xl font-light mb-4 leading-tight"
-            style={{ color: "#69554a" }}
-          >
-            เซ็ตผิวดารา
-          </h1>
-          <div
-            aria-hidden
-            className="w-16 h-px mx-auto mb-5"
-            style={{ backgroundColor: "#c38789" }}
-          />
-          <p className="text-base lg:text-lg font-light mb-2" style={{ color: "#8b7f7c" }}>
-            เผยสัมผัสผิวฉ่ำโกลว์ เรียบหรู ดูแพง
-          </p>
-          <p className="text-sm font-light" style={{ color: "#c38789" }}>
-            4 ระดับ เริ่มต้น 19,900.- เลือกตามไลฟ์สไตล์ที่ใช่
-          </p>
-          <p className="text-xs mt-6 font-light" style={{ color: "#8b7f7c" }}>
-            * ราคาและโปรโมชั่นอาจเปลี่ยนแปลงได้ สอบถามรายละเอียดล่าสุดผ่าน LINE @debeauclinic
-          </p>
-        </div>
-      </section>
-
       {/* Package Tiers */}
-      <section className="py-20 lg:py-24 px-6" style={{ backgroundColor: "#f7f5f2" }}>
+      <section className="pt-32 lg:pt-40 pb-20 lg:pb-24 px-6" style={{ backgroundColor: "#f7f5f2" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-3" style={{ color: "#c38789" }}>

@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, MessageCircle, ArrowRight, Mail } from "lucide-re
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
+import ClinicMap from "@/components/ClinicMap";
 
 export const metadata: Metadata = {
   title: "ติดต่อเรา | DE BEAU CLINIC",
@@ -155,6 +156,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <ClinicMap />
 
       {/* LINE CTA Banner */}
       <section className="py-16 px-6" style={{ backgroundColor: "#e8e7e5" }}>

@@ -14,7 +14,7 @@ export default function Hero() {
         {/* Desktop: รูปภาพ + frosted cream overlay */}
         <div className="hidden lg:block absolute inset-0">
           <Image
-            src="/images/hero-cover.jpg"
+            src="/images/hero-cover-v2.jpg"
             alt="DE BEAU CLINIC"
             fill
             priority

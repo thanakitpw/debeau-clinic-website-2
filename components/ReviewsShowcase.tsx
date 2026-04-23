@@ -31,14 +31,14 @@ export default function ReviewsShowcase() {
               <BeforeAfterSlider
                 before={c.before}
                 after={c.after}
-                altBefore={`Before — ${c.name}`}
-                altAfter={`After — ${c.name}`}
+                altBefore={`Before — ${c.treatment}`}
+                altAfter={`After — ${c.treatment}`}
               />
               <p
-                className="text-sm font-medium text-center mt-3"
-                style={{ color: "#69554a" }}
+                className="text-[15px] lg:text-[16px] font-semibold text-center mt-4"
+                style={{ color: "#3a2e2b" }}
               >
-                {c.name}
+                {c.treatment}
               </p>
             </div>
           ))}

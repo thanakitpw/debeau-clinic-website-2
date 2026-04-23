@@ -1,16 +1,26 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, ArrowRight, Play, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { Star, ArrowRight, Play, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import { reviewCases } from "@/lib/review-cases";
+import { reviewCases, type ReviewCase } from "@/lib/review-cases";
 
-const INITIAL_SHOW = 12;
+const AGE_GROUPS: { heading: string; match: (c: ReviewCase) => boolean }[] = [
+  {
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 30+",
+    match: (c) => c.ageGroup === "30-39",
+  },
+  {
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 40+",
+    match: (c) => c.ageGroup === "40-49",
+  },
+  {
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 50+",
+    match: (c) => c.ageGroup === "50-59" || c.ageGroup === "60+",
+  },
+];
 
 const googleReviews = [
   {
@@ -44,10 +54,6 @@ const googleReviews = [
 ];
 
 function ReviewCasesSection() {
-  const [showAll, setShowAll] = useState(false);
-  const visibleCases = showAll ? reviewCases : reviewCases.slice(0, INITIAL_SHOW);
-  const hasMore = reviewCases.length > INITIAL_SHOW;
-
   return (
     <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#f5f2ef" }}>
       <div className="max-w-5xl mx-auto">
@@ -63,42 +69,52 @@ function ReviewCasesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleCases.map((c) => (
-            <div key={c.slug}>
-              <BeforeAfterSlider
-                before={c.before}
-                after={c.after}
-                altBefore={`Before — ${c.name}`}
-                altAfter={`After — ${c.name}`}
-              />
-              <p className="text-sm font-medium text-center mt-3" style={{ color: "#69554a" }}>
-                {c.name}
-              </p>
-            </div>
-          ))}
-        </div>
+        <div className="flex flex-col gap-16 lg:gap-20">
+          {AGE_GROUPS.map(({ heading, match }) => {
+            const cases = reviewCases.filter(match);
+            if (cases.length === 0) return null;
 
-        {hasMore && (
-          <div className="flex justify-center mt-12">
-            <button
-              type="button"
-              onClick={() => setShowAll((v) => !v)}
-              className="inline-flex items-center gap-2 px-8 py-3 text-sm tracking-wider font-medium transition-all duration-300 hover:opacity-90 cursor-pointer"
-              style={{ backgroundColor: "#c38789", color: "#fff" }}
-            >
-              {showAll ? (
-                <>
-                  ดูน้อยลง <ChevronUp size={16} />
-                </>
-              ) : (
-                <>
-                  ดูเพิ่มเติม <ChevronDown size={16} />
-                </>
-              )}
-            </button>
-          </div>
-        )}
+            return (
+              <div key={heading}>
+                <div className="flex items-center gap-4 mb-8">
+                  <span
+                    className="hidden sm:block flex-1 h-px"
+                    style={{ backgroundColor: "#d9cdc4" }}
+                  />
+                  <h3
+                    className="text-[18px] lg:text-[22px] font-medium text-center leading-snug"
+                    style={{ color: "#3a2e2b" }}
+                  >
+                    {heading}
+                  </h3>
+                  <span
+                    className="hidden sm:block flex-1 h-px"
+                    style={{ backgroundColor: "#d9cdc4" }}
+                  />
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cases.map((c) => (
+                    <div key={c.slug}>
+                      <BeforeAfterSlider
+                        before={c.before}
+                        after={c.after}
+                        altBefore={`Before — ${c.treatment}`}
+                        altAfter={`After — ${c.treatment}`}
+                      />
+                      <p
+                        className="text-[15px] lg:text-[16px] font-semibold text-center mt-4"
+                        style={{ color: "#3a2e2b" }}
+                      >
+                        {c.treatment}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

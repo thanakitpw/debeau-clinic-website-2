@@ -99,7 +99,7 @@ export default function ServicePageLayout({
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <nav
-            className="flex items-center gap-2 text-xs tracking-wider mb-8"
+            className="flex items-center gap-2 text-sm tracking-wider mb-8"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
             <Link
@@ -127,7 +127,7 @@ export default function ServicePageLayout({
 
           {/* Badge pill (keeps rounded-full) */}
           <span
-            className="inline-block text-xs tracking-[0.3em] uppercase font-medium px-4 py-1.5 rounded-full mb-6"
+            className="inline-block text-sm tracking-[0.3em] uppercase font-semibold px-5 py-2 rounded-full mb-6"
             style={{
               backgroundColor: "rgba(195,135,137,0.2)",
               color: accentColor,
@@ -137,22 +137,22 @@ export default function ServicePageLayout({
           </span>
 
           <h1
-            className="font-sans text-4xl lg:text-6xl font-light leading-tight tracking-wide mb-4"
+            className="font-sans text-[2.75rem] lg:text-6xl font-light leading-[1.1] tracking-wide mb-4"
             style={{ color: "#fff" }}
           >
             {title}
           </h1>
 
           <p
-            className="text-sm tracking-[0.2em] uppercase mb-6"
-            style={{ color: "rgba(255,255,255,0.5)" }}
+            className="text-base lg:text-lg tracking-[0.15em] uppercase mb-6"
+            style={{ color: "rgba(255,255,255,0.55)" }}
           >
             {titleEn}
           </p>
 
           <p
-            className="text-base lg:text-lg font-light leading-relaxed max-w-2xl"
-            style={{ color: "rgba(255,255,255,0.8)" }}
+            className="text-lg lg:text-xl font-light leading-relaxed max-w-2xl"
+            style={{ color: "rgba(255,255,255,0.85)" }}
           >
             {heroDesc}
           </p>
@@ -203,8 +203,8 @@ export default function ServicePageLayout({
               เกี่ยวกับการรักษา
             </p>
             <h2
-              className="section-heading text-2xl lg:text-3xl mt-2 mb-5"
-              style={{ color: "#69554a" }}
+              className="section-heading text-[28px] lg:text-[36px] mt-2 mb-5"
+              style={{ color: "#69554a", fontWeight: 400 }}
             >
               {title} คืออะไร?
             </h2>
@@ -215,8 +215,8 @@ export default function ServicePageLayout({
               }}
             />
             <p
-              className="text-sm leading-relaxed font-light"
-              style={{ color: "#8b7f7c" }}
+              className="text-[16px] lg:text-[17px] leading-relaxed font-light"
+              style={{ color: "#69554a" }}
             >
               {whatIs}
             </p>
@@ -240,14 +240,14 @@ export default function ServicePageLayout({
                   <span style={{ color: accentColor }}>{f.icon}</span>
                 </div>
                 <p
-                  className="text-sm font-medium"
-                  style={{ color: "#69554a" }}
+                  className="text-[16px] lg:text-[17px] font-semibold leading-snug"
+                  style={{ color: "#3a2e2b" }}
                 >
                   {f.title}
                 </p>
                 <p
-                  className="text-xs font-light leading-relaxed"
-                  style={{ color: "#8b7f7c" }}
+                  className="text-[14px] lg:text-[15px] font-light leading-relaxed"
+                  style={{ color: "#69554a" }}
                 >
                   {f.desc}
                 </p>
@@ -313,14 +313,14 @@ export default function ServicePageLayout({
                         {i + 1}
                       </div>
                       <h3
-                        className="text-base font-medium mb-2"
-                        style={{ color: "#69554a" }}
+                        className="text-[18px] lg:text-[20px] font-semibold mb-2 leading-snug"
+                        style={{ color: "#3a2e2b" }}
                       >
                         {area.title}
                       </h3>
                       <p
-                        className="text-xs leading-relaxed font-light"
-                        style={{ color: "#8b7f7c" }}
+                        className="text-[15px] lg:text-[16px] leading-relaxed font-light"
+                        style={{ color: "#69554a" }}
                       >
                         {area.desc}
                       </p>
@@ -341,13 +341,13 @@ export default function ServicePageLayout({
                   {suitableFor.map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle
-                        size={18}
-                        className="mt-0.5 shrink-0"
+                        size={20}
+                        className="mt-1 shrink-0"
                         style={{ color: accentColor }}
                       />
                       <span
-                        className="text-sm leading-relaxed"
-                        style={{ color: "#69554a" }}
+                        className="text-[16px] lg:text-[17px] leading-relaxed"
+                        style={{ color: "#3a2e2b" }}
                       >
                         {item}
                       </span>
@@ -380,16 +380,16 @@ export default function ServicePageLayout({
                     />
                   </div>
                 )}
-                <div className={`${s.image ? "lg:w-2/3" : "w-full"} flex flex-col justify-center gap-3`}>
+                <div className={`${s.image ? "lg:w-2/3" : "w-full"} flex flex-col justify-center gap-4`}>
                   <h3
-                    className="text-xl font-medium"
-                    style={{ color: "#69554a" }}
+                    className="text-[22px] lg:text-[26px] font-semibold leading-snug"
+                    style={{ color: "#3a2e2b" }}
                   >
                     {s.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed font-light"
-                    style={{ color: "#8b7f7c" }}
+                    className="text-[16px] lg:text-[17px] leading-relaxed font-light"
+                    style={{ color: "#69554a" }}
                   >
                     {s.content}
                   </p>
@@ -425,13 +425,13 @@ export default function ServicePageLayout({
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle
-                    size={16}
-                    className="mt-0.5 shrink-0"
+                    size={18}
+                    className="mt-1 shrink-0"
                     style={{ color: "#c38789" }}
                   />
                   <span
-                    className="text-sm font-light"
-                    style={{ color: "rgba(255,255,255,0.85)" }}
+                    className="text-[16px] lg:text-[17px] font-light leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.9)" }}
                   >
                     {item}
                   </span>
@@ -510,7 +510,7 @@ export default function ServicePageLayout({
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+                  className="px-6 py-3 text-[15px] lg:text-[16px] font-medium transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                   style={{
                     backgroundColor: "#fff",
                     color: "#69554a",

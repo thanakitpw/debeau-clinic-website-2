@@ -108,7 +108,7 @@ export default function Services() {
             <p className="section-label mb-4">Our Services</p>
             <h2 className="section-heading mb-5">บริการของเรา</h2>
             <div className="divider-rose mb-6" />
-            <p className="max-w-lg mx-auto text-[15px] leading-relaxed font-light text-[#8b7f7c]">
+            <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#8b7f7c]">
               บริการครบครัน ดูแลโดยแพทย์ผู้เชี่ยวชาญ
               ให้คำปรึกษาและวางแผนการรักษาเฉพาะบุคคล
             </p>
@@ -144,18 +144,18 @@ export default function Services() {
                 {/* Content */}
                 <div className="flex flex-col gap-3 p-7 flex-1">
                   <div>
-                    <p className="text-[10px] tracking-[0.25em] uppercase font-medium text-[#c38789] mb-1">
+                    <p className="text-[12px] tracking-[0.25em] uppercase font-semibold text-[#c38789] mb-2">
                       {service.title}
                     </p>
-                    <h3 className="text-xl font-light text-[#69554a]">
+                    <h3 className="text-[24px] lg:text-[26px] font-medium text-[#69554a] leading-tight">
                       {service.titleTh}
                     </h3>
                   </div>
-                  <p className="text-[14px] leading-relaxed font-light text-[#8b7f7c] flex-1">
+                  <p className="text-[16px] lg:text-[17px] leading-relaxed font-light text-[#69554a] flex-1">
                     {service.description}
                   </p>
-                  <div className="flex items-center gap-2 text-[12px] tracking-wider uppercase font-medium text-[#c38789] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                    ดูเพิ่มเติม <ArrowRight size={13} />
+                  <div className="flex items-center gap-2 text-[13px] tracking-wider uppercase font-semibold text-[#c38789] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                    ดูเพิ่มเติม <ArrowRight size={15} />
                   </div>
                 </div>
 

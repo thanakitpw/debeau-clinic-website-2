@@ -5,6 +5,7 @@ import { CheckCircle, Award, GraduationCap, Briefcase, ArrowRight } from "lucide
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
+import ClinicMap from "@/components/ClinicMap";
 
 export const metadata: Metadata = {
   title: "เกี่ยวกับหมอโบ พญ.ปาริฉัตร ตัณชวนิชย์ | DE BEAU CLINIC",
@@ -241,6 +242,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ClinicMap />
 
       <Footer />
       <FloatingLine />

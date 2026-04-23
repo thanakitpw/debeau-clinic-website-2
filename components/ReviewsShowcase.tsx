@@ -6,6 +6,14 @@ import { reviewCases } from "@/lib/review-cases";
 
 const FEATURED_SLUGS = ["nan", "maneewan", "grace"];
 
+// Homepage-only override: show the beauty shot as the "after" image
+// (the /customer-reviews page still uses the plain after.webp).
+const HOMEPAGE_AFTER: Record<string, string> = {
+  nan: "/images/cases/30-39/nan/beauty-1.webp",
+  maneewan: "/images/cases/40-49/maneewan/beauty.webp",
+  grace: "/images/cases/50-59/grace/beauty.webp",
+};
+
 export default function ReviewsShowcase() {
   const featured = FEATURED_SLUGS.map((slug) =>
     reviewCases.find((c) => c.slug === slug),
@@ -30,7 +38,7 @@ export default function ReviewsShowcase() {
             <div key={c.slug}>
               <BeforeAfterSlider
                 before={c.before}
-                after={c.after}
+                after={HOMEPAGE_AFTER[c.slug] ?? c.after}
                 altBefore={`Before — ${c.treatment}`}
                 altAfter={`After — ${c.treatment}`}
               />

@@ -6,8 +6,22 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
-const services = [
-  { label: "ฟิลเลอร์", href: "/filler" },
+type ServiceLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+const services: ServiceLink[] = [
+  {
+    label: "ฟิลเลอร์",
+    href: "/filler",
+    children: [
+      { label: "ฟิลเลอร์ใต้ตา", href: "/filler/under-eye" },
+      { label: "ฟิลเลอร์ปาก", href: "/filler/lip" },
+      { label: "ฉีดสลายฟิลเลอร์", href: "/filler/dissolving" },
+    ],
+  },
   { label: "โบท็อกซ์", href: "/botox" },
   { label: "เลเซอร์ พิโคชัวร์", href: "/laser" },
   { label: "อัลเทอร่า ยกกระชับ", href: "/ulthera" },
@@ -105,23 +119,37 @@ export default function Navbar() {
                   <div className="bg-white shadow-2xl overflow-hidden py-2 border border-[#e8e7e5]">
                     <div className="absolute top-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c38789] to-transparent" />
                     {services.map((s, i) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        className="flex items-center px-6 py-3 text-[13px] lg:text-[14px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-8 cursor-pointer"
-                        style={{
-                          color: pathname.startsWith(s.href)
-                            ? "#c38789"
-                            : "#69554a",
-                          transitionDelay: servicesOpen ? `${i * 30}ms` : "0ms",
-                        }}
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        {pathname.startsWith(s.href) && (
-                          <span className="w-1.5 h-1.5 rounded-full mr-2.5 shrink-0 bg-[#c38789]" />
-                        )}
-                        {s.label}
-                      </Link>
+                      <div key={s.href}>
+                        <Link
+                          href={s.href}
+                          className="flex items-center px-6 py-3 text-[13px] lg:text-[14px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-8 cursor-pointer"
+                          style={{
+                            color: pathname === s.href || (s.children && pathname.startsWith(s.href + "/"))
+                              ? "#c38789"
+                              : "#69554a",
+                            transitionDelay: servicesOpen ? `${i * 30}ms` : "0ms",
+                          }}
+                          onClick={() => setServicesOpen(false)}
+                        >
+                          {pathname.startsWith(s.href) && (
+                            <span className="w-1.5 h-1.5 rounded-full mr-2.5 shrink-0 bg-[#c38789]" />
+                          )}
+                          {s.label}
+                        </Link>
+                        {s.children?.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="flex items-center pl-10 pr-6 py-2.5 text-[12px] lg:text-[13px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-12 cursor-pointer border-t border-[#f0ece8]"
+                            style={{
+                              color: pathname === child.href ? "#c38789" : "#8b7f7c",
+                            }}
+                            onClick={() => setServicesOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -234,22 +262,40 @@ export default function Navbar() {
                 >
                   <div className="pl-4 flex flex-col gap-0 py-2 border-l-2 border-[#c38789]/20 ml-2">
                     {services.map((s) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        onClick={() => {
-                          setIsOpen(false);
-                          setServicesOpen(false);
-                        }}
-                        className="py-3 text-[14px] tracking-[0.08em] cursor-pointer"
-                        style={{
-                          color: pathname.startsWith(s.href)
-                            ? "#c38789"
-                            : "#8b7f7c",
-                        }}
-                      >
-                        {s.label}
-                      </Link>
+                      <div key={s.href}>
+                        <Link
+                          href={s.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setServicesOpen(false);
+                          }}
+                          className="block py-3 text-[14px] tracking-[0.08em] cursor-pointer"
+                          style={{
+                            color:
+                              pathname === s.href || (s.children && pathname.startsWith(s.href + "/"))
+                                ? "#c38789"
+                                : "#8b7f7c",
+                          }}
+                        >
+                          {s.label}
+                        </Link>
+                        {s.children?.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setServicesOpen(false);
+                            }}
+                            className="block pl-4 py-2.5 text-[13px] tracking-[0.08em] cursor-pointer"
+                            style={{
+                              color: pathname === child.href ? "#c38789" : "#a89b96",
+                            }}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 </div>

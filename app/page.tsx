@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import Reviews from "@/components/Reviews";
 import ReviewsShowcase from "@/components/ReviewsShowcase";
+import InfluencerShowcase from "@/components/InfluencerShowcase";
 import BlogPreview from "@/components/BlogPreview";
 import Videos from "@/components/Videos";
 import ClinicMap from "@/components/ClinicMap";
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Reviews />
         <ReviewsShowcase />
+        <InfluencerShowcase />
         <BlogPreview />
         <Videos />
         <ClinicMap />

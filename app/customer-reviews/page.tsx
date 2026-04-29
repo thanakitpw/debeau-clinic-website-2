@@ -9,15 +9,15 @@ import { reviewCases, type ReviewCase } from "@/lib/review-cases";
 
 const AGE_GROUPS: { heading: string; match: (c: ReviewCase) => boolean }[] = [
   {
-    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 30+",
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง อายุ 30+",
     match: (c) => c.ageGroup === "30-39",
   },
   {
-    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 40+",
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง อายุ 40+",
     match: (c) => c.ageGroup === "40-49",
   },
   {
-    heading: "ผลลัพธ์รีวิวลูกค้าจริง ฟิลเลอร์ใต้ตา อายุ 50+",
+    heading: "ผลลัพธ์รีวิวลูกค้าจริง อายุ 50+",
     match: (c) => c.ageGroup === "50-59" || c.ageGroup === "60+",
   },
 ];

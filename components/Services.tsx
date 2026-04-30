@@ -22,7 +22,7 @@ const services: {
     description: "ฉีดฟิลเลอร์ตามจุดต่างๆ ปรับรูปหน้า สลายและแก้ไขฟิลเลอร์",
     icon: <Syringe size={20} />,
     href: "/filler",
-    image: "/images/service-filler.png",
+    image: "/images/service-filler-program.jpg",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const services: {
     description: "ลดริ้วรอย ยกกระชับกรอบหน้า ปรับรูปหน้าเรียว ลดเหงื่อ ออฟฟิศซินโดรม",
     icon: <Sparkles size={20} />,
     href: "/botox",
-    image: "/images/service-botox.png",
+    image: "/images/service-botox-program.jpg",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const services: {
     description: "เลเซอร์หน้าใส รักษาสิว ฝ้ากระ จุดด่างดำ และยกกระชับผิว",
     icon: <Zap size={20} />,
     href: "/laser",
-    image: "/images/service-laser-brightening.png",
+    image: "/images/service-picosure-program.jpg",
   },
   {
     id: 4,

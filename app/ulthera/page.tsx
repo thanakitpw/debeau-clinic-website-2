@@ -56,20 +56,22 @@ export default function UltheraPage() {
             title: "การทำ Ulthera ใช้เวลานานแค่ไหน?",
             content:
               "การทำ Micro-Focused Ultrasound Lifting Treatment สำหรับใบหน้าและลำคอใช้เวลาประมาณ 60-90 นาที สำหรับบริเวณที่เล็กกว่า เช่น หน้าผากหรือรอบดวงตา จะใช้เวลาประมาณ 30 นาที ทั้งนี้ขึ้นอยู่กับขนาดพื้นที่และจำนวน Line ที่ยิง",
-            image: "/images/scraped/ulthera/Ulthera-Template-No.01-1024x427.jpg",
+            image: "/images/ulthera-new/ulthera-02.jpg",
             imageAlt: "Ulthera ยกกระชับหน้า เดอโบคลินิก",
           },
           {
             title: "หลังทำต้องหยุดลางานหรือไม่?",
             content:
               "หลังจากทำ Micro-Focused Ultrasound Lifting แล้ว คุณสามารถกลับไปทำกิจวัตรประจำวันได้ตามปกติทันที อาจมีรอยแดงหรืออาการบวมเล็กน้อยซึ่งจะหายไปเองภายใน 7 วัน ถือเป็นข้อดีสำคัญที่ทำให้ Ulthera เป็นที่นิยม",
-            image: "/images/scraped/ulthera/Ulthera-Template-No.02-1024x427.jpg",
+            image: "/images/ulthera-new/ulthera-03.jpg",
             imageAlt: "Ulthera ไม่ต้องพักฟื้น เดอโบคลินิก",
           },
           {
             title: "จะเห็นผลเมื่อไหร่? และอยู่นานแค่ไหน?",
             content:
               "คุณจะเห็นผลลัพธ์ได้ตั้งแต่ในช่วงแรก แต่จะเห็นผลที่ดีที่สุดในช่วง 2-3 เดือน เนื่องจากร่างกายต้องใช้เวลาสร้างคอลลาเจนใหม่ ผลลัพธ์โดยทั่วไปอยู่ได้นานถึง 1 ปี จากนั้นอาจต้องทำซ้ำเพื่อรักษาผลลัพธ์ที่ต้องการ",
+            image: "/images/ulthera-new/ulthera-04.jpg",
+            imageAlt: "Ulthera ผลลัพธ์ยกกระชับ เดอโบคลินิก",
           },
           {
             title: "วิธีดูแลตัวเองหลังทำ Ulthera",
@@ -83,7 +85,7 @@ export default function UltheraPage() {
           { label: "Laser หน้าใส", href: "/laser" },
           { label: "Mesotherapy", href: "/mesotherapy" },
         ]}
-        heroImage="/images/scraped/ulthera/ulthera-debeau-clinic.jpg"
+        heroImage="/images/ulthera-new/ulthera-01.jpg"
         heroImageAlt="ULTHERA ยกกระชับหน้าโดยไม่ต้องผ่าตัด เดอโบคลินิก"
         accentColor="#c38789"
       />

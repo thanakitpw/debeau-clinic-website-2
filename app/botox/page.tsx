@@ -90,14 +90,12 @@ export default function BotoxPage() {
             title: "ก่อนฉีด ควรทำอะไร?",
             content:
               "งดอาหารเสริมกลุ่มวิตามินอี น้ำมันปลา และโสมประมาณ 3 วันก่อนฉีด งดยาแอสไพรินอย่างน้อย 7 วันก่อนฉีด และควรแจ้งโรคประจำตัวหรือยาที่ทานอยู่ให้หมอทราบก่อนทุกครั้ง ห้ามฉีดในผู้ที่ตั้งครรภ์หรือให้นมบุตร",
-            image: "/images/scraped/botox/Btx-Template-No.1-1024x427.jpg",
-            imageAlt: "ก่อนฉีดโบท็อก เดอโบคลินิก",
           },
           {
             title: "หลังฉีด ดูแลอย่างไร?",
             content:
               "ห้ามนอนราบ 3-4 ชั่วโมงหลังฉีด หลีกเลี่ยงความร้อน เช่น อาบน้ำร้อน ไดร์เป่าผม และซาวน่า 14 วัน งดแอลกอฮอล์ 7 วัน เว้นนวดหน้าและเลเซอร์ 14 วัน งดอาหารเผ็ดจัด งดสูบบุหรี่ 14 วัน และให้บริหารใบหน้าด้วยการยิ้ม ยักคิ้ว เคี้ยว เพื่อช่วยให้ยาดูดซึมได้ดีขึ้น",
-            image: "/images/scraped/botox/Btx-Template-No.2-1024x427.jpg",
+            image: "/images/หลังทำbotox.jpg",
             imageAlt: "หลังฉีดโบท็อก เดอโบคลินิก",
           },
           {
@@ -111,7 +109,7 @@ export default function BotoxPage() {
           { label: "ยกกระชับ (Ulthera)", href: "/ulthera" },
           { label: "Laser หน้าใส", href: "/laser" },
         ]}
-        heroImage="/images/scraped/botox/Big-Banner-08-1-1024x368.jpg"
+        heroImageAspect="none"
         accentColor="#8b7f7c"
       />
       <Footer />

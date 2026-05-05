@@ -49,7 +49,7 @@ const services: {
     description: "ยกกระชับกรอบหน้าและลำคอ ดึงหน้าโดยไม่ต้องผ่าตัด",
     icon: <Radio size={20} />,
     href: "/ulthera",
-    image: "/images/service-laser-tightening.png",
+    image: "/images/service-ulthera-program.jpg",
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ const services: {
     description: "กระตุ้นการสร้างคอลลาเจน ด้วย Sculptra และ HArmonyCa",
     icon: <Layers size={20} />,
     href: "/collagen-biostimulator",
-    image: "/images/service-filler.png",
+    image: "/images/service-collagen-program.jpg",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const services: {
     description: "บำรุงผิวด้วย Skinvive, Rejuran, Plinest พร้อม Set ผิวอินฟลู",
     icon: <Droplets size={20} />,
     href: "/skin-booster",
-    image: "/images/service-mesotherapy.png",
+    image: "/images/service-skinbooster-program.jpg",
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ const services: {
     description: "ฉีดรักษาฝ้า กระ จุดด่างดำ ฉีดหน้าใส สลายไขมันและลดเหนียง",
     icon: <FlaskConical size={20} />,
     href: "/mesotherapy",
-    image: "/images/service-mesotherapy.png",
+    image: "/images/service-meso-program.jpg",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const services: {
     description: "Premium Aura Bright ผิวขาวกระจ่างใส, Immune Booster, Ultimate",
     icon: <Pipette size={20} />,
     href: "/iv-drip",
-    image: "/images/treatment-room.png",
+    image: "/images/service-ivdrip-program.jpg",
   },
   {
     id: 9,
@@ -94,7 +94,7 @@ const services: {
     description: "ผลักวิตามินบำรุง นวดหน้า มาสก์หน้า",
     icon: <Gem size={20} />,
     href: "/facial-treatments",
-    image: "/images/service-facial.png",
+    image: "/images/service-facial-program.jpg",
   },
 ];
 

@@ -107,6 +107,15 @@ export default function FillerDissolvingPage() {
               "De Beau Clinic ดูแลโดยหมอโบ พญ.ปาริฉัตร ตัณชวนิชย์ แพทย์ผู้เชี่ยวชาญด้านผิวหนัง จบจากรามาธิบดี และ Boston University USA มีประสบการณ์มากกว่า 16 ปี ดูแลเองทุกเคส ใช้ฟิลเลอร์แท้นำเข้าจากยุโรป ผ่าน อย.ไทย ฉีดสลายฟิลเลอร์ได้ทุกจุด แก้ไขได้ทุกปัญหา",
           },
         ]}
+        galleryTitle="เคสสลายฟิลเลอร์จริงจากลูกค้า"
+        galleryImages={[
+          { src: "/images/dissolving-cases/case-01.jpg", alt: "เคสสลายฟิลเลอร์ 1 เดอโบคลินิก" },
+          { src: "/images/dissolving-cases/case-02.jpg", alt: "เคสสลายฟิลเลอร์ 2 เดอโบคลินิก" },
+          { src: "/images/dissolving-cases/case-03.jpg", alt: "เคสสลายฟิลเลอร์ 3 เดอโบคลินิก" },
+          { src: "/images/dissolving-cases/case-04.jpg", alt: "เคสสลายฟิลเลอร์ 4 เดอโบคลินิก" },
+          { src: "/images/dissolving-cases/case-05.jpg", alt: "เคสสลายฟิลเลอร์ 5 เดอโบคลินิก" },
+          { src: "/images/dissolving-cases/case-06.jpg", alt: "เคสสลายฟิลเลอร์ 6 เดอโบคลินิก" },
+        ]}
         relatedServices={[
           { label: "ฟิลเลอร์ปรับรูปหน้า", href: "/filler" },
           { label: "ฟิลเลอร์ใต้ตา", href: "/filler/under-eye" },

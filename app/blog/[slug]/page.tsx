@@ -1,15 +1,81 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Clock, Tag, CheckCircle, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingLine from "@/components/FloatingLine";
-import { blogPosts, getBlogPost } from "@/lib/blog-data";
+import "../article.css";
+
+type IndexEntry = {
+  slug: string;
+  title: string;
+  date: string;
+  categories: string[];
+  featuredImage: string | null;
+};
+
+type Article = {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  modified: string;
+  categories: { id: number; slug: string; name: string }[];
+  tags: { id: number; slug: string; name: string }[];
+  featuredImage: string | null;
+  featuredAlt: string;
+  yoastDescription: string;
+  content: string;
+};
+
+const CATEGORY_LABELS: Record<string, string> = {
+  blog: "บทความ",
+  "skin-care-tips": "ดูแลผิว",
+  filler: "ฟิลเลอร์",
+  botox: "โบท็อกซ์",
+  ulthera: "อัลเทอร่า",
+  mesotherapy: "เมโสเธอราพี",
+  laser: "เลเซอร์",
+  review: "รีวิว",
+  uncategorized: "ทั่วไป",
+};
+
+async function getIndex(): Promise<IndexEntry[]> {
+  const raw = await fs.readFile(path.join(process.cwd(), "data-drive/blog-posts/_index.json"), "utf8");
+  return JSON.parse(raw);
+}
+
+async function getArticle(slug: string): Promise<Article | null> {
+  try {
+    const raw = await fs.readFile(
+      path.join(process.cwd(), "data-drive/blog-posts", `${slug}.json`),
+      "utf8"
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function formatThaiDate(iso: string) {
+  return new Date(iso).toLocaleDateString("th-TH", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  const raw = await fs.readFile(
+    path.join(process.cwd(), "data-drive/blog-posts/_index.json"),
+    "utf8"
+  );
+  const index: IndexEntry[] = JSON.parse(raw);
+  return index.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -18,11 +84,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
-  if (!post) return { title: "ไม่พบบทความ" };
+  const article = await getArticle(slug);
+  if (!article) return {};
+  const description = article.yoastDescription || article.excerpt || "";
   return {
-    title: `${post.title} | DE BEAU CLINIC`,
-    description: post.excerpt,
+    title: `${article.title} | DE BEAU CLINIC`,
+    description,
+    openGraph: article.featuredImage
+      ? { images: [{ url: article.featuredImage }] }
+      : undefined,
   };
 }
 
@@ -32,222 +102,182 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
-  if (!post) notFound();
+  const [article, index] = await Promise.all([getArticle(slug), getIndex()]);
 
-  const related = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  if (!article) notFound();
+
+  // Related: same category, excluding current, up to 3
+  const slugCats = article.categories.map((c) => c.slug);
+  const related = index
+    .filter((p) => p.slug !== slug && p.categories.some((c) => slugCats.includes(c)))
+    .slice(0, 3);
+  const fallback = related.length < 3
+    ? index
+        .filter((p) => p.slug !== slug && !related.some((r) => r.slug === p.slug))
+        .slice(0, 3 - related.length)
+    : [];
+  const relatedPosts = [...related, ...fallback];
 
   return (
     <>
       <Navbar />
       <main>
         {/* Hero */}
-        <section
-          className="pt-32 pb-0 px-6"
-          style={{ background: `linear-gradient(135deg, ${post.gradientFrom} 0%, ${post.gradientTo} 100%)` }}
-        >
-          <div className="max-w-3xl mx-auto">
-            {/* Back link */}
+        <section className="pt-32 pb-0" style={{ backgroundColor: "#69554a" }}>
+          <div className="max-w-3xl mx-auto px-6 pb-10">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm mb-8 transition-opacity hover:opacity-70 cursor-pointer"
-              style={{ color: "rgba(255,255,255,0.7)" }}
+              className="inline-flex items-center gap-1.5 text-xs tracking-wider mb-8 transition-opacity hover:opacity-70"
+              style={{ color: "rgba(255,255,255,0.65)" }}
             >
-              <ArrowLeft size={14} /> กลับหน้าบทความ
+              ← ย้อนกลับไปบทความ
             </Link>
 
-            <div className="flex items-center gap-3 mb-5">
-              <span
-                className="text-xs px-3 py-1 rounded-full font-medium"
-                style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "#fff" }}
-              >
-                <Tag size={9} className="inline mr-1" />
-                {post.category}
-              </span>
-              <span className="text-xs flex items-center gap-1" style={{ color: "rgba(255,255,255,0.6)" }}>
-                <Clock size={11} /> {post.readTime}
-              </span>
-              <span className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-                {post.date}
-              </span>
+            {/* Categories */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {article.categories
+                .filter((c) => c.slug !== "uncategorized")
+                .map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/blog?category=${c.slug}`}
+                    className="text-[10px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-full"
+                    style={{ backgroundColor: "rgba(195,135,137,0.3)", color: "#f5c5c6" }}
+                  >
+                    {CATEGORY_LABELS[c.slug] ?? c.name}
+                  </Link>
+                ))}
             </div>
 
-            <h1
-              className="text-3xl lg:text-4xl font-light leading-snug mb-6"
-              style={{ color: "#fff" }}
-            >
-              {post.title}
+            <h1 className="text-2xl lg:text-3xl font-light leading-snug mb-4" style={{ color: "#fff" }}>
+              {article.title}
             </h1>
 
-            <p className="text-base font-light leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
-              {post.excerpt}
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
+              เผยแพร่เมื่อ {formatThaiDate(article.date)}
             </p>
-
-            {/* Cover image */}
-            {post.image && (
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 768px"
-                  priority
-                />
-              </div>
-            )}
           </div>
+
+          {/* Featured image */}
+          {article.featuredImage && (
+            <div className="relative w-full max-w-3xl mx-auto" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src={article.featuredImage}
+                alt={article.featuredAlt || article.title}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
+          )}
         </section>
 
         {/* Article body */}
-        <section className="py-16 px-6" style={{ backgroundColor: "#fff" }}>
+        <section className="py-14 px-6" style={{ backgroundColor: "#fff" }}>
           <div className="max-w-3xl mx-auto">
-
-            {/* Intro */}
             <div
-              className="p-6 mb-10 border-l-4"
-              style={{ backgroundColor: "#f9f8f7", borderColor: post.accentColor }}
-            >
-              <p className="text-base font-light leading-relaxed" style={{ color: "#69554a" }}>
-                {post.content.intro}
-              </p>
-            </div>
-
-            {/* Sections */}
-            <div className="flex flex-col gap-12">
-              {post.content.sections.map((section, i) => (
-                <div key={i} className="flex flex-col gap-4">
-                  {/* In-article image */}
-                  {i === 1 && post.articleImages?.[0] && (
-                    <div className="relative w-full overflow-hidden mb-2" style={{ aspectRatio: "16/9" }}>
-                      <Image
-                        src={post.articleImages[0].src}
-                        alt={post.articleImages[0].alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 768px"
-                      />
-                    </div>
-                  )}
-                  {i === 3 && post.articleImages?.[1] && (
-                    <div className="relative w-full overflow-hidden mb-2" style={{ aspectRatio: "16/9" }}>
-                      <Image
-                        src={post.articleImages[1].src}
-                        alt={post.articleImages[1].alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 768px"
-                      />
-                    </div>
-                  )}
-
-                  <div className="flex items-start gap-3">
-                    <div
-                      className="w-7 h-7 flex items-center justify-center shrink-0 mt-0.5"
-                      style={{ backgroundColor: `${post.accentColor}18` }}
-                    >
-                      <span className="text-xs font-semibold" style={{ color: post.accentColor }}>
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <h2 className="text-xl font-medium pt-0.5" style={{ color: "#69554a" }}>
-                      {section.heading}
-                    </h2>
-                  </div>
-                  <p className="text-sm font-light leading-[1.9]" style={{ color: "#8b7f7c" }}>
-                    {section.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Conclusion */}
-            <div
-              className="mt-12 p-7 flex flex-col gap-3"
-              style={{ backgroundColor: `${post.accentColor}0f`, border: `1px solid ${post.accentColor}25` }}
-            >
-              <div className="flex items-center gap-2">
-                <CheckCircle size={18} style={{ color: post.accentColor }} />
-                <p className="text-sm font-semibold" style={{ color: post.accentColor }}>
-                  สรุป
-                </p>
-              </div>
-              <p className="text-sm font-light leading-relaxed" style={{ color: "#69554a" }}>
-                {post.content.conclusion}
-              </p>
-            </div>
-
-            {/* CTA */}
-            <div
-              className="mt-10 p-8 flex flex-col items-center text-center gap-4"
-              style={{ backgroundColor: "#69554a" }}
-            >
-              <p className="text-xs tracking-[0.3em] uppercase" style={{ color: "rgba(195,135,137,0.8)" }}>
-                ปรึกษาฟรี
-              </p>
-              <h3 className="text-xl font-light" style={{ color: "#fff" }}>
-                สนใจเข้ารับบริการ?
-              </h3>
-              <p className="text-sm font-light" style={{ color: "rgba(255,255,255,0.6)" }}>
-                ปรึกษาหมอโบก่อนได้เลย ไม่มีค่าใช้จ่าย
-              </p>
-              <a
-                href="https://line.me/R/ti/p/@debeauclinic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ backgroundColor: "#c38789", color: "#fff" }}
-              >
-                ปรึกษาผ่าน LINE <ArrowRight size={14} />
-              </a>
-            </div>
+              className="article-body"
+              dangerouslySetInnerHTML={{ __html: article.content }}
+            />
           </div>
         </section>
 
-        {/* Related Posts */}
-        {related.length > 0 && (
-          <section className="pb-20 px-6" style={{ backgroundColor: "#f9f8f7" }}>
-            <div className="max-w-3xl mx-auto">
-              <div className="pt-12 pb-8 border-t" style={{ borderColor: "#e0ddd9" }}>
-                <p className="text-xs tracking-[0.25em] uppercase font-medium mb-8" style={{ color: "#8b7f7c" }}>
-                  บทความที่เกี่ยวข้อง
-                </p>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {related.map((rel) => (
-                    <Link
-                      key={rel.slug}
-                      href={`/blog/${rel.slug}`}
-                      className="group flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer"
-                      style={{ border: "1px solid #e0ddd9", backgroundColor: "#fff" }}
-                    >
-                      <div
-                        className="h-32 flex items-center justify-center relative overflow-hidden"
-                        style={{ background: `linear-gradient(135deg, ${rel.gradientFrom}, ${rel.gradientTo})` }}
+        {/* Related articles */}
+        {relatedPosts.length > 0 && (
+          <section className="py-14 px-6" style={{ backgroundColor: "#f5f2ef" }}>
+            <div className="max-w-5xl mx-auto">
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-medium mb-2"
+                style={{ color: "#c38789" }}
+              >
+                บทความที่เกี่ยวข้อง
+              </p>
+              <h2 className="text-xl font-light mb-8" style={{ color: "#3a2e2b" }}>
+                อ่านเพิ่มเติม
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+                    style={{ backgroundColor: "#fff", border: "1px solid #e0ddd9" }}
+                  >
+                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                      {post.featuredImage ? (
+                        <Image
+                          src={post.featuredImage}
+                          alt={post.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0"
+                          style={{ background: "linear-gradient(135deg, #c38789, #69554a)" }}
+                        />
+                      )}
+                    </div>
+                    <div className="p-4 flex flex-col gap-2 flex-1">
+                      <div className="flex flex-wrap gap-1">
+                        {post.categories
+                          .filter((c) => c !== "uncategorized")
+                          .map((c) => (
+                            <span
+                              key={c}
+                              className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-full"
+                              style={{ backgroundColor: "#f5f2ef", color: "#c38789" }}
+                            >
+                              {CATEGORY_LABELS[c] ?? c}
+                            </span>
+                          ))}
+                      </div>
+                      <h3
+                        className="text-sm font-medium leading-snug line-clamp-2 flex-1"
+                        style={{ color: "#3a2e2b" }}
                       >
-                        <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full opacity-15" style={{ backgroundColor: "#fff" }} />
-                        <BookOpen size={28} style={{ color: "rgba(255,255,255,0.8)" }} />
-                      </div>
-                      <div className="p-4 flex flex-col gap-2">
-                        <span
-                          className="text-[11px] px-2 py-0.5 rounded-full self-start font-medium"
-                          style={{ backgroundColor: `${rel.accentColor}15`, color: rel.accentColor }}
-                        >
-                          {rel.category}
-                        </span>
-                        <h4 className="text-sm font-medium leading-snug group-hover:opacity-75 transition-opacity" style={{ color: "#69554a" }}>
-                          {rel.title}
-                        </h4>
-                        <span className="text-xs flex items-center gap-1 mt-1" style={{ color: rel.accentColor }}>
-                          อ่านต่อ <ArrowRight size={11} />
-                        </span>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                        {post.title}
+                      </h3>
+                      <span
+                        className="text-[11px] font-medium mt-auto group-hover:underline"
+                        style={{ color: "#c38789" }}
+                      >
+                        อ่านต่อ →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
         )}
+
+        {/* CTA */}
+        <section className="py-20 px-6 text-center" style={{ backgroundColor: "#fff" }}>
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-xl lg:text-2xl font-light mb-3" style={{ color: "#3a2e2b" }}>
+              สนใจเข้ารับบริการ?
+            </h2>
+            <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
+              ปรึกษาหมอโบได้โดยตรง ฟรี ไม่มีค่าใช้จ่าย
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://line.me/R/ti/p/@debeauclinic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary cursor-pointer"
+              >
+                ปรึกษาผ่าน LINE
+              </a>
+              <Link href="/blog" className="btn-outline cursor-pointer">
+                ดูบทความทั้งหมด
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
       <FloatingLine />

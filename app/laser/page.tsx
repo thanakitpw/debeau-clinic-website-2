@@ -206,16 +206,14 @@ export default function LaserHubPage() {
         {/* ── Banner Image จากเว็บเดิม ── */}
         <section className="px-0" style={{ backgroundColor: "#fff" }}>
           <div className="max-w-5xl mx-auto px-6 pt-12">
-            <div
-              className="w-full overflow-hidden relative"
-              style={{ minHeight: "280px" }}
-            >
+            <div className="w-full overflow-hidden flex justify-center">
               <Image
-                src="/images/scraped/laser/Big-Banner-09-1-e1623997211189.jpg"
+                src="/images/meso.jpg"
                 alt="บริการเลเซอร์ เดอโบคลินิก — Clear Skin Laser Treatment"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1200px"
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 80vw, 960px"
+                style={{ width: "80%", height: "auto" }}
                 priority
               />
             </div>
@@ -247,16 +245,16 @@ export default function LaserHubPage() {
             </div>
 
             {/* รายการโปรแกรม */}
-            <div className="flex flex-col gap-8">
-              {laserPrograms.map((program) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {laserPrograms.slice(0, 4).map((program) => (
                 <div
                   key={program.number}
-                  className="flex flex-col lg:flex-row gap-0 overflow-hidden"
+                  className="flex flex-col overflow-hidden"
                   style={{ border: "1px solid #e0ddd9" }}
                 >
                   {/* หมายเลข */}
                   <div
-                    className="lg:w-[100px] flex items-center justify-center py-8 lg:py-0 shrink-0"
+                    className="flex items-center justify-center py-6 shrink-0"
                     style={{ backgroundColor: program.accent }}
                   >
                     <span
@@ -298,6 +296,83 @@ export default function LaserHubPage() {
                   </div>
                 </div>
               ))}
+              {/* pico.jpg แทรกหลังข้อ 04 */}
+              <div className="col-span-1 md:col-span-2 flex justify-center">
+                <Image
+                  src="/images/pico.jpg"
+                  alt="PicoSure Laser เดอโบคลินิก"
+                  width={0}
+                  height={0}
+                  sizes="480px"
+                  style={{ maxWidth: "480px", width: "100%", height: "auto" }}
+                />
+              </div>
+              {laserPrograms.slice(4).map((program) => (
+                <div
+                  key={program.number}
+                  className="flex flex-col overflow-hidden"
+                  style={{ border: "1px solid #e0ddd9" }}
+                >
+                  {/* หมายเลข */}
+                  <div
+                    className="flex items-center justify-center py-6 shrink-0"
+                    style={{ backgroundColor: program.accent }}
+                  >
+                    <span
+                      className="font-sans text-3xl font-light"
+                      style={{ color: "rgba(255,255,255,0.9)" }}
+                    >
+                      {program.number}
+                    </span>
+                  </div>
+
+                  {/* เนื้อหา */}
+                  <div className="p-8 flex-1 flex flex-col gap-3">
+                    <div>
+                      <p
+                        className="text-[10px] tracking-[0.25em] uppercase font-medium mb-1"
+                        style={{ color: program.accent }}
+                      >
+                        {program.tech}
+                      </p>
+                      <h3
+                        className="font-sans text-xl font-medium"
+                        style={{ color: "#69554a" }}
+                      >
+                        {program.title}
+                      </h3>
+                      <p
+                        className="text-sm font-light mt-0.5"
+                        style={{ color: "#8b7f7c" }}
+                      >
+                        {program.titleTh}
+                      </p>
+                    </div>
+                    <p
+                      className="text-sm leading-relaxed font-light"
+                      style={{ color: "#8b7f7c" }}
+                    >
+                      {program.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Pico Images ── */}
+        <section className="px-6 py-12" style={{ backgroundColor: "#fff" }}>
+          <div className="max-w-5xl mx-auto flex flex-col items-center gap-4">
+            <div className="overflow-hidden" style={{ maxWidth: "680px", width: "100%" }}>
+              <Image
+                src="/images/pico2.jpg"
+                alt="PicoSure Laser ผลลัพธ์ เดอโบคลินิก"
+                width={0}
+                height={0}
+                sizes="680px"
+                style={{ width: "100%", height: "auto" }}
+              />
             </div>
           </div>
         </section>

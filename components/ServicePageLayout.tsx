@@ -3,6 +3,7 @@ import Link from "next/link";
 import { type ReactNode } from "react";
 import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
 import SectionImage from "@/components/SectionImage";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 export interface ServiceSection {
   title: string;
@@ -37,14 +38,20 @@ export interface ServicePageProps {
   sections?: ServiceSection[];
   ctaText?: string;
   relatedServices?: { label: string; href: string }[];
+  /** YouTube video IDs (ไม่ต้องใส่ URL เต็ม ใส่แค่ ID เช่น "bnkmmmWAzKM") */
+  videos?: string[];
+  /** รูปภาพเคสลูกค้า แสดงเป็น grid gallery */
+  galleryImages?: { src: string; alt?: string }[];
+  /** หัวข้อ gallery (ค่าเริ่มต้น: "ผลลัพธ์จากลูกค้าจริง") */
+  galleryTitle?: string;
   accentColor?: string;
   parentBreadcrumb?: { label: string; href: string };
   /** รูปภาพใน Image Section (ถ้าไม่ส่งจะใช้ /images/treatment-room.png เป็นค่าเริ่มต้น) */
   heroImage?: string;
   /** alt text สำหรับรูปภาพ Image Section */
   heroImageAlt?: string;
-  /** รูปแบบการแสดงผลของ Image Section: "banner" (ค่าเริ่มต้น, กว้างเต็ม crop เป็นแบนเนอร์) หรือ "square" (1:1 แสดงเต็มรูป) */
-  heroImageAspect?: "banner" | "square";
+  /** รูปแบบการแสดงผลของ Image Section: "banner" (ค่าเริ่มต้น, กว้างเต็ม crop เป็นแบนเนอร์), "square" (1:1 แสดงเต็มรูป), "contain" (แสดงรูปเต็มไม่ crop) หรือ "none" */
+  heroImageAspect?: "banner" | "square" | "contain" | "none";
 }
 
 const LINE_URL = "https://line.me/R/ti/p/@debeauclinic";
@@ -62,6 +69,9 @@ export default function ServicePageLayout({
   sections,
   ctaText = "ปรึกษาหมอโบฟรี",
   relatedServices,
+  videos,
+  galleryImages,
+  galleryTitle = "ผลลัพธ์จากลูกค้าจริง",
   accentColor = "#c38789",
   parentBreadcrumb,
   heroImage = "/images/treatment-room.png",
@@ -257,22 +267,35 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* ── Image Section (เฉพาะโหมด banner) ── */}
-      {heroImageAspect !== "square" && (
+      {/* ── Image Section (เฉพาะโหมด banner / contain) ── */}
+      {heroImageAspect !== "square" && heroImageAspect !== "none" && (
         <section className="px-6 pb-16" style={{ backgroundColor: "#fff" }}>
           <div className="max-w-5xl mx-auto">
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ minHeight: "320px" }}
-            >
-              <Image
-                src={heroImage}
-                alt={heroImageAlt}
-                fill
-                className="object-cover img-zoom"
-                sizes="(max-width: 768px) 100vw, 1200px"
-              />
-            </div>
+            {heroImageAspect === "contain" ? (
+              <div className="flex justify-center">
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  width={0}
+                  height={0}
+                  sizes="700px"
+                  style={{ maxWidth: "700px", width: "100%", height: "auto" }}
+                />
+              </div>
+            ) : (
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ minHeight: "320px" }}
+              >
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  fill
+                  className="object-cover img-zoom"
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                />
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -373,14 +396,14 @@ export default function ServicePageLayout({
               >
                 {/* รูปภาพ — แสดงเฉพาะเมื่อมีรูป */}
                 {s.image && (
-                  <div className="lg:w-1/3">
+                  <div className="lg:w-1/2">
                     <SectionImage
                       src={s.image}
                       alt={s.imageAlt ?? s.title}
                     />
                   </div>
                 )}
-                <div className={`${s.image ? "lg:w-2/3" : "w-full"} flex flex-col justify-center gap-4`}>
+                <div className={`${s.image ? "lg:w-1/2" : "w-full"} flex flex-col justify-center gap-4`}>
                   <h3
                     className="text-[22px] lg:text-[26px] font-semibold leading-snug"
                     style={{ color: "#3a2e2b" }}
@@ -396,6 +419,47 @@ export default function ServicePageLayout({
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Gallery (เคสลูกค้า) ── */}
+      {galleryImages && galleryImages.length > 0 && (
+        <section className="py-20 px-6" style={{ backgroundColor: "#e8e7e5" }}>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="section-label">ผลลัพธ์จริง</p>
+              <h2 className="section-heading mt-2">{galleryTitle}</h2>
+              <div className="divider-rose mt-4" />
+            </div>
+            <GalleryLightbox images={galleryImages} title={galleryTitle} />
+          </div>
+        </section>
+      )}
+
+      {/* ── Videos ── */}
+      {videos && videos.length > 0 && (
+        <section className="py-20 px-6" style={{ backgroundColor: "#e8e7e5" }}>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="section-label">วิดีโอ</p>
+              <h2 className="section-heading mt-2">ชมวิดีโอจากคลินิก</h2>
+              <div className="divider-rose mt-4" />
+            </div>
+            <div className={`grid gap-6 ${videos.length === 1 ? "grid-cols-1 max-w-2xl mx-auto" : videos.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
+              {videos.map((id) => (
+                <div key={id} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${id}`}
+                    title="วิดีโอเดอโบคลินิก"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: "none" }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}

@@ -126,29 +126,29 @@ export default function FillerPage() {
         ]}
         heroImage="/images/scraped/filler/Big-Banner-04-1-1024x368.jpg"
         heroImageAlt="ฉีดฟิลเลอร์ เดอโบคลินิก หมอโบ"
+        heroImageAspect="none"
         sections={[
           {
             title: "เทคนิคพิเศษของหมอโบ",
             content:
               "หมอโบใช้เทคนิคโครงสร้าง (Structure Technique) คือ ใช้ฟิลเลอร์โมเลกุลใหญ่ปรับโครงสร้างหน้าก่อน แล้วจึงใช้โมเลกุลเล็กเก็บรายละเอียด ทำให้ผลลัพธ์เป็นธรรมชาติ อยู่นาน ไม่ก้อน ใช้เวลา 1-1.5 ชั่วโมงต่อเคส มือเบา ไม่เกิดรอยช้ำ คนไข้รีวิว 'ละเอียด เนียน เป๊ะ!'",
-            image: "/images/scraped/filler/ฟิลเลอร์เหมาะกับผิวบริเวณไหน-หมอโบ-เดอโบคลีนิค-debeauclinic.jpg",
+            image: "/images/ฟิลเลอร์ชั้นผิว.jpg",
             imageAlt: "เทคนิคฟิลเลอร์หมอโบ เดอโบคลินิก",
           },
           {
             title: "ฟิลเลอร์ที่ใช้ปลอดภัยแค่ไหน?",
             content:
               "หมอโบใช้เฉพาะ JUVEDERM และ RESTYLANE ที่นำเข้าจากยุโรปแท้ ผ่านการรับรองจาก อย.ไทย แกะกล่องต่อหน้าคนไข้ทุกครั้ง สามารถสลายได้ด้วยเอ็นไซม์ Hyaluronidase หากต้องการแก้ไข ไม่ใช้ฟิลเลอร์ถาวรประเภทซิลิโคนหรือ Polyacrylamide เพราะไม่สามารถสลายได้",
-            image: "/images/scraped/filler/ปรับโครงสร้างใบหน้า-เติมเต็มด้วยฟิลเลอร์-หมอโบ-debeauclinic.jpg",
-            imageAlt: "ฟิลเลอร์ปลอดภัย เดอโบคลินิก",
+            image: "/images/หลังฉีดฟิลเลอร์.jpg",
+            imageAlt: "หลังฉีดฟิลเลอร์ เดอโบคลินิก",
           },
           {
             title: "ปรึกษาฟรี ไม่มีค่าใช้จ่าย",
             content:
               "หมอโบให้คำปรึกษาฟรีทุกเคส ไม่มีค่าปรึกษา สามารถปรึกษาผ่าน LINE @debeauclinic, Facebook m.me/debeauclinic หรือโทร 097-426-6956, 097-429-5645 หมอดูแลเองทุกเคส ไม่ส่งต่อให้พยาบาล",
-            image: "/images/scraped/filler/ข้อห้ามหลังการฉีดฟิลเลอร์-หมอโบ-เดอโบคลีนิค-debeauclinic.jpg",
-            imageAlt: "ปรึกษาฟรี เดอโบคลินิก",
           },
         ]}
+        videos={["bnkmmmWAzKM", "rB-nNZaplBQ", "P25Khr2elbQ"]}
       />
       <Footer />
       <FloatingLine />

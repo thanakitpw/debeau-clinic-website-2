@@ -10,7 +10,7 @@ import ClinicMap from "@/components/ClinicMap";
 export const metadata: Metadata = {
   title: "เกี่ยวกับหมอโบ พญ.ปาริฉัตร ตัณชวนิชย์ | DE BEAU CLINIC",
   description:
-    "Dr.Beau Profile — พญ. ปาริฉัตร ตัณชวนิชย์ ผู้เชี่ยวชาญด้านการปรับรูปหน้า ฉีดฟิลเลอร์ โบท็อก เลเซอร์ ประสบการณ์กว่า 15 ปี จบจากรามาธิบดี + Boston University",
+    "Dr.Beau Profile — พญ. ปาริฉัตร ตัณชวนิชย์ ผู้เชี่ยวชาญด้านการปรับรูปหน้า ฉีดฟิลเลอร์ โบท็อก เลเซอร์ ประสบการณ์กว่า 20 ปี จบจากรามาธิบดี + Boston University",
 };
 
 const education = [
@@ -43,7 +43,7 @@ const awards = [
   { year: "2017", title: "Premium Leading Clinic", from: "Galderma" },
   { year: "2018", title: "Filler Leading Clinic", from: "Allergan" },
   { year: "2018", title: "Top 5 Premium Leading Clinic", from: "Galderma" },
-  { year: "2016–2018", title: "Top 5 คลินิกฉีดฟิลเลอร์สูงสุดของประเทศไทย 3 ปีซ้อน", from: "Allergan & Galderma" },
+  { year: "2016–2018", title: "Top 5 คลินิกฉีดฟิลเลอร์สูงสุดของประเทศไทย 11 ปีซ้อน", from: "Allergan & Galderma" },
 ];
 
 export default function AboutPage() {
@@ -77,7 +77,7 @@ export default function AboutPage() {
               {[
                 "ผู้เชี่ยวชาญด้านการปรับรูปหน้า",
                 "ฉีดฟิลเลอร์ โบท็อก เลเซอร์ทุกชนิด",
-                "ประสบการณ์กว่า 15 ปี",
+                "ประสบการณ์กว่า 20 ปี",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <CheckCircle size={16} style={{ color: "#c38789" }} />
@@ -105,10 +105,10 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { value: "15+", label: "ปีประสบการณ์", sub: "ด้านความงาม" },
+                { value: "20+", label: "ปีประสบการณ์", sub: "ด้านความงาม" },
                 { value: "30,000+", label: "เคส", sub: "Botox & Filler" },
                 { value: "2,000+", label: "เคส", sub: "Laser รักษา" },
-                { value: "Top 5", label: "ของประเทศไทย", sub: "3 ปีซ้อน" },
+                { value: "Top 5", label: "ของประเทศไทย", sub: "11 ปีซ้อน" },
               ].map((s, i) => (
                 <div key={i} className="p-4 text-center"
                   style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>

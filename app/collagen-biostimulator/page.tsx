@@ -167,7 +167,7 @@ export default function CollagenBiostimulatorPage() {
                   subtitle: "Poly-L-Lactic Acid (PLLA)",
                   desc: "กระตุ้นการสร้างคอลลาเจนใหม่ (Collagen Type 1) สูงสุด 66.5% ผลลัพธ์แบบธรรมชาติ",
                   duration: "2-3 ปี",
-                  price: "29,000 บาท / ขวด",
+                  price: "35,000 บาท / ขวด",
                   priceNote: "จากราคาปกติ 60,000",
                 },
                 {
@@ -635,7 +635,7 @@ export default function CollagenBiostimulatorPage() {
                     className="font-sans text-4xl lg:text-5xl font-light"
                     style={{ color: "#fff" }}
                   >
-                    29,000 บาท
+                    35,000 บาท
                   </p>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
                     / ขวด (10 cc)

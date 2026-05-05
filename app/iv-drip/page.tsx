@@ -76,8 +76,8 @@ export default function IVDripPage() {
             title: "ปรับสูตรตามไลฟ์สไตล์",
             content:
               "หัวใจของ IV Drip ระดับคลินิก คือ Personalized Medicine — ออกแบบสูตรเฉพาะบุคคลตามสภาพผิว (หมองคล้ำ / อ่อนล้า / แพ้ง่าย), ตามช่วงวัย (วัยทำงานเน้นพลังงาน, วัย 30+ เน้นผิว+ชะลอวัย, วัย 40+ เน้นฟื้นฟู+ภูมิคุ้มกัน), และตามไลฟ์สไตล์ (ทำงานหนัก, เดินทางบ่อย, ออกกำลังกายหนัก, พักฟื้นร่างกาย) เพื่อผลลัพธ์ที่ตอบโจทย์แต่ละบุคคลอย่างแท้จริง",
-            image: "/images/treatment-room.png",
-            imageAlt: "IV Drip Vitamin เดอโบคลินิก",
+            image: "/images/vitamin-01.jpg",
+            imageAlt: "IV Drip Vitamin ปรับสูตรเฉพาะบุคคล เดอโบคลินิก",
           },
           {
             title: "ประสบการณ์ระหว่างการทำ",
@@ -88,6 +88,8 @@ export default function IVDripPage() {
             title: "ความปลอดภัยและการดูแล",
             content:
               "แม้ IV Drip จะมีความปลอดภัยสูง แต่ควรทำภายใต้การดูแลของแพทย์เท่านั้น ก่อนทำจะมีการประเมินสุขภาพ ประวัติการแพ้ยา โรคประจำตัว และภาวะร่างกายปัจจุบัน เพื่อออกแบบสูตรที่เหมาะสมและปลอดภัยที่สุดสำหรับแต่ละบุคคล ผลลัพธ์จะชัดเจนขึ้นเมื่อทำต่อเนื่องตามแผนการรักษาที่แพทย์กำหนด",
+            image: "/images/vitamin-03.jpg",
+            imageAlt: "IV Drip Vitamin ความปลอดภัย เดอโบคลินิก",
           },
         ]}
         relatedServices={[
@@ -96,6 +98,9 @@ export default function IVDripPage() {
           { label: "Facial Treatment", href: "/facial-treatments" },
           { label: "Collagen Biostimulator", href: "/collagen-biostimulator" },
         ]}
+        heroImage="/images/vitamin-02.jpg"
+        heroImageAlt="IV Drip Vitamin เดอโบคลินิก"
+        heroImageAspect="contain"
         accentColor="#c38789"
       />
       <Footer />

@@ -46,6 +46,9 @@ export interface ServicePageProps {
   galleryTitle?: string;
   accentColor?: string;
   parentBreadcrumb?: { label: string; href: string };
+  /** รูปภาพใต้ whatIs text ในคอลัมน์ซ้าย */
+  whatIsImage?: string;
+  whatIsImageAlt?: string;
   /** รูปภาพใน Image Section (ถ้าไม่ส่งจะใช้ /images/treatment-room.png เป็นค่าเริ่มต้น) */
   heroImage?: string;
   /** alt text สำหรับรูปภาพ Image Section */
@@ -74,6 +77,8 @@ export default function ServicePageLayout({
   galleryTitle = "ผลลัพธ์จากลูกค้าจริง",
   accentColor = "#c38789",
   parentBreadcrumb,
+  whatIsImage,
+  whatIsImageAlt = "De Beau Clinic",
   heroImage = "/images/treatment-room.png",
   heroImageAlt = "De Beau Clinic treatment",
   heroImageAspect = "banner",
@@ -230,6 +235,18 @@ export default function ServicePageLayout({
             >
               {whatIs}
             </p>
+            {whatIsImage && (
+              <div className="mt-8">
+                <Image
+                  src={whatIsImage}
+                  alt={whatIsImageAlt}
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="w-full h-auto"
+                />
+              </div>
+            )}
           </div>
 
           {/* Feature cards — sharp edges, no border-radius */}
@@ -394,15 +411,6 @@ export default function ServicePageLayout({
                   s.image ? `lg:flex-row ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}` : ""
                 }`}
               >
-                {/* รูปภาพ — แสดงเฉพาะเมื่อมีรูป */}
-                {s.image && (
-                  <div className="lg:w-1/2">
-                    <SectionImage
-                      src={s.image}
-                      alt={s.imageAlt ?? s.title}
-                    />
-                  </div>
-                )}
                 <div className={`${s.image ? "lg:w-1/2" : "w-full"} flex flex-col justify-center gap-4`}>
                   <h3
                     className="text-[22px] lg:text-[26px] font-semibold leading-snug"
@@ -417,6 +425,15 @@ export default function ServicePageLayout({
                     {s.content}
                   </p>
                 </div>
+                {/* รูปภาพ — แสดงเฉพาะเมื่อมีรูป */}
+                {s.image && (
+                  <div className="lg:w-1/2">
+                    <SectionImage
+                      src={s.image}
+                      alt={s.imageAlt ?? s.title}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -127,12 +127,14 @@ export default function Services() {
                 className="group relative flex flex-col bg-white overflow-hidden cursor-pointer h-full"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative overflow-hidden sm:h-56">
                   <Image
                     src={service.image}
                     alt={service.titleTh}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-full h-auto sm:absolute sm:inset-0 sm:w-full sm:h-full sm:object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e2b]/60 via-transparent to-transparent" />
                   {/* Icon overlay */}

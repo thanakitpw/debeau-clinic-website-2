@@ -42,7 +42,7 @@ const laserPrograms = [
     description:
       "โปรแกรมรักษาปัญหารอยแผลเป็น หลุมสิว รูขุมขนกว้าง และผิวไม่เรียบ โดยใช้ Erbium Glass Fiber Laser ความยาวคลื่น 1,550 นาโนเมตร ที่ปล่อยคลื่นแสงลงในชั้นคอลลาเจน กระตุ้น Fractional Photothermolysis สร้างคอลลาเจนใหม่ หลังการรักษาผิวจะมีสีอมชมพูประมาณ 2–3 วัน และลอกหลุดภายใน 7–10 วัน แนะนำทาครีมบำรุงและ SPF 50+ ทุกวัน",
     tech: "Erbium Glass Fiber Laser 1,550 nm",
-    accent: "#69554a",
+    accent: "#4a3a2f",
   },
   {
     number: "04",
@@ -60,7 +60,7 @@ const laserPrograms = [
     description:
       "โปรแกรมกำจัดขนพร้อมรักแร้เนียน ขาวใส โดยพลังงานเลเซอร์จะถูกส่งเข้าไปใต้ชั้นผิวทำให้รากขนฝ่อ เส้นขนหลุดร่วง และผิวรักแร้ขาวขึ้น ช่วยให้รูขุมขนกระชับ ทำการรักษาเดือนละ 1 ครั้ง ประมาณ 5–7 ครั้ง ขนที่งอกใหม่จะบางลง อ่อนนุ่ม และเบาบางลงอย่างเห็นได้ชัด",
     tech: "Laser Hair Removal",
-    accent: "#69554a",
+    accent: "#4a3a2f",
   },
   {
     number: "06",
@@ -90,7 +90,7 @@ const laserSubPages = [
     description:
       "ยกกระชับใบหน้าโดยไม่ต้องผ่าตัด ด้วย Micro Focused Ultrasound (MFU-V) ส่งคลื่นเสียงลงชั้น SMAS ลึก 3–4.5 มม. เห็นผล 2–3 เดือน อยู่นาน 1 ปี",
     href: "/laser/skin-tightening",
-    accent: "#69554a",
+    accent: "#4a3a2f",
     image: "/images/scraped/laser/LAser-Template-No.02-1024x427.jpg",
   },
 ];
@@ -104,7 +104,7 @@ export default function LaserHubPage() {
         {/* ── Hero Section ── */}
         <section
           className="relative pt-36 pb-20 px-6 overflow-hidden"
-          style={{ backgroundColor: "#69554a" }}
+          style={{ backgroundColor: "#4a3a2f" }}
         >
           {/* เส้นตกแต่งด้านบน */}
           <div
@@ -232,14 +232,14 @@ export default function LaserHubPage() {
               </p>
               <h2
                 className="font-sans text-2xl lg:text-3xl font-light"
-                style={{ color: "#69554a" }}
+                style={{ color: "#4a3a2f" }}
               >
                 โปรแกรมเลเซอร์ที่ให้บริการ
               </h2>
               <div
                 className="w-12 h-[2px] mx-auto mt-5"
                 style={{
-                  background: "linear-gradient(to right, #c38789, #69554a)",
+                  background: "linear-gradient(to right, #c38789, #4a3a2f)",
                 }}
               />
             </div>
@@ -276,20 +276,20 @@ export default function LaserHubPage() {
                       </p>
                       <h3
                         className="font-sans text-xl font-medium"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {program.title}
                       </h3>
                       <p
                         className="text-sm font-light mt-0.5"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {program.titleTh}
                       </p>
                     </div>
                     <p
                       className="text-sm leading-relaxed font-light"
-                      style={{ color: "#8b7f7c" }}
+                      style={{ color: "#5d524f" }}
                     >
                       {program.description}
                     </p>
@@ -337,20 +337,20 @@ export default function LaserHubPage() {
                       </p>
                       <h3
                         className="font-sans text-xl font-medium"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {program.title}
                       </h3>
                       <p
                         className="text-sm font-light mt-0.5"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {program.titleTh}
                       </p>
                     </div>
                     <p
                       className="text-sm leading-relaxed font-light"
-                      style={{ color: "#8b7f7c" }}
+                      style={{ color: "#5d524f" }}
                     >
                       {program.description}
                     </p>
@@ -389,14 +389,14 @@ export default function LaserHubPage() {
               </p>
               <h2
                 className="font-sans text-2xl lg:text-3xl font-light"
-                style={{ color: "#69554a" }}
+                style={{ color: "#4a3a2f" }}
               >
                 เลือกโปรแกรมที่ตรงกับความต้องการ
               </h2>
               <div
                 className="w-12 h-[2px] mx-auto mt-5"
                 style={{
-                  background: "linear-gradient(to right, #c38789, #69554a)",
+                  background: "linear-gradient(to right, #c38789, #4a3a2f)",
                 }}
               />
             </div>
@@ -443,13 +443,13 @@ export default function LaserHubPage() {
                   <div className="p-8 flex flex-col gap-4 flex-1">
                     <h3
                       className="font-sans text-xl lg:text-2xl font-light"
-                      style={{ color: "#69554a" }}
+                      style={{ color: "#4a3a2f" }}
                     >
                       {page.title}
                     </h3>
                     <p
                       className="text-sm leading-relaxed font-light flex-1"
-                      style={{ color: "#8b7f7c" }}
+                      style={{ color: "#5d524f" }}
                     >
                       {page.description}
                     </p>
@@ -487,13 +487,13 @@ export default function LaserHubPage() {
             </p>
             <h2
               className="font-sans text-2xl lg:text-3xl font-light mb-4"
-              style={{ color: "#69554a" }}
+              style={{ color: "#4a3a2f" }}
             >
               ไม่แน่ใจว่าโปรแกรมไหนเหมาะกับคุณ?
             </h2>
             <p
               className="text-sm font-light mb-8 max-w-lg mx-auto"
-              style={{ color: "#8b7f7c" }}
+              style={{ color: "#5d524f" }}
             >
               ปรึกษาหมอโบฟรีได้เลยค่ะ หมอโบจะวางแผนโปรแกรมเลเซอร์
               ที่เหมาะกับสภาพผิวของคุณโดยเฉพาะ

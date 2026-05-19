@@ -74,7 +74,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-[17px] lg:text-[20px] font-light text-[#69554a] mb-8 lg:mb-12 leading-relaxed max-w-lg"
+            className="text-[17px] lg:text-[20px] font-light text-[#4a3a2f] mb-8 lg:mb-12 leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: luxuryEase, type: "tween" }}
@@ -102,7 +102,7 @@ export default function Hero() {
             </a>
             <a
               href="#services"
-              className="btn-outline text-center justify-center border-[#69554a]/30 text-[#3a2e2b]"
+              className="btn-outline text-center justify-center border-[#4a3a2f]/30 text-[#3a2e2b]"
             >
               ดูบริการทั้งหมด
             </a>
@@ -121,16 +121,16 @@ export default function Hero() {
                   <Star key={i} size={11} fill="#c38789" color="#c38789" />
                 ))}
               </div>
-              <span className="text-[12px] lg:text-[13px] tracking-wide text-[#69554a]">
+              <span className="text-[12px] lg:text-[13px] tracking-wide text-[#4a3a2f]">
                 30,000+ เคสที่ไว้วางใจ
               </span>
             </div>
             <div className="flex items-center gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c]">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#5d524f]">
                 <Check size={14} className="text-[#c38789]" />
                 แพทย์ดูแลทุกเคส
               </div>
-              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#8b7f7c]">
+              <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#5d524f]">
                 <Check size={14} className="text-[#c38789]" />
                 ประสบการณ์ 16+ ปี
               </div>
@@ -141,7 +141,7 @@ export default function Hero() {
 
       {/* Stats strip at bottom */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 bg-[#69554a]/90 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0 bg-[#4a3a2f]/90 backdrop-blur-sm"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.9, ease: luxuryEase, type: "tween" }}

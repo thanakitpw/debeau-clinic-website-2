@@ -91,7 +91,7 @@ export default function MesotherapyPage() {
         ]}
         heroImage="/images/scraped/mesotherapy/Meso-Template-No.01-1024x427.jpg"
         heroImageAlt="เมโสเทอราปี Mesotherapy ฉีดวิตามินหน้าใส สลายไขมัน เดอโบคลินิก"
-        accentColor="#8b7f7c"
+        accentColor="#5d524f"
       />
       <Footer />
       <FloatingLine />

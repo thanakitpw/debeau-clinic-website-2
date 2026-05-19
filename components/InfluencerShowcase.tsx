@@ -4,15 +4,11 @@ import { ScrollReveal } from "./MotionWrapper";
 type Photo = { src: string; alt: string; size?: "big" };
 
 const photos: Photo[] = [
-  { src: "/images/influencers/03.jpg", alt: "ลูกค้า De Beau Clinic", size: "big" },
-  { src: "/images/influencers/01.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/02.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/04.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/06.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/05.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/07.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/08.jpg", alt: "ลูกค้า De Beau Clinic" },
-  { src: "/images/influencers/09.jpg", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-1.jpg", alt: "ลูกค้า De Beau Clinic", size: "big" },
+  { src: "/images/influencers/inf-new-2.jpg", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-3.jpg", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-4.jpg", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-5.jpg", alt: "ลูกค้า De Beau Clinic" },
 ];
 
 export default function InfluencerShowcase() {
@@ -52,7 +48,7 @@ export default function InfluencerShowcase() {
           ))}
         </div>
 
-        <p className="text-center text-[13px] lg:text-[14px] font-light mt-10 lg:mt-12" style={{ color: "#8b7f7c" }}>
+        <p className="text-center text-[13px] lg:text-[14px] font-light mt-10 lg:mt-12" style={{ color: "#5d524f" }}>
           ส่งต่อความมั่นใจของคุณกับ De Beau Clinic เพียง Tag หรือ Mention{" "}
           <span className="font-medium" style={{ color: "#c38789" }}>
             @debeauclinic

@@ -110,7 +110,7 @@ export default function BotoxPage() {
           { label: "Laser หน้าใส", href: "/laser" },
         ]}
         heroImageAspect="none"
-        accentColor="#8b7f7c"
+        accentColor="#5d524f"
       />
       <Footer />
       <FloatingLine />

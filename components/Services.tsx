@@ -22,7 +22,7 @@ const services: {
     description: "ฉีดฟิลเลอร์ตามจุดต่างๆ ปรับรูปหน้า สลายและแก้ไขฟิลเลอร์",
     icon: <Syringe size={20} />,
     href: "/filler",
-    image: "/images/service-filler-program.jpg",
+    image: "/images/service-edit-01.jpg",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const services: {
     description: "ลดริ้วรอย ยกกระชับกรอบหน้า ปรับรูปหน้าเรียว ลดเหงื่อ ออฟฟิศซินโดรม",
     icon: <Sparkles size={20} />,
     href: "/botox",
-    image: "/images/service-botox-program.jpg",
+    image: "/images/service-edit-02.jpg",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const services: {
     description: "เลเซอร์หน้าใส รักษาสิว ฝ้ากระ จุดด่างดำ และยกกระชับผิว",
     icon: <Zap size={20} />,
     href: "/laser",
-    image: "/images/service-picosure-program.jpg",
+    image: "/images/service-edit-03.jpg",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const services: {
     description: "ยกกระชับกรอบหน้าและลำคอ ดึงหน้าโดยไม่ต้องผ่าตัด",
     icon: <Radio size={20} />,
     href: "/ulthera",
-    image: "/images/service-ulthera-program.jpg",
+    image: "/images/service-edit-04.jpg",
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ const services: {
     description: "กระตุ้นการสร้างคอลลาเจน ด้วย Sculptra และ HArmonyCa",
     icon: <Layers size={20} />,
     href: "/collagen-biostimulator",
-    image: "/images/service-collagen-program.jpg",
+    image: "/images/service-edit-05.jpg",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const services: {
     description: "บำรุงผิวด้วย Skinvive, Rejuran, Plinest พร้อม Set ผิวอินฟลู",
     icon: <Droplets size={20} />,
     href: "/skin-booster",
-    image: "/images/service-skinbooster-program.jpg",
+    image: "/images/service-edit-06.jpg",
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ const services: {
     description: "ฉีดรักษาฝ้า กระ จุดด่างดำ ฉีดหน้าใส สลายไขมันและลดเหนียง",
     icon: <FlaskConical size={20} />,
     href: "/mesotherapy",
-    image: "/images/service-meso-program.jpg",
+    image: "/images/service-edit-07.jpg",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const services: {
     description: "Premium Aura Bright ผิวขาวกระจ่างใส, Immune Booster, Ultimate",
     icon: <Pipette size={20} />,
     href: "/iv-drip",
-    image: "/images/service-ivdrip-program.jpg",
+    image: "/images/service-edit-08.jpg",
   },
   {
     id: 9,
@@ -94,7 +94,7 @@ const services: {
     description: "ผลักวิตามินบำรุง นวดหน้า มาสก์หน้า",
     icon: <Gem size={20} />,
     href: "/facial-treatments",
-    image: "/images/service-facial-program.jpg",
+    image: "/images/service-edit-09.jpg",
   },
 ];
 
@@ -108,7 +108,7 @@ export default function Services() {
             <p className="section-label mb-4">Our Services</p>
             <h2 className="section-heading mb-5">บริการของเรา</h2>
             <div className="divider-rose mb-6" />
-            <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#8b7f7c]">
+            <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#5d524f]">
               บริการครบครัน ดูแลโดยแพทย์ผู้เชี่ยวชาญ
               ให้คำปรึกษาและวางแผนการรักษาเฉพาะบุคคล
             </p>
@@ -149,11 +149,11 @@ export default function Services() {
                     <p className="text-[12px] tracking-[0.25em] uppercase font-semibold text-[#c38789] mb-2">
                       {service.title}
                     </p>
-                    <h3 className="text-[24px] lg:text-[26px] font-medium text-[#69554a] leading-tight">
+                    <h3 className="text-[24px] lg:text-[26px] font-medium text-[#4a3a2f] leading-tight">
                       {service.titleTh}
                     </h3>
                   </div>
-                  <p className="text-[16px] lg:text-[17px] leading-relaxed font-light text-[#69554a] flex-1">
+                  <p className="text-[16px] lg:text-[17px] leading-relaxed font-light text-[#4a3a2f] flex-1">
                     {service.description}
                   </p>
                   <div className="flex items-center gap-2 text-[13px] tracking-wider uppercase font-semibold text-[#c38789] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
@@ -162,7 +162,7 @@ export default function Services() {
                 </div>
 
                 {/* Bottom accent */}
-                <div className="h-[2px] bg-gradient-to-r from-[#c38789] to-[#69554a] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="h-[2px] bg-gradient-to-r from-[#c38789] to-[#4a3a2f] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </a>
             </StaggerItem>
           ))}

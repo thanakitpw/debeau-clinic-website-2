@@ -123,7 +123,7 @@ export default async function BlogPostPage({
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-0" style={{ backgroundColor: "#69554a" }}>
+        <section className="pt-32 pb-0" style={{ backgroundColor: "#4a3a2f" }}>
           <div className="max-w-3xl mx-auto px-6 pb-10">
             <Link
               href="/blog"
@@ -216,7 +216,7 @@ export default async function BlogPostPage({
                       ) : (
                         <div
                           className="absolute inset-0"
-                          style={{ background: "linear-gradient(135deg, #c38789, #69554a)" }}
+                          style={{ background: "linear-gradient(135deg, #c38789, #4a3a2f)" }}
                         />
                       )}
                     </div>
@@ -260,7 +260,7 @@ export default async function BlogPostPage({
             <h2 className="text-xl lg:text-2xl font-light mb-3" style={{ color: "#3a2e2b" }}>
               สนใจเข้ารับบริการ?
             </h2>
-            <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
+            <p className="text-sm font-light mb-8" style={{ color: "#5d524f" }}>
               ปรึกษาหมอโบได้โดยตรง ฟรี ไม่มีค่าใช้จ่าย
             </p>
             <div className="flex flex-wrap justify-center gap-4">

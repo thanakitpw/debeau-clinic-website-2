@@ -113,14 +113,14 @@ export default function BeforeAfterSlider({
           }}
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M7 5L3 10L7 15" stroke="#69554a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M13 5L17 10L13 15" stroke="#69554a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7 5L3 10L7 15" stroke="#4a3a2f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M13 5L17 10L13 15" stroke="#4a3a2f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
 
         {/* BEFORE / AFTER labels */}
         <div className="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-medium tracking-wider"
-          style={{ backgroundColor: "rgba(255,255,255,0.9)", color: "#69554a" }}>
+          style={{ backgroundColor: "rgba(255,255,255,0.9)", color: "#4a3a2f" }}>
           BEFORE
         </div>
         <div className="absolute top-3 right-3 z-10 px-3 py-1 text-xs font-medium tracking-wider"

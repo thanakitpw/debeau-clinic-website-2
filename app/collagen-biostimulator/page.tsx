@@ -53,7 +53,7 @@ export default function CollagenBiostimulatorPage() {
         {/* ── Hero ── */}
         <section
           className="relative pt-16 lg:pt-20 pb-24 px-6 overflow-hidden"
-          style={{ backgroundColor: "#69554a" }}
+          style={{ backgroundColor: "#4a3a2f" }}
         >
           <div
             className="absolute top-0 left-0 w-full h-px"
@@ -212,16 +212,16 @@ export default function CollagenBiostimulatorPage() {
                   </div>
                   <p
                     className="text-[15px] leading-relaxed font-light mb-6"
-                    style={{ color: "#69554a" }}
+                    style={{ color: "#4a3a2f" }}
                   >
                     {p.desc}
                   </p>
                   <div className="flex items-end justify-between pt-5 border-t" style={{ borderColor: "#d9d3cc" }}>
                     <div>
-                      <p className="text-xs tracking-wider uppercase" style={{ color: "#8b7f7c" }}>
+                      <p className="text-xs tracking-wider uppercase" style={{ color: "#5d524f" }}>
                         ผลอยู่นาน
                       </p>
-                      <p className="text-xl font-medium mt-1" style={{ color: "#69554a" }}>
+                      <p className="text-xl font-medium mt-1" style={{ color: "#4a3a2f" }}>
                         {p.duration}
                       </p>
                     </div>
@@ -229,7 +229,7 @@ export default function CollagenBiostimulatorPage() {
                       <p className="text-xl font-medium" style={{ color: "#c38789" }}>
                         {p.price}
                       </p>
-                      <p className="text-xs mt-1" style={{ color: "#8b7f7c" }}>
+                      <p className="text-xs mt-1" style={{ color: "#5d524f" }}>
                         {p.priceNote}
                       </p>
                     </div>
@@ -267,7 +267,7 @@ export default function CollagenBiostimulatorPage() {
                 <div className="divider-rose mb-6" />
                 <p
                   className="max-w-2xl mx-auto text-lg font-light leading-relaxed"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   Biostimulator ตัวแรกของโลกที่ได้รับการรับรองว่าสามารถ
                   กระตุ้นการสร้างคอลลาเจนตามธรรมชาติ ผ่านการรับรองจาก US FDA
@@ -302,7 +302,7 @@ export default function CollagenBiostimulatorPage() {
                 </h3>
                 <p
                   className="text-base leading-relaxed font-light mb-5"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   <strong style={{ color: "#3a2e2b" }}>Sculptra</strong>{" "}
                   คือสาร Biostimulator ที่ใช้สาร{" "}
@@ -312,7 +312,7 @@ export default function CollagenBiostimulatorPage() {
                 </p>
                 <p
                   className="text-base leading-relaxed font-light"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   แตกต่างจากฟิลเลอร์ทั่วไปตรงที่{" "}
                   <strong>ไม่ได้เติมเต็มจากภายนอก</strong> แต่เน้น
@@ -327,7 +327,7 @@ export default function CollagenBiostimulatorPage() {
             <ScrollReveal>
               <div
                 className="p-10 lg:p-14 mb-20"
-                style={{ backgroundColor: "#69554a" }}
+                style={{ backgroundColor: "#4a3a2f" }}
               >
                 <div className="text-center mb-10">
                   <p
@@ -431,7 +431,7 @@ export default function CollagenBiostimulatorPage() {
                 </div>
                 <p
                   className="max-w-3xl mx-auto text-center text-base leading-relaxed font-light mb-10"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   คอลลาเจนคือโปรตีนโครงสร้างหลักของผิวหนังสูงถึง{" "}
                   <strong>75%</strong> ทำหน้าที่เป็น "ตาข่าย" ยึดโยงให้ผิวกระชับ
@@ -454,7 +454,7 @@ export default function CollagenBiostimulatorPage() {
                     >
                       <p
                         className="text-sm tracking-wider uppercase mb-2"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         อายุ {s.age}
                       </p>
@@ -466,7 +466,7 @@ export default function CollagenBiostimulatorPage() {
                       </p>
                       <p
                         className="text-sm leading-relaxed font-light"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {s.desc}
                       </p>
@@ -528,13 +528,13 @@ export default function CollagenBiostimulatorPage() {
                       </div>
                       <p
                         className="text-lg font-medium mb-2"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {item.time}
                       </p>
                       <p
                         className="text-sm leading-relaxed font-light"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {item.desc}
                       </p>
@@ -565,7 +565,7 @@ export default function CollagenBiostimulatorPage() {
                   </h3>
                   <p
                     className="mt-4 text-base lg:text-lg font-light"
-                    style={{ color: "#8b7f7c" }}
+                    style={{ color: "#5d524f" }}
                   >
                     หัวใจของความสำเร็จหลังฉีด Sculptra — นวดเพื่อกระจายอนุภาค PLLA ให้สม่ำเสมอ
                   </p>
@@ -585,13 +585,13 @@ export default function CollagenBiostimulatorPage() {
                       </p>
                       <p
                         className="text-lg font-medium mt-1"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {item.unit}
                       </p>
                       <p
                         className="text-sm tracking-wider uppercase mt-2"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {item.label}
                       </p>
@@ -683,7 +683,7 @@ export default function CollagenBiostimulatorPage() {
                 <div className="divider-rose mb-6" />
                 <p
                   className="max-w-2xl mx-auto text-lg font-light leading-relaxed"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   เพื่อผิวอ่อนเยาว์ เฟิร์ม และยกกระชับ
                   <br />
@@ -705,7 +705,7 @@ export default function CollagenBiostimulatorPage() {
                   </h3>
                   <p
                     className="mt-4 max-w-2xl mx-auto text-base font-light leading-relaxed"
-                    style={{ color: "#69554a" }}
+                    style={{ color: "#4a3a2f" }}
                   >
                     สองผลลัพธ์ในหนึ่งเดียว — ผสาน 2 สารออกฤทธิ์ใน syringe เดียว
                   </p>
@@ -749,7 +749,7 @@ export default function CollagenBiostimulatorPage() {
                     </p>
                     <p
                       className="text-sm leading-relaxed font-light"
-                      style={{ color: "#69554a" }}
+                      style={{ color: "#4a3a2f" }}
                     >
                       ช่วยเติมเต็มและพยุงโครงสร้างผิว ให้ผลลัพธ์ชัดเจน
                       <strong> ทันทีหลังการรักษา</strong>
@@ -759,7 +759,7 @@ export default function CollagenBiostimulatorPage() {
                   <div
                     className="p-8"
                     style={{
-                      backgroundColor: "#69554a",
+                      backgroundColor: "#4a3a2f",
                     }}
                   >
                     <div className="flex items-center gap-3 mb-4">
@@ -859,13 +859,13 @@ export default function CollagenBiostimulatorPage() {
                         </div>
                         <p
                           className="text-base font-medium mb-2"
-                          style={{ color: "#69554a" }}
+                          style={{ color: "#4a3a2f" }}
                         >
                           {b.title}
                         </p>
                         <p
                           className="text-sm leading-relaxed font-light"
-                          style={{ color: "#8b7f7c" }}
+                          style={{ color: "#5d524f" }}
                         >
                           {b.desc}
                         </p>
@@ -986,21 +986,21 @@ export default function CollagenBiostimulatorPage() {
                       <p
                         className="text-xs tracking-[0.2em] uppercase mb-3"
                         style={{
-                          color: i === 3 ? "rgba(255,255,255,0.8)" : "#8b7f7c",
+                          color: i === 3 ? "rgba(255,255,255,0.8)" : "#5d524f",
                         }}
                       >
                         {item.day}
                       </p>
                       <p
                         className="text-lg font-medium mb-2"
-                        style={{ color: i === 3 ? "#fff" : "#69554a" }}
+                        style={{ color: i === 3 ? "#fff" : "#4a3a2f" }}
                       >
                         {item.title}
                       </p>
                       <p
                         className="text-sm leading-relaxed font-light"
                         style={{
-                          color: i === 3 ? "rgba(255,255,255,0.85)" : "#8b7f7c",
+                          color: i === 3 ? "rgba(255,255,255,0.85)" : "#5d524f",
                         }}
                       >
                         {item.desc}
@@ -1061,19 +1061,19 @@ export default function CollagenBiostimulatorPage() {
                       </p>
                       <p
                         className="text-sm tracking-wider uppercase mt-1 mb-4"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {item.unit}
                       </p>
                       <p
                         className="text-base font-medium mb-2"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {item.title}
                       </p>
                       <p
                         className="text-sm leading-relaxed font-light"
-                        style={{ color: "#8b7f7c" }}
+                        style={{ color: "#5d524f" }}
                       >
                         {item.desc}
                       </p>
@@ -1105,7 +1105,7 @@ export default function CollagenBiostimulatorPage() {
                 <div className="divider-rose mt-4" />
                 <p
                   className="mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   ผลลัพธ์จริงจากคนไข้เดอโบคลินิก
                   *รูปรีวิวที่ใช้รีวิวได้รับการอนุญาตเรียบร้อยแล้ว
@@ -1142,7 +1142,7 @@ export default function CollagenBiostimulatorPage() {
                     </div>
                     <p
                       className="text-sm text-center mt-4 font-medium tracking-wider uppercase"
-                      style={{ color: "#69554a" }}
+                      style={{ color: "#4a3a2f" }}
                     >
                       {item.label}
                     </p>
@@ -1153,7 +1153,7 @@ export default function CollagenBiostimulatorPage() {
 
             <p
               className="mt-10 text-center text-xs font-light"
-              style={{ color: "#8b7f7c" }}
+              style={{ color: "#5d524f" }}
             >
               *ผลลัพธ์ขึ้นอยู่กับความแตกต่างของแต่ละบุคคล
             </p>
@@ -1185,7 +1185,7 @@ export default function CollagenBiostimulatorPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left" style={{ borderCollapse: "collapse" }}>
                   <thead>
-                    <tr style={{ backgroundColor: "#69554a" }}>
+                    <tr style={{ backgroundColor: "#4a3a2f" }}>
                       <th className="p-5 text-sm tracking-wider uppercase font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>
                         หัวข้อ
                       </th>
@@ -1249,25 +1249,25 @@ export default function CollagenBiostimulatorPage() {
                         </td>
                         <td
                           className="p-5 text-sm font-light leading-relaxed"
-                          style={{ color: "#69554a" }}
+                          style={{ color: "#4a3a2f" }}
                         >
                           {row.sculptra}
                         </td>
                         <td
                           className="p-5 text-sm font-light leading-relaxed"
-                          style={{ color: "#69554a" }}
+                          style={{ color: "#4a3a2f" }}
                         >
                           {row.harmony}
                         </td>
                         <td
                           className="p-5 text-sm font-light leading-relaxed"
-                          style={{ color: "#8b7f7c" }}
+                          style={{ color: "#5d524f" }}
                         >
                           {row.filler}
                         </td>
                         <td
                           className="p-5 text-sm font-light leading-relaxed"
-                          style={{ color: "#8b7f7c" }}
+                          style={{ color: "#5d524f" }}
                         >
                           {row.energy}
                         </td>
@@ -1324,7 +1324,7 @@ export default function CollagenBiostimulatorPage() {
                   />
                   <span
                     className="text-[15px] leading-relaxed font-light"
-                    style={{ color: "#69554a" }}
+                    style={{ color: "#4a3a2f" }}
                   >
                     {item}
                   </span>
@@ -1335,7 +1335,7 @@ export default function CollagenBiostimulatorPage() {
         </section>
 
         {/* ── Why Dr. Beau ── */}
-        <section className="py-24 px-6" style={{ backgroundColor: "#69554a" }}>
+        <section className="py-24 px-6" style={{ backgroundColor: "#4a3a2f" }}>
           <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="section-label mb-3">Why Choose Us</p>
@@ -1444,7 +1444,7 @@ export default function CollagenBiostimulatorPage() {
                   className="px-6 py-3 text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                   style={{
                     backgroundColor: "#fff",
-                    color: "#69554a",
+                    color: "#4a3a2f",
                     border: "1px solid #e0ddd9",
                   }}
                 >

@@ -13,6 +13,11 @@ const videos = [
     title: "หมอโบ X Woody",
     subtitle: "สัมภาษณ์พิเศษ",
   },
+  {
+    id: "v9Y2MKYTdtM",
+    title: "DE BEAU Clinic",
+    subtitle: "วิดีโอแนะนำเพิ่มเติม",
+  },
 ];
 
 export default function Videos() {
@@ -28,7 +33,7 @@ export default function Videos() {
             <p className="section-label mb-3">Video</p>
             <h2 className="section-heading mb-5">คลิปแนะนำเดอโบคลินิก</h2>
             <div className="divider-rose mb-6" />
-            <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#69554a]">
+            <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#4a3a2f]">
               ทำความรู้จักคลินิก และฟังเรื่องราวจากหมอโบโดยตรง
             </p>
           </div>
@@ -71,7 +76,7 @@ export default function Videos() {
                     </h3>
                     <p
                       className="mt-1 text-[14px] lg:text-[15px] font-light"
-                      style={{ color: "#8b7f7c" }}
+                      style={{ color: "#5d524f" }}
                     >
                       {v.subtitle}
                     </p>

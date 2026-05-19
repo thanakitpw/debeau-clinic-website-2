@@ -82,7 +82,7 @@ export default async function BlogPage({
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 px-6" style={{ backgroundColor: "#69554a" }}>
+        <section className="pt-32 pb-16 px-6" style={{ backgroundColor: "#4a3a2f" }}>
           <div className="max-w-5xl mx-auto text-center">
             <span
               className="inline-block text-xs tracking-[0.35em] uppercase font-medium px-4 py-1.5 rounded-full mb-6"
@@ -110,7 +110,7 @@ export default async function BlogPage({
               className="shrink-0 px-4 py-1.5 text-sm font-medium transition-all duration-200 rounded-full"
               style={{
                 backgroundColor: !category ? "#c38789" : "transparent",
-                color: !category ? "#fff" : "#8b7f7c",
+                color: !category ? "#fff" : "#5d524f",
                 border: !category ? "1px solid #c38789" : "1px solid #d9d3cc",
               }}
             >
@@ -123,7 +123,7 @@ export default async function BlogPage({
                 className="shrink-0 px-4 py-1.5 text-sm font-medium transition-all duration-200 rounded-full"
                 style={{
                   backgroundColor: category === cat ? "#c38789" : "transparent",
-                  color: category === cat ? "#fff" : "#8b7f7c",
+                  color: category === cat ? "#fff" : "#5d524f",
                   border: category === cat ? "1px solid #c38789" : "1px solid #d9d3cc",
                 }}
               >
@@ -137,7 +137,7 @@ export default async function BlogPage({
         <section className="py-16 px-6" style={{ backgroundColor: "#f5f2ef" }}>
           <div className="max-w-5xl mx-auto">
             {filtered.length === 0 ? (
-              <p className="text-center text-sm" style={{ color: "#8b7f7c" }}>
+              <p className="text-center text-sm" style={{ color: "#5d524f" }}>
                 ยังไม่มีบทความในหมวดหมู่นี้
               </p>
             ) : (
@@ -163,7 +163,7 @@ export default async function BlogPage({
                       ) : (
                         <div
                           className="absolute inset-0"
-                          style={{ background: "linear-gradient(135deg, #c38789, #69554a)" }}
+                          style={{ background: "linear-gradient(135deg, #c38789, #4a3a2f)" }}
                         />
                       )}
                     </div>
@@ -195,7 +195,7 @@ export default async function BlogPage({
 
                       {/* Date + read more */}
                       <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: "1px solid #e8e7e5" }}>
-                        <span className="text-[11px]" style={{ color: "#8b7f7c" }}>
+                        <span className="text-[11px]" style={{ color: "#5d524f" }}>
                           {formatThaiDate(post.date)}
                         </span>
                         <span
@@ -222,7 +222,7 @@ export default async function BlogPage({
                     className="px-3 py-1.5 text-sm rounded-full transition-colors duration-200"
                     style={{
                       border: "1px solid #d9d3cc",
-                      color: currentPage === 1 ? "#c7bfb5" : "#8b7f7c",
+                      color: currentPage === 1 ? "#c7bfb5" : "#5d524f",
                       pointerEvents: currentPage === 1 ? "none" : "auto",
                       backgroundColor: "transparent",
                     }}
@@ -237,7 +237,7 @@ export default async function BlogPage({
                       className="min-w-[36px] px-3 py-1.5 text-sm font-medium rounded-full text-center transition-colors duration-200"
                       style={{
                         backgroundColor: p === currentPage ? "#c38789" : "transparent",
-                        color: p === currentPage ? "#fff" : "#8b7f7c",
+                        color: p === currentPage ? "#fff" : "#5d524f",
                         border: p === currentPage ? "1px solid #c38789" : "1px solid #d9d3cc",
                       }}
                     >
@@ -252,7 +252,7 @@ export default async function BlogPage({
                     className="px-3 py-1.5 text-sm rounded-full transition-colors duration-200"
                     style={{
                       border: "1px solid #d9d3cc",
-                      color: currentPage === totalPages ? "#c7bfb5" : "#8b7f7c",
+                      color: currentPage === totalPages ? "#c7bfb5" : "#5d524f",
                       pointerEvents: currentPage === totalPages ? "none" : "auto",
                       backgroundColor: "transparent",
                     }}
@@ -272,7 +272,7 @@ export default async function BlogPage({
             <h2 className="text-xl lg:text-2xl font-light mb-3" style={{ color: "#3a2e2b" }}>
               มีคำถามเพิ่มเติม?
             </h2>
-            <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
+            <p className="text-sm font-light mb-8" style={{ color: "#5d524f" }}>
               ปรึกษาหมอโบได้โดยตรง ฟรี ไม่มีค่าใช้จ่าย
             </p>
             <a

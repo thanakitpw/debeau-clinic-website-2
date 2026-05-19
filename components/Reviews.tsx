@@ -69,7 +69,7 @@ export default function Reviews() {
     <section
       id="reviews"
       className="relative py-28 px-6 overflow-hidden"
-      style={{ backgroundColor: "#69554a" }}
+      style={{ backgroundColor: "#4a3a2f" }}
     >
       {/* Decorative */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c38789]/30 to-transparent" />
@@ -157,7 +157,7 @@ export default function Reviews() {
               {/* Text */}
               <p
                 className="text-[15px] leading-[1.9] font-light flex-1"
-                style={{ color: idx === 1 ? "#69554a" : "rgba(255,255,255,0.8)" }}
+                style={{ color: idx === 1 ? "#4a3a2f" : "rgba(255,255,255,0.8)" }}
               >
                 &ldquo;{review.text}&rdquo;
               </p>
@@ -196,7 +196,7 @@ export default function Reviews() {
                 <div>
                   <p
                     className="text-[13px] font-medium"
-                    style={{ color: idx === 1 ? "#69554a" : "#fff" }}
+                    style={{ color: idx === 1 ? "#4a3a2f" : "#fff" }}
                   >
                     {review.name}
                   </p>
@@ -204,7 +204,7 @@ export default function Reviews() {
                     <p
                       className="text-[11px]"
                       style={{
-                        color: idx === 1 ? "#8b7f7c" : "rgba(255,255,255,0.4)",
+                        color: idx === 1 ? "#5d524f" : "rgba(255,255,255,0.4)",
                       }}
                     >
                       {review.handle}

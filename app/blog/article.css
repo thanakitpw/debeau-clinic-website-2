@@ -2,7 +2,7 @@
 .article-body h2,
 .article-body h3,
 .article-body h4 {
-  color: #69554a;
+  color: #4a3a2f;
   font-weight: 600;
   line-height: 1.4;
   margin-top: 2rem;
@@ -39,7 +39,7 @@
 }
 
 .article-body a:hover {
-  color: #69554a;
+  color: #4a3a2f;
 }
 
 .article-body ul,
@@ -80,7 +80,7 @@
   margin-right: 0;
   margin-bottom: 1.25rem;
   font-style: italic;
-  color: #69554a;
+  color: #4a3a2f;
 }
 
 .article-body table {
@@ -110,7 +110,7 @@
 .article-body figcaption {
   text-align: center;
   font-size: 0.8rem;
-  color: #8b7f7c;
+  color: #5d524f;
   margin-top: 0.4rem;
 }
 

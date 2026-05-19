@@ -64,7 +64,7 @@ function ReviewCasesSection() {
           <h2 className="text-2xl lg:text-4xl font-light mb-4" style={{ color: "#3a2e2b" }}>
             ผลลัพธ์จริงจากลูกค้าจริง
           </h2>
-          <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#8b7f7c" }}>
+          <p className="text-sm font-light max-w-xl mx-auto" style={{ color: "#5d524f" }}>
             ก่อนและหลังจากการดูแลกับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function CustomerReviewsPage() {
       <Navbar />
 
       {/* Hero Banner */}
-      <section className="relative pt-32 lg:pt-36 pb-16 lg:pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#69554a" }}>
+      <section className="relative pt-32 lg:pt-36 pb-16 lg:pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at top right, #c38789 0%, transparent 60%)" }} />
         <div className="max-w-4xl mx-auto relative z-10 text-center">
@@ -199,7 +199,7 @@ export default function CustomerReviewsPage() {
       {/* Video Section — เจาะลึกความรู้สึกหลังทำ */}
 
       {/* Video Section — เจาะลึกความรู้สึกหลังทำ */}
-      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#69554a" }}>
+      <section className="py-16 lg:py-20 px-6" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -251,7 +251,7 @@ export default function CustomerReviewsPage() {
             <h2 className="text-2xl lg:text-3xl font-light mb-3" style={{ color: "#3a2e2b" }}>
               การันตีความเชื่อมั่นด้วยคะแนนรีวิวจาก Google
             </h2>
-            <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#8b7f7c" }}>
+            <p className="text-sm font-light max-w-lg mx-auto" style={{ color: "#5d524f" }}>
               ขอบคุณทุกรีวิวจากลูกค้าจริงบน Google ที่ไว้วางใจให้ De Beau Clinic ดูแลความงาม
             </p>
           </div>
@@ -266,7 +266,7 @@ export default function CustomerReviewsPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium" style={{ color: "#3a2e2b" }}>{review.name}</p>
-                    <p className="text-[10px]" style={{ color: "#8b7f7c" }}>{review.time}</p>
+                    <p className="text-[10px]" style={{ color: "#5d524f" }}>{review.time}</p>
                   </div>
                 </div>
                 <div className="flex gap-0.5">
@@ -274,12 +274,12 @@ export default function CustomerReviewsPage() {
                     <Star key={j} size={12} fill="#FBBC04" color="#FBBC04" />
                   ))}
                 </div>
-                <p className="text-xs font-light leading-relaxed flex-1" style={{ color: "#69554a" }}>
+                <p className="text-xs font-light leading-relaxed flex-1" style={{ color: "#4a3a2f" }}>
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-1 mt-auto">
-                  <MapPin size={10} style={{ color: "#8b7f7c" }} />
-                  <span className="text-[10px]" style={{ color: "#8b7f7c" }}>Google Review</span>
+                  <MapPin size={10} style={{ color: "#5d524f" }} />
+                  <span className="text-[10px]" style={{ color: "#5d524f" }}>Google Review</span>
                 </div>
               </div>
             ))}
@@ -293,7 +293,7 @@ export default function CustomerReviewsPage() {
           <h2 className="text-xl lg:text-2xl font-light mb-3" style={{ color: "#3a2e2b" }}>
             อยากมีผลลัพธ์ที่น่าประทับใจแบบนี้บ้างไหม?
           </h2>
-          <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
+          <p className="text-sm font-light mb-8" style={{ color: "#5d524f" }}>
             ให้เราช่วยดูแลคุณนะคะ
           </p>
           <div className="flex flex-wrap justify-center gap-4">

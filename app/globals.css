@@ -2,13 +2,13 @@
 
 :root {
   --color-primary: #c38789;
-  --color-accent: #69554a;
-  --color-secondary: #8b7f7c;
+  --color-accent: #4a3a2f;
+  --color-secondary: #5d524f;
   --color-sand: #c7bfb5;
   --color-offwhite: #e8e7e5;
   --color-cream: #f5f2ef;
   --color-text: #3a2e2b;
-  --color-text-muted: #8b7f7c;
+  --color-text-muted: #5d524f;
   --color-border: #d9d3cc;
   --background: #e8e7e5;
   --foreground: #3a2e2b;
@@ -21,13 +21,13 @@
   --font-sans: var(--font-noto-sans-thai);
   --font-serif: var(--font-noto-sans-thai);
   --color-primary: #c38789;
-  --color-accent: #69554a;
-  --color-secondary: #8b7f7c;
+  --color-accent: #4a3a2f;
+  --color-secondary: #5d524f;
   --color-sand: #c7bfb5;
   --color-offwhite: #e8e7e5;
   --color-cream: #f5f2ef;
   --color-text: #3a2e2b;
-  --color-text-muted: #8b7f7c;
+  --color-text-muted: #5d524f;
   --color-border: #d9d3cc;
 }
 
@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.01em;
-  color: #69554a;
+  color: #4a3a2f;
   line-height: 1.25;
 }
 
@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background-color: #69554a;
+  background-color: #4a3a2f;
   color: #fff;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -199,7 +199,7 @@ button:focus-visible {
 /* Selection */
 ::selection {
   background-color: rgba(195, 135, 137, 0.2);
-  color: #69554a;
+  color: #4a3a2f;
 }
 
 /* Smooth transitions for interactive elements only */

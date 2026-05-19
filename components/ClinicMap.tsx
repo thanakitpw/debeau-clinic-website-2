@@ -46,7 +46,7 @@ export default function ClinicMap() {
               <p className="section-label mb-3">Location</p>
               <h2 className="section-heading mb-5">แผนที่คลินิก</h2>
               <div className="divider-rose mb-6" />
-              <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#69554a]">
+              <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#4a3a2f]">
                 {CLINIC.name}
                 <br />
                 {CLINIC.address}
@@ -124,7 +124,7 @@ export default function ClinicMap() {
                     className="flex items-center justify-center gap-2 py-4 text-[14px] font-semibold tracking-wider uppercase cursor-pointer transition-all hover:-translate-y-0.5"
                     style={{
                       backgroundColor: "#fff",
-                      color: "#69554a",
+                      color: "#4a3a2f",
                       border: "1px solid #e0ddd9",
                     }}
                   >
@@ -135,7 +135,7 @@ export default function ClinicMap() {
                     className="flex items-center justify-center gap-2 py-4 text-[13px]"
                     style={{
                       backgroundColor: "#fff",
-                      color: "#69554a",
+                      color: "#4a3a2f",
                       border: "1px solid #e0ddd9",
                     }}
                   >

@@ -35,7 +35,7 @@ const channels = [
     value: "info@debeauclinic.com",
     sub: "สอบถามข้อมูลทั่วไป",
     href: "mailto:info@debeauclinic.com",
-    color: "#8b7f7c",
+    color: "#5d524f",
   },
   {
     icon: MapPin,
@@ -43,7 +43,7 @@ const channels = [
     value: "กรุงเทพมหานคร",
     sub: "ดูแผนที่และรายละเอียดเพิ่มเติม",
     href: "/contact-us",
-    color: "#69554a",
+    color: "#4a3a2f",
   },
   {
     icon: Clock,
@@ -88,7 +88,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-36 pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#69554a" }}>
+      <section className="relative pt-36 pb-20 px-6 overflow-hidden" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at top right, #c38789 0%, transparent 60%)" }} />
         <div className="max-w-5xl mx-auto relative z-10 text-center">
@@ -127,11 +127,11 @@ export default function ContactPage() {
                     <Icon size={22} style={{ color: ch.color }} />
                   </div>
                   <div>
-                    <p className="text-xs tracking-[0.15em] uppercase font-medium mb-1" style={{ color: "#8b7f7c" }}>
+                    <p className="text-xs tracking-[0.15em] uppercase font-medium mb-1" style={{ color: "#5d524f" }}>
                       {ch.label}
                     </p>
-                    <p className="text-base font-medium" style={{ color: "#69554a" }}>{ch.value}</p>
-                    <p className="text-xs mt-1 font-light" style={{ color: "#8b7f7c" }}>{ch.sub}</p>
+                    <p className="text-base font-medium" style={{ color: "#4a3a2f" }}>{ch.value}</p>
+                    <p className="text-xs mt-1 font-light" style={{ color: "#5d524f" }}>{ch.sub}</p>
                   </div>
                   {ch.href && (
                     <div className="flex items-center gap-1 text-xs font-medium mt-auto"
@@ -162,7 +162,7 @@ export default function ContactPage() {
       {/* LINE CTA Banner */}
       <section className="py-16 px-6" style={{ backgroundColor: "#e8e7e5" }}>
         <div className="max-w-3xl mx-auto p-10 text-center"
-          style={{ backgroundColor: "#69554a" }}>
+          style={{ backgroundColor: "#4a3a2f" }}>
           <div className="w-16 h-16 flex items-center justify-center mx-auto mb-5"
             style={{ backgroundColor: "#c38789" }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
@@ -193,10 +193,10 @@ export default function ContactPage() {
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <div key={i} className="p-6" style={{ backgroundColor: "#e8e7e5" }}>
-                <p className="text-sm font-semibold mb-2" style={{ color: "#69554a" }}>
+                <p className="text-sm font-semibold mb-2" style={{ color: "#4a3a2f" }}>
                   Q: {faq.q}
                 </p>
-                <p className="text-sm font-light leading-relaxed" style={{ color: "#8b7f7c" }}>
+                <p className="text-sm font-light leading-relaxed" style={{ color: "#5d524f" }}>
                   {faq.a}
                 </p>
               </div>
@@ -208,7 +208,7 @@ export default function ContactPage() {
       {/* Services Quick Links */}
       <section className="py-16 px-6" style={{ backgroundColor: "#e8e7e5" }}>
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-sm tracking-[0.15em] uppercase mb-6" style={{ color: "#8b7f7c" }}>บริการของเรา</p>
+          <p className="text-sm tracking-[0.15em] uppercase mb-6" style={{ color: "#5d524f" }}>บริการของเรา</p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { label: "ฟิลเลอร์", href: "/filler" },
@@ -220,7 +220,7 @@ export default function ContactPage() {
             ].map((s) => (
               <Link key={s.href} href={s.href}
                 className="px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm cursor-pointer"
-                style={{ backgroundColor: "#fff", color: "#69554a", border: "1px solid #e0ddd9" }}>
+                style={{ backgroundColor: "#fff", color: "#4a3a2f", border: "1px solid #e0ddd9" }}>
                 {s.label}
               </Link>
             ))}

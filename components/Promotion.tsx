@@ -42,7 +42,7 @@ export default function Promotion() {
             <p className="section-label mb-4">Special Offers</p>
             <h2 className="section-heading mb-5">โปรโมชั่นพิเศษ</h2>
             <div className="divider-rose mb-6" />
-            <p className="text-[15px] font-light text-[#8b7f7c] max-w-md mx-auto">
+            <p className="text-[15px] font-light text-[#5d524f] max-w-md mx-auto">
               ข้อเสนอพิเศษจาก De Beau Clinic สำหรับลูกค้าทุกท่าน
             </p>
           </div>
@@ -71,13 +71,13 @@ export default function Promotion() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-3 p-7 flex-1">
-                  <h3 className="text-lg font-light text-[#69554a] leading-snug">
+                  <h3 className="text-lg font-light text-[#4a3a2f] leading-snug">
                     {promo.title}
                   </h3>
                   <p className="text-[13px] font-medium text-[#c38789]">
                     {promo.subtitle}
                   </p>
-                  <p className="text-[14px] leading-relaxed font-light text-[#8b7f7c] flex-1">
+                  <p className="text-[14px] leading-relaxed font-light text-[#5d524f] flex-1">
                     {promo.desc}
                   </p>
 
@@ -91,7 +91,7 @@ export default function Promotion() {
                     href="https://line.me/R/ti/p/@debeauclinic"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[12px] tracking-wider uppercase font-medium text-[#69554a] mt-2 group-hover:text-[#c38789] transition-colors duration-300 cursor-pointer"
+                    className="flex items-center gap-2 text-[12px] tracking-wider uppercase font-medium text-[#4a3a2f] mt-2 group-hover:text-[#c38789] transition-colors duration-300 cursor-pointer"
                   >
                     สอบถามราคา <ArrowRight size={13} />
                   </a>

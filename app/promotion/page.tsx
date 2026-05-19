@@ -117,7 +117,7 @@ export default function PromotionPage() {
             <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-3" style={{ color: "#c38789" }}>
               Choose Your Tier
             </p>
-            <h2 className="text-3xl lg:text-4xl font-light" style={{ color: "#69554a" }}>
+            <h2 className="text-3xl lg:text-4xl font-light" style={{ color: "#4a3a2f" }}>
               เลือกแพ็กเกจที่เหมาะกับคุณ
             </h2>
           </div>
@@ -187,7 +187,7 @@ export default function PromotionPage() {
                   <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-2" style={{ color: "#c38789" }}>
                     {pkg.subtitle}
                   </p>
-                  <h3 className="text-2xl lg:text-3xl font-light mb-5 leading-tight" style={{ color: "#69554a" }}>
+                  <h3 className="text-2xl lg:text-3xl font-light mb-5 leading-tight" style={{ color: "#4a3a2f" }}>
                     {pkg.name}
                   </h3>
 
@@ -196,7 +196,7 @@ export default function PromotionPage() {
                     <span className="text-4xl lg:text-5xl font-light" style={{ color: "#c38789" }}>
                       {pkg.price}
                     </span>
-                    <span className="text-sm font-light" style={{ color: "#8b7f7c" }}>
+                    <span className="text-sm font-light" style={{ color: "#5d524f" }}>
                       บาท
                     </span>
                     <span className="text-sm font-light line-through ml-auto" style={{ color: "#b3a89f" }}>
@@ -215,11 +215,11 @@ export default function PromotionPage() {
                           <Check size={11} style={{ color: "#c38789" }} strokeWidth={2.5} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-[13px] font-medium leading-snug" style={{ color: "#69554a" }}>
+                          <p className="text-[13px] font-medium leading-snug" style={{ color: "#4a3a2f" }}>
                             {item.name}
                           </p>
                           {item.desc && (
-                            <p className="text-[11px] font-light leading-snug mt-0.5" style={{ color: "#8b7f7c" }}>
+                            <p className="text-[11px] font-light leading-snug mt-0.5" style={{ color: "#5d524f" }}>
                               {item.desc}
                             </p>
                           )}
@@ -235,7 +235,7 @@ export default function PromotionPage() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3.5 text-sm font-medium transition-all duration-300 hover:opacity-90 cursor-pointer"
                     style={{
-                      backgroundColor: pkg.featured ? "#c38789" : "#69554a",
+                      backgroundColor: pkg.featured ? "#c38789" : "#4a3a2f",
                       color: "#fff",
                     }}
                   >
@@ -255,7 +255,7 @@ export default function PromotionPage() {
             <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-3" style={{ color: "#c38789" }}>
               Also Available
             </p>
-            <h2 className="text-3xl lg:text-4xl font-light" style={{ color: "#69554a" }}>
+            <h2 className="text-3xl lg:text-4xl font-light" style={{ color: "#4a3a2f" }}>
               โปรโมชั่นฟิลเลอร์
             </h2>
           </div>
@@ -273,13 +273,13 @@ export default function PromotionPage() {
               <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-2" style={{ color: "#c38789" }}>
                 Filler Promotion
               </p>
-              <h3 className="text-2xl lg:text-3xl font-light mb-5" style={{ color: "#69554a" }}>
+              <h3 className="text-2xl lg:text-3xl font-light mb-5" style={{ color: "#4a3a2f" }}>
                 ฟิลเลอร์แท้ นำเข้าจากยุโรป
               </h3>
               <div className="flex flex-col gap-2 mb-6">
                 <div className="flex items-baseline gap-2">
                   <Star size={14} style={{ color: "#c38789" }} fill="#c38789" />
-                  <span className="text-sm font-medium" style={{ color: "#69554a" }}>
+                  <span className="text-sm font-medium" style={{ color: "#4a3a2f" }}>
                     รุ่น 1 ปี
                   </span>
                   <span className="text-sm font-light ml-auto" style={{ color: "#c38789" }}>
@@ -288,7 +288,7 @@ export default function PromotionPage() {
                 </div>
                 <div className="flex items-baseline gap-2">
                   <Star size={14} style={{ color: "#c38789" }} fill="#c38789" />
-                  <span className="text-sm font-medium" style={{ color: "#69554a" }}>
+                  <span className="text-sm font-medium" style={{ color: "#4a3a2f" }}>
                     รุ่น 2 ปี
                   </span>
                   <span className="text-sm font-light ml-auto" style={{ color: "#c38789" }}>
@@ -296,7 +296,7 @@ export default function PromotionPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-sm font-light mb-6 leading-relaxed" style={{ color: "#8b7f7c" }}>
+              <p className="text-sm font-light mb-6 leading-relaxed" style={{ color: "#5d524f" }}>
                 ฟิลเลอร์แท้ JUVEDERM / RESTYLANE แกะกล่องต่อหน้าคนไข้ ดูแลโดยหมอโบโดยตรง
               </p>
               <div className="flex gap-3">
@@ -323,7 +323,7 @@ export default function PromotionPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#69554a" }}>
+      <section className="py-20 px-6" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-light mb-4" style={{ color: "#fff" }}>
             ไม่แน่ใจว่าโปรแกรมไหนเหมาะกับคุณ?

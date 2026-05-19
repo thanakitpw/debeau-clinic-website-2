@@ -112,7 +112,7 @@ export default function SkinTighteningPage() {
           { label: "Mesotherapy", href: "/mesotherapy" },
         ]}
         parentBreadcrumb={{ label: "เลเซอร์", href: "/laser" }}
-        accentColor="#69554a"
+        accentColor="#4a3a2f"
         areasTitle="บริเวณที่รักษาได้ด้วย Ulthera"
         heroImage="/images/laser/laser-template-02.jpg"
         heroImageAlt="เลเซอร์ยกกระชับหน้า Ulthera เดอโบคลินิก — MFU-V Technology"

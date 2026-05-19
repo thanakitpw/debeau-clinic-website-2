@@ -97,7 +97,7 @@ export default function Navbar() {
                   style={{
                     color: isServiceActive
                       ? "#c38789"
-                      : "#69554a",
+                      : "#4a3a2f",
                   }}
                 >
                   {link.label}
@@ -126,7 +126,7 @@ export default function Navbar() {
                           style={{
                             color: pathname === s.href || (s.children && pathname.startsWith(s.href + "/"))
                               ? "#c38789"
-                              : "#69554a",
+                              : "#4a3a2f",
                             transitionDelay: servicesOpen ? `${i * 30}ms` : "0ms",
                           }}
                           onClick={() => setServicesOpen(false)}
@@ -142,7 +142,7 @@ export default function Navbar() {
                             href={child.href}
                             className="flex items-center pl-10 pr-6 py-2.5 text-[12px] lg:text-[13px] tracking-wider transition-all duration-200 hover:bg-[#f5f2ef] hover:pl-12 cursor-pointer border-t border-[#f0ece8]"
                             style={{
-                              color: pathname === child.href ? "#c38789" : "#8b7f7c",
+                              color: pathname === child.href ? "#c38789" : "#5d524f",
                             }}
                             onClick={() => setServicesOpen(false)}
                           >
@@ -162,7 +162,7 @@ export default function Navbar() {
                 style={{
                   color: isActive(link.href)
                     ? "#c38789"
-                    : "#69554a",
+                    : "#4a3a2f",
                 }}
               >
                 {link.label}
@@ -194,7 +194,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden p-2 cursor-pointer"
-          style={{ color: "#69554a" }}
+          style={{ color: "#4a3a2f" }}
           aria-label="Toggle menu"
         >
           <Menu size={24} />
@@ -230,7 +230,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 cursor-pointer"
-            style={{ color: "#69554a" }}
+            style={{ color: "#4a3a2f" }}
             aria-label="ปิดเมนู"
           >
             <X size={24} />
@@ -245,7 +245,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
                   className="flex items-center justify-between w-full py-4 text-[15px] tracking-[0.1em] font-medium cursor-pointer border-b border-[#e8e7e5]"
-                  style={{ color: isServiceActive ? "#c38789" : "#69554a" }}
+                  style={{ color: isServiceActive ? "#c38789" : "#4a3a2f" }}
                 >
                   {link.label}
                   <ChevronDown
@@ -274,7 +274,7 @@ export default function Navbar() {
                             color:
                               pathname === s.href || (s.children && pathname.startsWith(s.href + "/"))
                                 ? "#c38789"
-                                : "#8b7f7c",
+                                : "#5d524f",
                           }}
                         >
                           {s.label}
@@ -306,7 +306,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="py-4 text-[15px] tracking-[0.1em] font-medium cursor-pointer border-b border-[#e8e7e5]"
-                style={{ color: isActive(link.href) ? "#c38789" : "#69554a" }}
+                style={{ color: isActive(link.href) ? "#c38789" : "#4a3a2f" }}
               >
                 {link.label}
               </Link>

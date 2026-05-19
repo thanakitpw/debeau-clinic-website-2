@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronRight, Star } from "lucide-react";
 import SectionImage from "@/components/SectionImage";
 import GalleryLightbox from "@/components/GalleryLightbox";
 
@@ -88,7 +88,7 @@ export default function ServicePageLayout({
       {/* ── Hero ── */}
       <section
         className="relative pt-36 pb-20 px-6 overflow-hidden"
-        style={{ backgroundColor: "#69554a" }}
+        style={{ backgroundColor: "#4a3a2f" }}
       >
         {/* Decorative top line gradient */}
         <div
@@ -219,19 +219,19 @@ export default function ServicePageLayout({
             </p>
             <h2
               className="section-heading text-[28px] lg:text-[36px] mt-2 mb-5"
-              style={{ color: "#69554a", fontWeight: 400 }}
+              style={{ color: "#4a3a2f", fontWeight: 400 }}
             >
               {title} คืออะไร?
             </h2>
             <div
               className="w-10 h-0.5 mb-6"
               style={{
-                background: `linear-gradient(to right, ${accentColor}, #8b7f7c)`,
+                background: `linear-gradient(to right, ${accentColor}, #5d524f)`,
               }}
             />
             <p
               className="text-[16px] lg:text-[17px] leading-relaxed font-light"
-              style={{ color: "#69554a" }}
+              style={{ color: "#4a3a2f" }}
             >
               {whatIs}
             </p>
@@ -274,7 +274,7 @@ export default function ServicePageLayout({
                 </p>
                 <p
                   className="text-[14px] lg:text-[15px] font-light leading-relaxed"
-                  style={{ color: "#69554a" }}
+                  style={{ color: "#4a3a2f" }}
                 >
                   {f.desc}
                 </p>
@@ -360,7 +360,7 @@ export default function ServicePageLayout({
                       </h3>
                       <p
                         className="text-[15px] lg:text-[16px] leading-relaxed font-light"
-                        style={{ color: "#69554a" }}
+                        style={{ color: "#4a3a2f" }}
                       >
                         {area.desc}
                       </p>
@@ -420,7 +420,7 @@ export default function ServicePageLayout({
                   </h3>
                   <p
                     className="text-[16px] lg:text-[17px] leading-relaxed font-light"
-                    style={{ color: "#69554a" }}
+                    style={{ color: "#4a3a2f" }}
                   >
                     {s.content}
                   </p>
@@ -456,24 +456,33 @@ export default function ServicePageLayout({
 
       {/* ── Videos ── */}
       {videos && videos.length > 0 && (
-        <section className="py-20 px-6" style={{ backgroundColor: "#e8e7e5" }}>
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="section-label">วิดีโอ</p>
-              <h2 className="section-heading mt-2">ชมวิดีโอจากคลินิก</h2>
-              <div className="divider-rose mt-4" />
+        <section className="py-24 lg:py-28 px-6" style={{ backgroundColor: "#fff" }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="section-label mb-3">Video</p>
+              <h2 className="section-heading mb-5">ชมวิดีโอจากคลินิก</h2>
+              <div className="divider-rose mb-6" />
+              <p className="max-w-xl mx-auto text-[17px] lg:text-[18px] leading-relaxed font-light text-[#4a3a2f]">
+                ทำความรู้จักคลินิก และฟังเรื่องราวจากหมอโบโดยตรง
+              </p>
             </div>
-            <div className={`grid gap-6 ${videos.length === 1 ? "grid-cols-1 max-w-2xl mx-auto" : videos.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {videos.map((id) => (
-                <div key={id} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${id}`}
-                    title="วิดีโอเดอโบคลินิก"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    style={{ border: "none" }}
-                  />
+                <div key={id} className="group">
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ aspectRatio: "16/9", backgroundColor: "#3a2e2b" }}
+                  >
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+                      title="วิดีโอเดอโบคลินิก"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -482,7 +491,7 @@ export default function ServicePageLayout({
       )}
 
       {/* ── Why Dr. Beau ── */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#69554a" }}>
+      <section className="py-20 px-6" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="section-label mb-3">Why Choose Us</p>
@@ -521,55 +530,101 @@ export default function ServicePageLayout({
             </div>
           </div>
 
-          {/* Sharp-edged doctor card */}
+          {/* Doctor card — portrait-led */}
           <div
-            className="p-8 text-center flex flex-col items-center gap-5"
-            style={{ backgroundColor: "rgba(255,255,255,0.07)" }}
+            className="relative overflow-hidden"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+            }}
           >
+            {/* Portrait */}
             <div
-              className="w-24 h-24 relative overflow-hidden border-2"
-              style={{
-                borderColor: "rgba(195,135,137,0.4)",
-              }}
+              className="relative w-full"
+              style={{ aspectRatio: "4/5", backgroundColor: "#3a2e2b" }}
             >
               <Image
-                src="/images/doctor-working-1.jpg"
+                src="/images/doctor-portrait.jpg"
                 alt="หมอโบ พญ.ปาริฉัตร ตัณชวนิชย์"
                 fill
                 className="object-cover"
-                sizes="96px"
+                sizes="(max-width: 1024px) 100vw, 460px"
               />
-            </div>
-            <div>
-              <p
-                className="font-sans text-xl font-light"
-                style={{ color: "#fff" }}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(58,46,43,0.95) 0%, rgba(58,46,43,0.4) 45%, rgba(58,46,43,0.05) 75%)",
+                }}
+              />
+
+              {/* Rating chip */}
+              <div
+                className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5"
+                style={{ backgroundColor: "rgba(255,255,255,0.95)" }}
               >
-                หมอโบ
-              </p>
-              <p
-                className="text-xs tracking-widest uppercase mt-1"
-                style={{ color: "rgba(255,255,255,0.5)" }}
-              >
-                พญ. ปาริฉัตร ตัณชวนิชย์
-              </p>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={11} fill="#c38789" color="#c38789" />
+                  ))}
+                </div>
+                <span
+                  className="text-[11px] tracking-wide font-medium"
+                  style={{ color: "#4a3a2f" }}
+                >
+                  30,000+ เคส
+                </span>
+              </div>
+
+              {/* Name block */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p
+                  className="text-[10px] tracking-[0.25em] uppercase mb-2"
+                  style={{ color: "#e0b3b4" }}
+                >
+                  Founder &amp; Medical Director
+                </p>
+                <p
+                  className="font-sans text-2xl font-light leading-tight"
+                  style={{ color: "#fff" }}
+                >
+                  พญ. ปาริฉัตร ตัณชวนิชย์
+                </p>
+                <p
+                  className="text-[13px] mt-1.5"
+                  style={{ color: "rgba(255,255,255,0.65)" }}
+                >
+                  หมอโบ · ว.26110 · ประสบการณ์ 16+ ปี
+                </p>
+              </div>
             </div>
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium cursor-pointer"
-              style={{ backgroundColor: "#c38789", color: "#fff" }}
-            >
-              ปรึกษาหมอโบฟรี ผ่าน LINE
-            </a>
-            <Link
-              href="/about-dr-beau"
-              className="text-sm font-light transition-opacity hover:opacity-70 cursor-pointer"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              อ่านประวัติหมอโบ →
-            </Link>
+
+            {/* Actions */}
+            <div className="p-6 flex flex-col gap-3">
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 text-sm font-medium cursor-pointer transition-transform hover:-translate-y-0.5"
+                style={{ backgroundColor: "#c38789", color: "#fff" }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+                </svg>
+                ปรึกษาหมอโบฟรี ผ่าน LINE
+              </a>
+              <Link
+                href="/about-dr-beau"
+                className="w-full flex items-center justify-center gap-1.5 py-3 text-sm font-light transition-colors cursor-pointer"
+                style={{
+                  color: "rgba(255,255,255,0.6)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                }}
+              >
+                อ่านประวัติหมอโบ
+                <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -594,7 +649,7 @@ export default function ServicePageLayout({
                   className="px-6 py-3 text-[15px] lg:text-[16px] font-medium transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                   style={{
                     backgroundColor: "#fff",
-                    color: "#69554a",
+                    color: "#4a3a2f",
                     border: "1px solid #e0ddd9",
                   }}
                 >

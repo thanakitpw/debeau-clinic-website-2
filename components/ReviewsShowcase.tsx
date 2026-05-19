@@ -27,7 +27,7 @@ export default function ReviewsShowcase() {
             <p className="section-label mb-4">Real Results</p>
             <h2 className="section-heading mb-5">ผลลัพธ์จริงจากลูกค้าจริง</h2>
             <div className="divider-rose mb-6" />
-            <p className="max-w-lg mx-auto text-[15px] leading-relaxed font-light text-[#8b7f7c]">
+            <p className="max-w-lg mx-auto text-[15px] leading-relaxed font-light text-[#5d524f]">
               ก่อนและหลังจากการดูแลกับหมอโบ ลากซ้ายขวาเพื่อเปรียบเทียบผลลัพธ์
             </p>
           </div>

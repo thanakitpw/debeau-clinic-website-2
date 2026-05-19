@@ -44,7 +44,7 @@ export default function Contact() {
             fill
             className="object-cover img-zoom"
           />
-          <div className="absolute inset-0 bg-[#69554a]/70" />
+          <div className="absolute inset-0 bg-[#4a3a2f]/70" />
 
           {/* CTA Card overlay */}
           <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -82,7 +82,7 @@ export default function Contact() {
               <p className="section-label mb-4">Contact Us</p>
               <h2 className="section-heading mb-3">ติดต่อเรา</h2>
               <div className="w-12 h-px bg-gradient-to-r from-[#c38789] to-transparent mb-8" />
-              <p className="text-[15px] font-light text-[#8b7f7c] mb-10 leading-relaxed">
+              <p className="text-[15px] font-light text-[#5d524f] mb-10 leading-relaxed">
                 พร้อมให้คำปรึกษาและดูแลคุณ ติดต่อเราได้หลายช่องทาง
               </p>
 
@@ -98,7 +98,7 @@ export default function Contact() {
                         <p className="text-[11px] tracking-[0.15em] uppercase text-[#c7bfb5] mb-1">
                           {item.label}
                         </p>
-                        <p className="text-[15px] font-light text-[#69554a]">
+                        <p className="text-[15px] font-light text-[#4a3a2f]">
                           {item.value}
                         </p>
                       </div>

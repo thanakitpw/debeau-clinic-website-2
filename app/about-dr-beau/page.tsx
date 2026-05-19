@@ -54,7 +54,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         className="relative pt-36 pb-24 px-6 overflow-hidden"
-        style={{ backgroundColor: "#69554a" }}
+        style={{ backgroundColor: "#4a3a2f" }}
       >
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at top right, #c38789 0%, transparent 60%)" }} />
@@ -148,7 +148,7 @@ export default function AboutPage() {
                     style={{ backgroundColor: "rgba(195,135,137,0.1)", color: "#c38789" }}>
                     {item.year}
                   </span>
-                  <p className="text-sm leading-relaxed mt-1" style={{ color: "#69554a" }}>{item.detail}</p>
+                  <p className="text-sm leading-relaxed mt-1" style={{ color: "#4a3a2f" }}>{item.detail}</p>
                 </div>
               </div>
             ))}
@@ -171,7 +171,7 @@ export default function AboutPage() {
                 <Briefcase size={20} className="shrink-0 mt-0.5" style={{ color: "#c38789" }} />
                 <div>
                   <span className="text-xs font-semibold" style={{ color: "#c38789" }}>{item.period}</span>
-                  <p className="text-sm leading-relaxed mt-1" style={{ color: "#69554a" }}>{item.detail}</p>
+                  <p className="text-sm leading-relaxed mt-1" style={{ color: "#4a3a2f" }}>{item.detail}</p>
                 </div>
               </div>
             ))}
@@ -192,7 +192,7 @@ export default function AboutPage() {
               <div key={i} className="flex items-start gap-3 p-4"
                 style={{ backgroundColor: "#fff" }}>
                 <CheckCircle size={16} className="shrink-0 mt-0.5" style={{ color: "#c38789" }} />
-                <span className="text-sm font-light leading-relaxed" style={{ color: "#69554a" }}>{cert}</span>
+                <span className="text-sm font-light leading-relaxed" style={{ color: "#4a3a2f" }}>{cert}</span>
               </div>
             ))}
           </div>
@@ -200,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* Awards */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#69554a" }}>
+      <section className="py-20 px-6" style={{ backgroundColor: "#4a3a2f" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="section-label" style={{ color: "#c38789" }}>
@@ -227,10 +227,10 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 px-6 text-center" style={{ backgroundColor: "#e8e7e5" }}>
         <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl font-light mb-4" style={{ color: "#69554a" }}>
+          <h2 className="text-2xl font-light mb-4" style={{ color: "#4a3a2f" }}>
             พร้อมให้คุณปรึกษาแบบส่วนตัว
           </h2>
-          <p className="text-sm font-light mb-8" style={{ color: "#8b7f7c" }}>
+          <p className="text-sm font-light mb-8" style={{ color: "#5d524f" }}>
             หมอโบดูแลทุกเคสด้วยตนเอง ปรึกษาฟรีผ่าน LINE ได้เลย
           </p>
           <div className="flex flex-wrap justify-center gap-4">

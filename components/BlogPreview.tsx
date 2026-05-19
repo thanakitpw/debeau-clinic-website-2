@@ -58,7 +58,7 @@ export default function BlogPreview() {
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e2b]/40 via-transparent to-transparent" />
                   {/* Category badge */}
-                  <span className="absolute top-4 left-4 text-[10px] tracking-[0.2em] uppercase font-medium px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#69554a]">
+                  <span className="absolute top-4 left-4 text-[10px] tracking-[0.2em] uppercase font-medium px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#4a3a2f]">
                     {post.category}
                   </span>
                 </div>
@@ -70,10 +70,10 @@ export default function BlogPreview() {
                     <span>{post.readTime}</span>
                     <span>{post.date}</span>
                   </div>
-                  <h3 className="text-base font-light text-[#69554a] leading-snug group-hover:text-[#c38789] transition-colors duration-300">
+                  <h3 className="text-base font-light text-[#4a3a2f] leading-snug group-hover:text-[#c38789] transition-colors duration-300">
                     {post.title}
                   </h3>
-                  <p className="text-[14px] font-light leading-relaxed text-[#8b7f7c] line-clamp-2 flex-1">
+                  <p className="text-[14px] font-light leading-relaxed text-[#5d524f] line-clamp-2 flex-1">
                     {post.excerpt}
                   </p>
                   <span className="text-[11px] tracking-[0.15em] uppercase font-medium text-[#c38789] flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300 mt-2">

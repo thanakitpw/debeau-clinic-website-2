@@ -26,18 +26,18 @@ export default function About() {
             fill
             className="object-cover img-zoom"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#69554a]/20 lg:bg-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#4a3a2f]/20 lg:bg-none" />
 
           {/* Experience badge */}
           <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm px-7 py-5 shadow-2xl">
             <div className="font-sans text-4xl font-light text-[#c38789]">16+</div>
-            <div className="text-[11px] tracking-[0.2em] uppercase text-[#8b7f7c] mt-1">
+            <div className="text-[11px] tracking-[0.2em] uppercase text-[#5d524f] mt-1">
               ปีประสบการณ์
             </div>
           </div>
 
           {/* Cases badge */}
-          <div className="absolute top-8 right-8 bg-[#69554a]/95 backdrop-blur-sm px-7 py-5 shadow-2xl">
+          <div className="absolute top-8 right-8 bg-[#4a3a2f]/95 backdrop-blur-sm px-7 py-5 shadow-2xl">
             <div className="font-sans text-4xl font-light text-white">30K+</div>
             <div className="text-[11px] tracking-[0.2em] uppercase text-white/60 mt-1">
               เคสที่ดูแล
@@ -59,7 +59,7 @@ export default function About() {
               </h2>
               <div className="w-12 h-px bg-gradient-to-r from-[#c38789] to-transparent mb-8" />
 
-              <p className="text-[15px] leading-[1.9] font-light text-[#8b7f7c] mb-8">
+              <p className="text-[15px] leading-[1.9] font-light text-[#5d524f] mb-8">
                 หมอโบ มีความเชี่ยวชาญด้านการปรับรูปหน้า และการรักษาทางความงาม
                 ด้วยประสบการณ์กว่า 16 ปี หมอดูแลลูกค้าทุกเคสด้วยตนเอง
                 เพื่อให้มั่นใจว่าผลลัพธ์ที่ได้ตรงตามความต้องการและปลอดภัยที่สุด
@@ -74,7 +74,7 @@ export default function About() {
                         size={16}
                         className="mt-0.5 shrink-0 text-[#c38789]"
                       />
-                      <span className="text-[14px] leading-relaxed text-[#69554a]">
+                      <span className="text-[14px] leading-relaxed text-[#4a3a2f]">
                         {item}
                       </span>
                     </div>

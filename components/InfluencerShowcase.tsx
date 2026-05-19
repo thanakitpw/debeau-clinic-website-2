@@ -9,6 +9,10 @@ const photos: Photo[] = [
   { src: "/images/influencers/inf-new-3.jpg", alt: "ลูกค้า De Beau Clinic" },
   { src: "/images/influencers/inf-new-4.jpg", alt: "ลูกค้า De Beau Clinic" },
   { src: "/images/influencers/inf-new-5.jpg", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-6.webp", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-7.webp", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-8.webp", alt: "ลูกค้า De Beau Clinic" },
+  { src: "/images/influencers/inf-new-9.webp", alt: "ลูกค้า De Beau Clinic" },
 ];
 
 export default function InfluencerShowcase() {

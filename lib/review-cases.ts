@@ -16,13 +16,14 @@ const makeCase = (
   name: string,
   ageGroup: AgeGroup,
   treatment: string,
+  swap = false,
 ): ReviewCase => ({
   slug,
   name,
   ageGroup,
   treatment,
-  before: `/images/cases/${ageGroup}/${slug}/before.webp`,
-  after: `/images/cases/${ageGroup}/${slug}/after.webp`,
+  before: `/images/cases/${ageGroup}/${slug}/${swap ? "after" : "before"}.webp`,
+  after: `/images/cases/${ageGroup}/${slug}/${swap ? "before" : "after"}.webp`,
 });
 
 // NOTE: treatments below are reasonable defaults — please update per case
@@ -32,11 +33,11 @@ export const reviewCases: ReviewCase[] = [
   makeCase("nan", "คุณแนน", "30-39", "ฟิลเลอร์ใต้ตา"),
   makeCase("nuch", "คุณนุช", "30-39", "ฟิลเลอร์ใต้ตา"),
   makeCase("nok-pachrin", "คุณนก พัชริน", "30-39", "ฟิลเลอร์ใต้ตา"),
-  makeCase("nita", "คุณนิต้า", "30-39", "ฟิลเลอร์ใต้ตา"),
+  makeCase("nita", "คุณนิต้า", "30-39", "ฟิลเลอร์ใต้ตา", true),
   makeCase("pim", "คุณพิมพ์", "30-39", "ฟิลเลอร์ใต้ตา"),
   makeCase("rarin", "คุณระริน", "30-39", "ฟิลเลอร์ใต้ตา"),
   makeCase("nudee", "คุณหนูดี", "30-39", "ฟิลเลอร์ใต้ตา"),
-  makeCase("guest", "คุณเกสต์", "30-39", "ฟิลเลอร์ร่องแก้ม"),
+  makeCase("guest", "คุณเกสต์", "30-39", "ฟิลเลอร์ร่องแก้ม", true),
   makeCase("tam", "คุณตาม", "30-39", "ฟิลเลอร์ใต้ตา"),
   makeCase("namhom", "คุณน้ำหอม", "30-39", "ฟิลเลอร์ปรับรูปหน้า"),
   makeCase("namfon", "คุณน้ำฝน", "30-39", "ฟิลเลอร์ใต้ตา"),

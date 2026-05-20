@@ -72,6 +72,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+/* Header & Footer keep original Noto Sans Thai */
+header, header *, footer, footer * {
+  font-family: var(--font-noto-sans-thai), 'Noto Sans Thai', sans-serif;
+}
+
 /* Luxury divider */
 .divider-rose {
   width: 60px;

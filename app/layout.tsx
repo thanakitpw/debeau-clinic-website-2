@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Thai } from "next/font/google";
+import { Noto_Sans_Thai, Sarabun } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import SchemaOrg from "@/components/SchemaOrg";
 
 const notoSansThai = Noto_Sans_Thai({
   variable: "--font-noto-sans-thai",
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sarabun = Sarabun({
+  variable: "--font-sarabun",
   subsets: ["thai", "latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -96,7 +103,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className={`${notoSansThai.variable} antialiased overflow-x-hidden`}>
+      <body className={`${notoSansThai.variable} ${sarabun.variable} antialiased overflow-x-hidden`}>
         <SchemaOrg />
         {children}
         <CookieConsent />

@@ -149,7 +149,7 @@ export default function Services() {
                     <p className="text-[12px] tracking-[0.25em] uppercase font-semibold text-[#c38789] mb-2">
                       {service.title}
                     </p>
-                    <h3 className="text-[24px] lg:text-[26px] font-medium text-[#4a3a2f] leading-tight">
+                    <h3 className="text-[24px] lg:text-[26px] text-[#4a3a2f] leading-tight" style={{ fontWeight: 600 }}>
                       {service.titleTh}
                     </h3>
                   </div>

@@ -111,6 +111,11 @@ header, header *, footer, footer * {
   }
 }
 
+/* Homepage: slightly heavier headings */
+.home-page .section-heading {
+  font-weight: 500;
+}
+
 /* Heading utility */
 .heading-serif {
   font-family: var(--font-noto-sans-thai), 'Noto Sans Thai', sans-serif;

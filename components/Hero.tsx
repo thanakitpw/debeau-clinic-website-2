@@ -160,10 +160,21 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 + idx * 0.1, ease: luxuryEase, type: "tween" }}
             >
-              <div className="font-sans text-lg lg:text-3xl font-light text-[#c38789]">
+              <div
+                className="text-lg lg:text-3xl text-[#c38789]"
+                style={{
+                  fontFamily: "var(--font-noto-sans-thai), 'Noto Sans Thai', sans-serif",
+                  fontWeight: 500,
+                }}
+              >
                 {stat.num}
               </div>
-              <div className="text-[10px] lg:text-[11px] tracking-wider uppercase text-white/50 mt-0.5 lg:mt-1">
+              <div
+                className="text-[12px] lg:text-[14px] tracking-wider uppercase text-white/60 mt-0.5 lg:mt-1"
+                style={{
+                  fontFamily: "var(--font-noto-sans-thai), 'Noto Sans Thai', sans-serif",
+                }}
+              >
                 {stat.label}
               </div>
             </motion.div>

@@ -2,7 +2,7 @@
 
 import { type ReactNode } from "react";
 import Image from "next/image";
-import { ArrowRight, Syringe, Sparkles, Radio, Zap, FlaskConical, Gem, Layers, Droplets, Pipette } from "lucide-react";
+import { ArrowRight, Syringe, Sparkles, Radio, Zap, FlaskConical, Gem, Layers, Droplets, Pipette, Dna, Scale, Pill } from "lucide-react";
 import { ScrollReveal } from "./MotionWrapper";
 import { StaggerContainer, StaggerItem } from "./StaggerContainer";
 
@@ -95,6 +95,33 @@ const services: {
     icon: <Gem size={20} />,
     href: "/facial-treatments",
     image: "/images/service-edit-09.jpg",
+  },
+  {
+    id: 10,
+    title: "CELL THERAPY",
+    titleTh: "เซลล์บำบัด",
+    description: "ฟื้นฟูเซลล์ระดับลึก ชะลอวัย เสริมภูมิคุ้มกัน และดูแลสุขภาพองค์รวม",
+    icon: <Dna size={20} />,
+    href: "/cell-therapy",
+    image: "/images/service-edit-10.jpg",
+  },
+  {
+    id: 11,
+    title: "WEIGHT MANAGEMENT",
+    titleTh: "ควบคุมน้ำหนักเฉพาะบุคคล",
+    description: "โปรแกรมลดน้ำหนักออกแบบเฉพาะบุคคล ดูแลโดยแพทย์ ปลอดภัย เห็นผลจริง",
+    icon: <Scale size={20} />,
+    href: "/weight-management",
+    image: "/images/service-edit-11.jpg",
+  },
+  {
+    id: 12,
+    title: "PERSONALIZED VITAMINS",
+    titleTh: "วิตามินเฉพาะบุคคล",
+    description: "วิเคราะห์ร่างกายและจัดสูตรวิตามินเฉพาะคุณ เติมเต็มสารอาหารที่ขาด",
+    icon: <Pill size={20} />,
+    href: "/personalized-vitamins",
+    image: "/images/service-edit-12.jpg",
   },
 ];
 

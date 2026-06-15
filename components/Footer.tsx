@@ -13,6 +13,9 @@ const footerLinks = [
       { label: "Laser หน้าใส", href: "/laser" },
       { label: "Mesotherapy", href: "/mesotherapy" },
       { label: "Facial Treatment", href: "/facial-treatments" },
+      { label: "Cell Therapy", href: "/cell-therapy" },
+      { label: "Weight Management", href: "/weight-management" },
+      { label: "Personalized Vitamins", href: "/personalized-vitamins" },
     ],
   },
   {

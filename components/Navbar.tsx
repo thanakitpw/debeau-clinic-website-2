@@ -30,6 +30,9 @@ const services: ServiceLink[] = [
   { label: "เมโสเธอราพี", href: "/mesotherapy" },
   { label: "Drip ผิว (IV Drip)", href: "/iv-drip" },
   { label: "ทรีตเมนต์ผิวหน้า", href: "/facial-treatments" },
+  { label: "เซลล์บำบัด (Cell Therapy)", href: "/cell-therapy" },
+  { label: "ควบคุมน้ำหนัก (Weight Management)", href: "/weight-management" },
+  { label: "วิตามินเฉพาะบุคคล", href: "/personalized-vitamins" },
 ];
 
 const navLinks = [

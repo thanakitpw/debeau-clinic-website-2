@@ -163,11 +163,7 @@ export default function Services() {
                     sizes="100vw"
                     className="w-full h-auto sm:absolute sm:inset-0 sm:w-full sm:h-full sm:object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e2b]/60 via-transparent to-transparent" />
-                  {/* Icon overlay */}
-                  <div className="absolute top-5 left-5 w-10 h-10 bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#c38789]">
-                    {service.icon}
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#7a4f3a]/45 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}

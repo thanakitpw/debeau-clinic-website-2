@@ -27,9 +27,9 @@ export default function SchemaOrg() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
+        // ปิดทำการทุกวันอังคาร
         dayOfWeek: [
           "Monday",
-          "Tuesday",
           "Wednesday",
           "Thursday",
           "Friday",

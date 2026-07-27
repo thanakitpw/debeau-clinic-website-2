@@ -11,7 +11,7 @@ const CLINIC = {
     "144 โครงการ Charn ซอย โยธินพัฒนา 3 แยก 2 คลองจั่น บางกะปิ กรุงเทพมหานคร 10240",
   directUrl: "https://maps.app.goo.gl/4x5Jcgwpt9a6gpXg8",
   phone: "097-426-6956",
-  hours: "จันทร์–เสาร์ 10:00–19:00 น.",
+  hours: "เปิดทุกวัน 10:00–19:00 น. (หยุดวันอังคาร)",
 };
 
 const EMBED_SRC =

@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: "เวลาทำการ",
-    value: "จันทร์–เสาร์ 10:00–19:00 น.",
+    value: "เปิดทุกวัน 10:00–19:00 น. (หยุดวันอังคาร)",
     href: null,
   },
   {

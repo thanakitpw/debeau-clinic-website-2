@@ -48,7 +48,7 @@ export default function Footer() {
             style={{ display: "block", width: "180px", height: "auto" }}
           />
           <p className="text-[14px] leading-[1.9] font-light text-white/40 max-w-sm">
-            คลินิกความงาม ดูแลโดยแพทย์ผู้เชี่ยวชาญ ประสบการณ์กว่า 16 ปี
+            คลินิกความงาม ดูแลโดยแพทย์ผู้เชี่ยวชาญ ประสบการณ์มากกว่า 20 ปี
             บริการครบครัน ปลอดภัย ได้มาตรฐาน ผลลัพธ์สวยงาม อยู่นานและเป็นธรรมชาติ
           </p>
           <div className="flex items-center gap-3 text-[12px] text-white/30">

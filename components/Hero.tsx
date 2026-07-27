@@ -79,7 +79,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: luxuryEase, type: "tween" }}
           >
-            ประสบการณ์ดูแลผิวพรรณและความงาม มากกว่า 16 ปี
+            ประสบการณ์ดูแลผิวพรรณและความงาม มากกว่า 20 ปี
             <br />
             พญ.ปาริฉัตร ตัณชวนิชย์ (ว.26110) หมอโบ
           </motion.p>
@@ -132,7 +132,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2 text-[12px] lg:text-[13px] tracking-wide text-[#5d524f]">
                 <Check size={14} className="text-[#c38789]" />
-                ประสบการณ์ 16+ ปี
+                ประสบการณ์ 20+ ปี
               </div>
             </div>
           </motion.div>
@@ -148,7 +148,7 @@ export default function Hero() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 lg:py-5 grid grid-cols-4 gap-2 lg:gap-6">
           {[
-            { num: "16+", label: "ปีประสบการณ์" },
+            { num: "20+", label: "ปีประสบการณ์" },
             { num: "30,000+", label: "เคสที่ดูแล" },
             { num: "98%", label: "ลูกค้าพึงพอใจ" },
             { num: "9", label: "บริการครบครัน" },

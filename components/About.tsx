@@ -6,7 +6,7 @@ import { ScrollReveal } from "./MotionWrapper";
 import { StaggerContainer, StaggerItem } from "./StaggerContainer";
 
 const highlights = [
-  "แพทย์เฉพาะทางด้านความงาม ประสบการณ์กว่า 16 ปี",
+  "แพทย์เฉพาะทางด้านความงาม ประสบการณ์มากกว่า 20 ปี",
   "ดูแลทุกเคสด้วยตนเอง ไม่ส่งต่อให้พยาบาล",
   "วางแผนการรักษาเฉพาะบุคคล (Personalized Treatment)",
   "ใช้ผลิตภัณฑ์ได้มาตรฐาน ปลอดภัย นำเข้าจากต่างประเทศ",
@@ -30,7 +30,7 @@ export default function About() {
 
           {/* Experience badge */}
           <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm px-7 py-5 shadow-2xl">
-            <div className="font-sans text-4xl font-light text-[#c38789]">16+</div>
+            <div className="font-sans text-4xl font-light text-[#c38789]">20+</div>
             <div className="text-[11px] tracking-[0.2em] uppercase text-[#5d524f] mt-1">
               ปีประสบการณ์
             </div>
@@ -61,7 +61,7 @@ export default function About() {
 
               <p className="text-[15px] leading-[1.9] font-light text-[#5d524f] mb-8">
                 หมอโบ มีความเชี่ยวชาญด้านการปรับรูปหน้า และการรักษาทางความงาม
-                ด้วยประสบการณ์กว่า 16 ปี หมอดูแลลูกค้าทุกเคสด้วยตนเอง
+                ด้วยประสบการณ์มากกว่า 20 ปี หมอดูแลลูกค้าทุกเคสด้วยตนเอง
                 เพื่อให้มั่นใจว่าผลลัพธ์ที่ได้ตรงตามความต้องการและปลอดภัยที่สุด
               </p>
 

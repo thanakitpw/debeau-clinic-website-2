@@ -124,8 +124,8 @@ export default function SkinBrighteningPage() {
         parentBreadcrumb={{ label: "เลเซอร์", href: "/laser" }}
         accentColor="#c38789"
         areasTitle="โปรแกรมเลเซอร์ที่ให้บริการ"
-        heroImage="/images/laser/laser-template-01.jpg"
-        heroImageAlt="เลเซอร์หน้าใส ฝ้ากระ เดอโบคลินิก — Fractional Q-Switch ND YAG / Helios"
+        heroImage="/images/laser/banner-fraxel.png"
+        heroImageAlt="Fraxel ลดกระ ฝ้า รอยดำจากสิว รอยแดง และหลุมสิว เดอโบคลินิก"
       />
       <Footer />
       <FloatingLine />

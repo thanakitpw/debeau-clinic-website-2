@@ -74,7 +74,7 @@ export default function MesotherapyPage() {
             title: "ดูแลตัวเองหลังทำ Mesotherapy อย่างไร?",
             content:
               "หลีกเลี่ยงการสัมผัสบริเวณที่ฉีดโดยตรงเป็นเวลา 4 ชั่วโมงหลังทำ งดออกกำลังกายหนักและอาบน้ำร้อน 24 ชั่วโมง ทาครีมกันแดดทุกวันเพื่อป้องกันฝ้ากระและรักษาผลลัพธ์ที่ดี หลีกเลี่ยงการดื่มแอลกอฮอล์และอาหารรสจัดในช่วงแรกหลังทำ",
-            image: "/images/scraped/mesotherapy/Meso-Template-No.02-1024x427.jpg",
+            image: "/images/mesotherapy/banner-meso-therapy.png",
             imageAlt: "ดูแลหลังทำ Mesotherapy เดอโบคลินิก",
           },
           {
@@ -89,7 +89,7 @@ export default function MesotherapyPage() {
           { label: "ยกกระชับ (Ulthera)", href: "/ulthera" },
           { label: "ฟิลเลอร์ปรับรูปหน้า", href: "/filler" },
         ]}
-        heroImage="/images/scraped/mesotherapy/Meso-Template-No.01-1024x427.jpg"
+        heroImage="/images/mesotherapy/banner-meso-fat.png"
         heroImageAlt="เมโสเทอราปี Mesotherapy ฉีดวิตามินหน้าใส สลายไขมัน เดอโบคลินิก"
         accentColor="#5d524f"
       />
